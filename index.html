@@ -512,6 +512,26 @@ footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-s
         </div>
         <input type="file" id="impFile" accept=".json" hidden>
       </div>
+
+      <div class="panel pad">
+        <div class="row" style="align-items:flex-start;gap:20px">
+          <div style="flex:1;min-width:220px">
+            <h2 class="sec" style="font-size:18px">分享给朋友</h2>
+            <p class="lead" style="margin-bottom:12px">扫码或复制链接发给别人。别人打开看到的是全新的词表，<b>看不到你的学习进度</b>（进度只存在各自设备上）。</p>
+            <div class="row">
+              <input id="shareUrl" readonly value="https://9khzz2g57s-sketch.github.io/cet4-vocab/"
+                     style="flex:1;min-width:200px;padding:9px 12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-2);font-size:13px">
+              <button class="btn primary" id="copyLink">复制链接</button>
+            </div>
+            <p class="lead" style="margin-top:10px;font-size:12px">手机上建议：Safari 打开 → 分享 → 添加到主屏幕，之后可离线当 App 用。</p>
+          </div>
+          <div style="text-align:center">
+            <img id="shareQr" alt="扫码打开四级词汇学习台" width="150" height="150"
+                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAIAAABqcO2fAAAFRUlEQVR4nO3dUW7bOhBA0eqh+9+y3wL8IxAcSr495ztx3OaCcAYkdX0+nz/Q9d/TbwBmSZw4iRMnceIkTpzEiZM4cRInTuLESZw4iRMnceIkTpzEiZM4cRInTuLESZw4iRMnceIkTpzEiZM4cX93vdB1XX+es3YbzPd7/n6dO18z97NO+rz+/ayxihMnceIkTpzEiZM4cdsmKt/m7rxd+0v/znednJ/MTTnu/Kxr6f/wbb/TO6zixEmcOIkTJ3HiJE7c4ETl2b/i5yYPa1OOO6+ztkPm+2tO7i25XjaZ+WYVJ07ixEmcOIkTJ3Hijk5U3m9tb8mus0K7phPPntZ5G6s4cRInTuLESZw4iRP3D01U1mYjc2eO7uxRWfvpc7fB/CKrOHESJ07ixEmcOIkTd3Si8uxf8b84i5i7j2WX909mrOLESZw4iRMnceIkTtzgROVtZ0/mTsfsembQ277m/b/TO6zixEmcOIkTJ3HiJE7c9f49Bo0bU99/s8onWoJVnDiJEydx4iROnMSJ27ZHZdczcdas3Umy5uRThE6+8reTv685VnHiJE6cxImTOHESJ27bROXZ+cn796hUb4P5bPq9z71DqzhxEidO4sRJnDiJE/eTp37mdon84qRobv/JZ9P7efbMkVWcOIkTJ3HiJE6cxIk7ejPtyXtW587U3PmuXe957mfNzTTetovGKk6cxImTOHESJ07ixA1OVNYmGHf+Ht91y+uuycPcs3W+Pfs05zUn9/l8s4oTJ3HiJE6cxImTOHHbTv1U7y1ZMzfzWfuuK7GPZY1VnDiJEydx4iROnMSJO7pHZdfZnF07HE7ubLnzOifnJ3PeNluzihMnceIkTpzEiZM4cVfjb+1nT/SsvZ+577rjM7ZH5dl7aL9ZxYmTOHESJ07ixEmcuKOnfp69T2OXf2dWc3Ja4mZaWOSDCnESJ07ixEmcuNfdTPvsNODbs7fXrll7netle112sYoTJ3HiJE6cxImTOHGDp37mbjt523Nz5mYRJ79m7R2ufZeJCmzjgwpxEidO4sRJnLiH71F5/w6QuVNR75/e/OKU7JtVnDiJEydx4iROnMSJ23bqZ+1ZNmuTkJMnaNbMzSuePU/07PmvNVZx4iROnMSJkzhxEidu8B6VZ5/1M2fXLSW7np685vOyZw/ZowKLfFAhTuLESZw4iRN3dKKyy8nnCp18us0dc3t4Pgf/FSdvVrGKEydx4iROnMSJkzhxD09U1v6OPnmqZW4ys7bfY+6nX2NzmDvv2R4VWOSDCnESJ07ixEmcuB/Yo3Ly+TJzO1J2vcO5m3LnJiHP3utiFSdO4sRJnDiJEydx4o4+6+ekk6d1fvH+k+vgE6hPvp9vVnHiJE6cxImTOHESJ27wWT8nPXvL651XnttF84u3xV7uUYFdfFAhTuLESZw4iRM3eOpnbvfLrhMrJ+9ImXvPd77mGnvK0ttma9+s4sRJnDiJEydx4iROXOTpyXOvMzcXev8TgnZxjwoM8kGFOIkTJ3HiJE7cD9xMu8uuicHcTOPOd83dUnIdPE/kHhXYxgcV4iROnMSJkzhx/9BE5eRelzs7QHadDJp7itB18OTU3F4gqzhxEidO4sRJnDiJE3d0onLyuUJz84Fdr7zm5Bzm5E+fYxUnTuLESZw4iRMnceIGJyrP3lC6a4Yw5xdvwb0OPnN5F6s4cRInTuLESZw4iRN3ndwtAOdZxYmTOHESJ07ixEmcOIkTJ3HiJE6cxImTOHESJ07ixEmcOIkTJ3HiJE6cxImTOHESJ07ixEmcOIkTJ3H+tP0PGH/5KkcHeAoAAAAASUVORK5CYII="
+                 style="border:1px solid var(--line);border-radius:10px;display:block">
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1394,6 +1414,18 @@ $("#resetBtn").addEventListener("click", () => {
     theme: store.theme
   };
   save(); renderProgress(); refreshVisible(); renderStats(); updateDueBadge(); renderTimer(); toast("进度已清空");
+});
+
+/* ============ 分享 ============ */
+$("#copyLink").addEventListener("click", async () => {
+  const url = $("#shareUrl").value;
+  try {
+    if (navigator.clipboard && window.isSecureContext) { await navigator.clipboard.writeText(url); }
+    else { const i = $("#shareUrl"); i.select(); document.execCommand("copy"); }
+    toast("链接已复制，发给朋友即可");
+  } catch (e) {
+    $("#shareUrl").select(); toast("请手动复制选中的链接");
+  }
 });
 
 /* ============ 主题 ============ */
