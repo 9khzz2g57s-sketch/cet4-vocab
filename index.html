@@ -1,0 +1,1421 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>四级核心词汇 1200 · 学习台</title>
+<style>
+:root{
+  --canvas:#F6F5F1; --surface:#FFFFFF; --surface-2:#FBFAF6; --surface-3:#F1EFE9;
+  --ink:#17181C; --ink-2:#3C3E45; --muted:#75767E; --line:#E7E5DE; --line-strong:#D8D5CB;
+  --accent:#1F6F52; --accent-ink:#17573F; --accent-soft:#E9F2ED;
+  --warn:#9A6B14; --warn-soft:#FAF1DF;
+  --danger:#B23A2C; --danger-soft:#FBEDEA;
+  --radius:10px; --radius-lg:16px; --radius-pill:999px;
+  --shadow-sm:0 1px 2px rgba(23,24,28,.05);
+  --shadow:0 1px 2px rgba(23,24,28,.04), 0 12px 28px -18px rgba(23,24,28,.18);
+  --font-ui:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  --font-word:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Songti SC",serif;
+  --tab-h:52px;
+}
+html[data-theme="dark"]{
+  --canvas:#121316; --surface:#1A1C20; --surface-2:#1F2126; --surface-3:#26282E;
+  --ink:#EDEEF0; --ink-2:#C7C9CF; --muted:#93959D; --line:#2B2E34; --line-strong:#3A3E45;
+  --accent:#63C39D; --accent-ink:#8FD8BA; --accent-soft:#1C2A25;
+  --warn:#D6AC5A; --warn-soft:#2A2418;
+  --danger:#E0776A; --danger-soft:#2C1E1C;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.3);
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 28px -18px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+html,body{margin:0;padding:0}
+body{
+  background:var(--canvas); color:var(--ink); font-family:var(--font-ui);
+  font-size:15px; line-height:1.6; -webkit-font-smoothing:antialiased;
+  overflow-wrap:break-word;
+}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:none}
+a{color:var(--accent)}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--canvas) 88%,transparent);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;gap:16px;height:64px}
+.brand{display:flex;align-items:baseline;gap:10px;min-width:0}
+.brand b{font-family:var(--font-word);font-size:19px;font-weight:600;letter-spacing:.01em;white-space:nowrap}
+.brand span{font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hd-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.progress-mini{display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--muted);white-space:nowrap}
+.bar{width:96px;height:6px;border-radius:var(--radius-pill);background:var(--surface-3);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:var(--radius-pill);transition:width .35s ease}
+.icon-btn{width:34px;height:34px;border-radius:var(--radius);border:1px solid var(--line);display:grid;place-items:center;color:var(--ink-2);background:var(--surface);transition:.15s}
+.icon-btn:hover{border-color:var(--line-strong);color:var(--ink)}
+.icon-btn:focus-visible,.btn:focus-visible,.tab:focus-visible,.chip:focus-visible,.opt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ---------- tabs ---------- */
+nav.tabs{position:sticky;top:64px;z-index:19;background:color-mix(in srgb,var(--canvas) 88%,transparent);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--line)}
+.tabs-in{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.tabs-in::-webkit-scrollbar{display:none}
+.tab{position:relative;padding:15px 14px;font-size:14px;color:var(--muted);white-space:nowrap;transition:color .15s;border-bottom:2px solid transparent}
+.tab:hover{color:var(--ink-2)}
+.tab[aria-selected="true"]{color:var(--ink);font-weight:600;border-bottom-color:var(--accent)}
+.tab em{font-style:normal;font-size:11.5px;color:var(--muted);margin-left:5px}
+
+/* ---------- sections ---------- */
+main{padding:28px 0 96px}
+.view[hidden]{display:none}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm)}
+.pad{padding:20px}
+h2.sec{font-family:var(--font-word);font-size:22px;font-weight:600;margin:0 0 4px}
+p.lead{color:var(--muted);font-size:13.5px;margin:0}
+.stack{display:flex;flex-direction:column;gap:16px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.spacer{flex:1}
+
+/* ---------- controls ---------- */
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:var(--radius);padding:8px 13px;font-size:13.5px;color:var(--ink-2);transition:.15s;display:inline-flex;align-items:center;gap:7px}
+.btn:hover{border-color:var(--line-strong);background:var(--surface-2)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{background:var(--accent-ink);border-color:var(--accent-ink)}
+.btn.ghost{border-color:transparent}
+.btn.ghost:hover{background:var(--surface-3)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.search{flex:1;min-width:200px;position:relative}
+.search input{width:100%;padding:10px 13px 10px 36px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-2);font-size:14px;transition:.15s}
+.search input:focus{outline:none;border-color:var(--accent);background:var(--surface)}
+.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted)}
+.chips{display:flex;gap:7px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:var(--radius-pill);padding:6px 12px;font-size:12.5px;color:var(--ink-2);transition:.15s;white-space:nowrap}
+.chip:hover{border-color:var(--line-strong)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--canvas)}
+.chip u{text-decoration:none;color:var(--muted);margin-left:6px;font-size:11.5px}
+.chip[aria-pressed="true"] u{color:color-mix(in srgb,var(--canvas) 65%,transparent)}
+select{padding:8px 11px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);font-size:13.5px}
+
+/* ---------- word list ---------- */
+.list{border-top:1px solid var(--line)}
+.item{display:grid;grid-template-columns:minmax(150px,1.05fr) minmax(140px,1.5fr) minmax(150px,1.5fr) 76px auto;gap:16px;align-items:center;padding:13px 20px;border-bottom:1px solid var(--line);transition:background .12s}
+.item:last-child{border-bottom:none}
+.item:hover{background:var(--surface-2)}
+.w-word{display:flex;align-items:baseline;gap:8px;min-width:0}
+.w-word b{font-family:var(--font-word);font-size:17px;font-weight:600;letter-spacing:.005em}
+.pos{font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:1px 5px;white-space:nowrap}
+.w-mean{font-size:13.5px;color:var(--ink-2)}
+.w-coll{font-size:12.5px;color:var(--muted);font-family:var(--font-word)}
+.acts{display:flex;gap:4px}
+.act{width:30px;height:30px;border-radius:8px;border:1px solid transparent;display:grid;place-items:center;color:var(--muted);transition:.15s}
+.act:hover{background:var(--surface-3);color:var(--ink)}
+.act[data-on="known"]{background:var(--accent-soft);color:var(--accent-ink);border-color:var(--accent-soft)}
+.act[data-on="fuzzy"]{background:var(--warn-soft);color:var(--warn)}
+.act[data-on="new"]{background:var(--danger-soft);color:var(--danger)}
+.item[data-status="known"] .w-word b{color:var(--muted)}
+.more{display:flex;justify-content:center;padding:16px}
+.empty{padding:56px 20px;text-align:center;color:var(--muted);font-size:14px}
+
+/* ---------- flashcard ---------- */
+.fc-wrap{display:flex;flex-direction:column;gap:18px;align-items:center}
+.fc-meta{width:100%;display:flex;align-items:center;gap:14px;font-size:13px;color:var(--muted)}
+.fc{width:100%;min-height:340px;border-radius:var(--radius-lg);border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow);padding:44px 36px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:20px;cursor:pointer;transition:transform .12s}
+.fc:active{transform:scale(.995)}
+.fc .front-word{font-family:var(--font-word);font-size:clamp(38px,7vw,62px);font-weight:600;line-height:1.1;letter-spacing:-.01em}
+.fc .hint{font-size:12.5px;color:var(--muted)}
+.fc .back{display:flex;flex-direction:column;gap:14px;align-items:center}
+.fc .back .mean{font-size:20px;color:var(--ink)}
+.fc .back .coll{font-family:var(--font-word);font-size:16px;color:var(--muted)}
+.fc .back .cat{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:var(--radius-pill);padding:3px 10px}
+.fc[data-side="back"] .front-only{display:none}
+.fc[data-side="front"] .back{display:none}
+.fc-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.kbd{font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 5px;margin-left:5px}
+
+/* ---------- quiz ---------- */
+.q-head{display:flex;align-items:center;gap:14px;font-size:13px;color:var(--muted)}
+.q-stem{font-family:var(--font-word);font-size:clamp(24px,4vw,34px);font-weight:600;text-align:center;padding:26px 0 8px}
+.q-sub{text-align:center;color:var(--muted);font-size:13px;margin-bottom:20px}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:var(--radius);padding:14px 16px;font-size:14.5px;transition:.15s;display:flex;gap:12px;align-items:flex-start}
+.opt:hover{border-color:var(--line-strong);background:var(--surface-2)}
+.opt i{font-style:normal;color:var(--muted);font-family:var(--font-word);min-width:16px}
+.opt[data-state="right"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-ink)}
+.opt[data-state="wrong"]{background:var(--danger-soft);border-color:var(--danger);color:var(--danger)}
+.opt[data-state="dim"]{opacity:.55}
+
+/* ---------- plan / stats ---------- */
+.plan-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:12px}
+.day{border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--surface);text-align:left;transition:.15s}
+.day:hover{border-color:var(--line-strong);box-shadow:var(--shadow-sm)}
+.day b{display:block;font-family:var(--font-word);font-size:15px;margin-bottom:2px}
+.day small{display:block;color:var(--muted);font-size:12px;margin-bottom:8px}
+.day .bar{width:100%;height:5px}
+.today{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.stat{border:1px solid var(--line);border-radius:var(--radius);padding:16px;background:var(--surface)}
+.stat b{display:block;font-family:var(--font-word);font-size:28px;font-weight:600;line-height:1.2}
+.stat small{color:var(--muted);font-size:12.5px}
+.cat-row{display:grid;grid-template-columns:1fr 130px 46px;gap:14px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}
+.cat-row:last-child{border-bottom:none}
+.cat-row span{font-size:13.5px}
+.cat-row .bar{width:130px}
+.cat-row em{font-style:normal;font-size:12.5px;color:var(--muted);text-align:right}
+
+/* ---------- memory curve / srs ---------- */
+.w-due{font-size:12px;color:var(--muted);white-space:nowrap;text-align:right}
+.w-due[data-today="1"]{color:var(--accent-ink);font-weight:600}
+.curve{width:100%;height:auto;display:block;margin:10px 0 4px}
+.load-row{display:grid;grid-template-columns:60px 1fr 62px;gap:12px;align-items:center;padding:5px 0}
+.load-row span{font-size:12.5px;color:var(--ink-2)}
+.load-row em{font-style:normal;font-size:12px;color:var(--muted);text-align:right}
+.load-row .bar{width:100%;height:8px}
+.box-row{display:grid;grid-template-columns:118px 1fr 62px;gap:12px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line)}
+.box-row:last-child{border-bottom:none}
+.box-row span{font-size:13px}
+.box-row em{font-style:normal;font-size:12.5px;color:var(--muted);text-align:right}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+.legend i{display:inline-block;width:16px;height:2px;vertical-align:middle;margin-right:6px}
+/* ---------- focus timer ---------- */
+.timer{position:fixed;right:22px;bottom:22px;z-index:45;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.timer-pill{display:flex;align-items:center;gap:9px;background:var(--ink);color:var(--canvas);border-radius:var(--radius-pill);padding:10px 16px;font-size:13.5px;box-shadow:var(--shadow);transition:.18s}
+.timer-pill:hover{transform:translateY(-1px)}
+.timer-pill[data-running="1"]{background:var(--accent)}
+.timer-pill b{font-family:var(--font-word);font-size:15px;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.timer-panel{width:268px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:16px}
+.timer-display{font-family:var(--font-word);font-size:40px;font-weight:600;text-align:center;font-variant-numeric:tabular-nums;letter-spacing:.01em;line-height:1.15;margin:12px 0 2px}
+.timer-display[data-mode="down"]{color:var(--accent-ink)}
+.timer-sub{text-align:center;font-size:12.5px;color:var(--muted);margin-bottom:12px}
+.timer-panel .chips{margin-bottom:10px}
+.timer-panel .chips:last-of-type{margin-bottom:14px}
+.day.today{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.day .tagn{display:inline-block;font-size:11px;border-radius:4px;padding:1px 5px;margin-left:6px;vertical-align:2px}
+.day .tagn.now{background:var(--accent);color:#fff}
+.day .tagn.late{background:var(--danger-soft);color:var(--danger)}
+.day .tagn.done{background:var(--accent-soft);color:var(--accent-ink)}
+.day[data-future="1"]{opacity:.62}
+@media (max-width:760px){.timer{right:14px;bottom:14px}.timer-panel{width:246px}}
+/* ---------- toast ---------- */
+#toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:var(--ink);color:var(--canvas);padding:10px 18px;border-radius:var(--radius-pill);font-size:13.5px;opacity:0;pointer-events:none;transition:.22s;z-index:60}
+#toast[data-show="1"]{opacity:1;transform:translate(-50%,0)}
+
+footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:12.5px}
+
+@media (max-width:760px){
+  .hd{height:58px}
+  nav.tabs{top:58px}
+  .item{grid-template-columns:1fr auto;grid-template-areas:"w a" "m m" "c c" "d d";gap:6px 12px;padding:13px 16px}
+  .w-word{grid-area:w}.w-mean{grid-area:m}.w-coll{grid-area:c}.acts{grid-area:a}.w-due{grid-area:d;text-align:left}
+  .brand span{display:none}
+  .progress-mini{display:none}
+  main{padding:20px 0 80px}
+  .pad{padding:16px}
+  .fc{padding:32px 22px;min-height:290px}
+}
+</style>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./icons/icon-180.png">
+<meta name="theme-color" content="#1F6F52">
+<meta name="description" content="四级核心词汇 1212 条：记忆曲线间隔重复、7/30 天计划、打卡计时，全部离线运行。">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="四级词汇">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+</head>
+<body>
+<header>
+  <div class="wrap hd">
+    <div class="brand">
+      <b>四级核心词汇</b>
+      <span>1212 条 · 高频核心层 · 本地保存进度</span>
+    </div>
+    <div class="hd-right">
+      <div class="progress-mini">
+        <span id="hdPct">0%</span>
+        <div class="bar"><i id="hdBar" style="width:0%"></i></div>
+      </div>
+      <button class="icon-btn" id="themeBtn" title="切换深浅色" aria-label="切换深浅色">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path id="themeIcon" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="wrap tabs-in" role="tablist">
+    <button class="tab" role="tab" data-view="list" aria-selected="true">词表<em id="n-list"></em></button>
+    <button class="tab" role="tab" data-view="card" aria-selected="false">卡片<em>遮中文自测</em></button>
+    <button class="tab" role="tab" data-view="quiz" aria-selected="false">自测<em>四选一</em></button>
+    <button class="tab" role="tab" data-view="due" aria-selected="false">记忆曲线<em id="n-due"></em></button>
+    <button class="tab" role="tab" data-view="plan" aria-selected="false">学习计划</button>
+    <button class="tab" role="tab" data-view="stats" aria-selected="false">统计</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- ============ 词表 ============ -->
+  <section class="view" id="view-list">
+    <div class="stack">
+      <div class="panel pad">
+        <div class="row">
+          <div class="search">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+            <input id="q" type="search" placeholder="搜索单词、释义或搭配…" autocomplete="off">
+          </div>
+          <select id="statusSel" aria-label="按掌握状态筛选">
+            <option value="all">全部状态</option>
+            <option value="new">未学</option>
+            <option value="fuzzy">模糊</option>
+            <option value="known">已掌握</option>
+          </select>
+          <button class="btn ghost" id="clearFilter">重置筛选</button>
+        </div>
+        <div class="chips" id="catChips" style="margin-top:14px"></div>
+      </div>
+
+      <div class="panel">
+        <div class="row pad" style="padding-bottom:14px">
+          <p class="lead" id="listCount"></p>
+          <div class="spacer"></div>
+          <div class="row" style="gap:6px">
+            <button class="btn ghost" data-bulk="known">全部标为已掌握</button>
+            <button class="btn ghost" data-bulk="new">全部标为未学</button>
+          </div>
+        </div>
+        <div class="list" id="listBody"></div>
+        <div class="more"><button class="btn" id="moreBtn" hidden>加载更多</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 卡片 ============ -->
+  <section class="view" id="view-card" hidden>
+    <div class="stack">
+      <div class="panel pad" id="dayBanner" hidden>
+        <div class="row">
+          <span class="lead" id="dayBannerText"></span>
+          <div class="spacer"></div>
+          <button class="btn ghost" id="dayClear">退出当日计划</button>
+        </div>
+      </div>
+      <div class="panel pad">
+        <div class="row">
+          <label class="lead" for="cardCat">范围</label>
+          <select id="cardCat"></select>
+          <select id="cardPool" aria-label="卡片池">
+            <option value="todo">未学 + 模糊（推荐）</option>
+            <option value="day">当日计划</option>
+            <option value="today">今日任务（新学 + 复习）</option>
+            <option value="due">今日到期（记忆曲线）</option>
+            <option value="new">仅未学</option>
+            <option value="fuzzy">仅模糊</option>
+            <option value="all">全部</option>
+          </select>
+          <select id="cardDir" aria-label="卡片方向">
+            <option value="en2zh">英 → 中（遮中文）</option>
+            <option value="zh2en">中 → 英（更硬）</option>
+          </select>
+          <div class="spacer"></div>
+          <button class="btn" id="cardShuffle">打乱顺序</button>
+        </div>
+      </div>
+      <div class="panel pad fc-wrap">
+        <div class="fc-meta">
+          <span id="fcIdx">0 / 0</span>
+          <div class="bar" style="flex:1;max-width:220px"><i id="fcBar" style="width:0%"></i></div>
+          <span id="fcLeft"></span>
+        </div>
+        <div class="fc" id="fc" data-side="front" role="button" tabindex="0" aria-label="翻面查看答案">
+          <div class="front-only">
+            <div class="front-word" id="fcWord">—</div>
+            <div class="hint" style="margin-top:14px"><span id="fcPos"></span>　点击卡片或按空格翻面 <span class="kbd">Space</span></div>
+          </div>
+          <div class="back">
+            <div class="cat" id="fcCat"></div>
+            <div class="mean" id="fcMean"></div>
+            <div class="coll" id="fcColl"></div>
+            <div class="hint" id="fcSrs" style="font-size:12.5px;color:var(--muted)"></div>
+          </div>
+        </div>
+        <div class="fc-actions" id="fcActions"></div>
+        <div class="hint" style="color:var(--muted);font-size:12.5px">快捷键：<span class="kbd">Space</span> 翻面　<span class="kbd">1</span> 不认识　<span class="kbd">2</span> 模糊　<span class="kbd">3</span> 已掌握</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 自测 ============ -->
+  <section class="view" id="view-quiz" hidden>
+    <div class="stack">
+      <div class="panel pad" id="quizSetup">
+        <h2 class="sec">四选一自测</h2>
+        <p class="lead" style="margin-bottom:16px">题目从当前词表随机抽取，选项自动生成干扰项。答错的题会自动标记为「不认识」。</p>
+        <div class="row">
+          <select id="quizCat" aria-label="自测范围"></select>
+          <select id="quizType" aria-label="题型">
+            <option value="en2zh">看英文选中文</option>
+            <option value="zh2en">看中文选英文</option>
+          </select>
+          <select id="quizLen" aria-label="题量">
+            <option value="20">20 题</option>
+            <option value="40" selected>40 题</option>
+            <option value="80">80 题</option>
+          </select>
+          <button class="btn primary" id="quizStart">开始自测</button>
+        </div>
+      </div>
+      <div class="panel pad" id="quizRun" hidden>
+        <div class="q-head">
+          <span id="qIdx">1 / 40</span>
+          <div class="bar" style="flex:1;max-width:220px"><i id="qBar" style="width:0%"></i></div>
+          <span id="qScore">正确 0</span>
+        </div>
+        <div class="q-stem" id="qStem"></div>
+        <div class="q-sub" id="qSub"></div>
+        <div class="opts" id="qOpts"></div>
+        <div class="row" style="margin-top:16px">
+          <div class="spacer"></div>
+          <button class="btn" id="quizQuit">结束自测</button>
+          <button class="btn primary" id="qNext" hidden>下一题</button>
+        </div>
+      </div>
+      <div class="panel pad" id="quizDone" hidden>
+        <h2 class="sec">自测完成</h2>
+        <p class="lead" style="margin-bottom:16px" id="quizSummary"></p>
+        <div class="stat-grid" style="margin-bottom:16px">
+          <div class="stat"><b id="resScore">—</b><small>正确率</small></div>
+          <div class="stat"><b id="resRight">—</b><small>答对</small></div>
+          <div class="stat"><b id="resWrong">—</b><small>答错（已标为未学）</small></div>
+        </div>
+        <div class="row">
+          <button class="btn primary" id="quizAgain">再测一次</button>
+          <button class="btn" id="quizBack">返回设置</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 记忆曲线 ============ -->
+  <section class="view" id="view-due" hidden>
+    <div class="stack">
+      <div class="panel pad">
+        <div class="row">
+          <div>
+            <h2 class="sec">今日复习</h2>
+            <p class="lead" id="dueLead">—</p>
+          </div>
+          <div class="spacer"></div>
+          <button class="btn primary" id="dueStart">开始复习</button>
+        </div>
+        <div class="stat-grid" style="margin-top:16px">
+          <div class="stat"><b id="dToday">0</b><small>今日待复习</small></div>
+          <div class="stat"><b id="dDone">0</b><small>今日已复习</small></div>
+          <div class="stat"><b id="dOver">0</b><small>逾期积压</small></div>
+          <div class="stat"><b id="dTrack">0</b><small>已进入记忆曲线</small></div>
+        </div>
+      </div>
+
+      <div class="panel pad">
+        <h2 class="sec" style="font-size:18px">遗忘曲线与复习节点</h2>
+        <p class="lead">不复习时记忆按指数衰减；在即将遗忘的节点复习，曲线被重新抬起，间隔一次比一次长。</p>
+        <svg class="curve" id="curveSvg" viewBox="0 0 640 220" role="img" aria-label="遗忘曲线与复习节点示意图"></svg>
+        <div class="legend">
+          <span><i style="background:var(--line-strong)"></i>不复习：迅速衰减</span>
+          <span><i style="background:var(--accent)"></i>按记忆曲线复习：间隔 1→2→4→7→15→30→60→120 天</span>
+          <span>圆点 = 复习节点</span>
+        </div>
+      </div>
+
+      <div class="panel pad">
+        <h2 class="sec" style="font-size:18px">未来 14 天复习负载</h2>
+        <p class="lead" style="margin-bottom:8px">提前看到哪天要复习多少条，避免堆到一起。</p>
+        <div id="loadList"></div>
+      </div>
+
+      <div class="panel pad">
+        <h2 class="sec" style="font-size:18px">记忆阶段分布</h2>
+        <p class="lead" style="margin-bottom:8px">阶段越高 = 复习间隔越长 = 记得越牢。标记「已掌握」升一级，标记「模糊」降一级。</p>
+        <div id="boxList"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 计划 ============ -->
+  <section class="view" id="view-plan" hidden>
+    <div class="stack">
+      <div class="panel pad">
+        <div class="row">
+          <h2 class="sec" style="margin:0">学习计划</h2>
+          <div class="spacer"></div>
+          <label class="lead" for="startDate">开始日期</label>
+          <input type="date" id="startDate">
+          <button class="btn ghost" id="startToday">设为今天</button>
+        </div>
+        <div class="row" style="margin-top:14px">
+          <div class="chips" id="planSwitch"></div>
+          <button class="chip" id="rolloverChip" aria-pressed="true" title="开启后：没学完的词自动并入今天，结束日期按实际进度重算">自动顺延</button>
+          <div class="spacer"></div>
+          <span class="lead" id="planSummary"></span>
+        </div>
+        <p class="lead" id="planTodayLine" style="margin-top:14px"></p>
+        <div class="stat-grid" style="margin-top:12px">
+          <div class="stat"><b id="ptDay">—</b><small>进度：第几天</small></div>
+          <div class="stat"><b id="ptNew">0</b><small>今日新学</small></div>
+          <div class="stat"><b id="ptDue">0</b><small>今日复习（到期）</small></div>
+          <div class="stat"><b id="ptTime">00:00</b><small>今日学习时长</small></div>
+        </div>
+        <div class="row" style="margin-top:14px">
+          <button class="btn primary" id="todayStart">开始今天的学习</button>
+          <span class="lead" id="todayHint"></span>
+        </div>
+      </div>
+      <div class="plan-grid" id="planGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ 统计 ============ -->
+  <section class="view" id="view-stats" hidden>
+    <div class="stack">
+      <div class="stat-grid">
+        <div class="stat"><b id="sTotal">0</b><small>总词条</small></div>
+        <div class="stat"><b id="sKnown">0</b><small>已掌握</small></div>
+        <div class="stat"><b id="sFuzzy">0</b><small>模糊</small></div>
+        <div class="stat"><b id="sNew">0</b><small>未学</small></div>
+        <div class="stat"><b id="sStreak">0</b><small>连续打卡（天）</small></div>
+        <div class="stat"><b id="sQuiz">—</b><small>累计自测正确率</small></div>
+        <div class="stat"><b id="sDue">0</b><small>今日待复习</small></div>
+        <div class="stat"><b id="sToday">00:00</b><small>今日学习时长</small></div>
+        <div class="stat"><b id="sTime">00:00</b><small>累计学习时长</small></div>
+      </div>
+      <div class="panel pad">
+        <h2 class="sec" style="font-size:18px">最近 7 天学习时长</h2>
+        <p class="lead" style="margin-bottom:8px">用右下角计时器记录；每秒自动计入当天，不用手动保存。</p>
+        <div id="timeChart"></div>
+      </div>
+      <div class="panel pad">
+        <div class="row" style="margin-bottom:6px">
+          <h2 class="sec" style="font-size:18px">各板块掌握度</h2>
+        </div>
+        <div id="catStats"></div>
+      </div>
+      <div class="panel pad">
+        <div class="row">
+          <div>
+            <h2 class="sec" style="font-size:18px">数据</h2>
+            <p class="lead">进度自动保存在本机浏览器。换设备时用导出/导入迁移。</p>
+          </div>
+          <div class="spacer"></div>
+          <div class="row" style="gap:8px">
+            <button class="btn" id="expBtn">导出进度</button>
+            <button class="btn" id="impBtn">导入进度</button>
+            <button class="btn ghost" id="resetBtn">清空进度</button>
+          </div>
+        </div>
+        <input type="file" id="impFile" accept=".json" hidden>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer><div class="wrap">四级核心词汇 1200 · 数据来自本地整理表 · 全部离线运行，不上传任何内容</div></footer>
+<div class="timer" id="timer">
+  <div class="timer-panel" id="timerPanel" hidden>
+    <div class="chips" id="timerModes">
+      <button class="chip" data-mode="up" aria-pressed="true">正计时</button>
+      <button class="chip" data-mode="down" aria-pressed="false">倒计时</button>
+    </div>
+    <div class="timer-display" id="timerDisplay" data-mode="up">00:00</div>
+    <div class="timer-sub" id="timerSub">今天已学习 00:00</div>
+    <div class="chips" id="timerPresets">
+      <button class="chip" data-min="1">1 分</button>
+      <button class="chip" data-min="10">10 分</button>
+      <button class="chip" data-min="25" aria-pressed="true">25 分</button>
+      <button class="chip" data-min="45">45 分</button>
+    </div>
+    <div class="row">
+      <button class="btn primary" id="timerStart" style="flex:1;justify-content:center">开始</button>
+      <button class="btn" id="timerReset">重置</button>
+    </div>
+    <p class="lead" style="margin:10px 0 0;font-size:11.5px">计时过程中每秒自动计入当天时长；重置只清零计时器，已记录的时长保留。</p>
+  </div>
+  <button class="timer-pill" id="timerToggle" aria-expanded="false">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg>
+    <b id="pillTime">00:00</b>
+    <span id="pillLabel">开始计时</span>
+  </button>
+</div>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ============ 数据 ============ */
+const DATA = [{"c":"A","w":"abandon","p":"v.","m":"放弃；抛弃；遗弃","x":"abandon the plan／abandon oneself to","i":0},{"c":"A","w":"absorb","p":"v.","m":"吸收；使全神贯注","x":"be absorbed in","i":1},{"c":"A","w":"accompany","p":"v.","m":"陪伴；伴随；为…伴奏","x":"accompanied by","i":2},{"c":"A","w":"accomplish","p":"v.","m":"完成，实现","x":"accomplish a task/goal","i":3},{"c":"A","w":"accumulate","p":"v.","m":"积累，积聚","x":"accumulate wealth/experience","i":4},{"c":"A","w":"acquire","p":"v.","m":"获得；学到","x":"acquire knowledge/a skill","i":5},{"c":"A","w":"adapt","p":"v.","m":"适应；改编","x":"adapt to the new environment","i":6},{"c":"A","w":"adjust","p":"v.","m":"调整；适应","x":"adjust to changes","i":7},{"c":"A","w":"admire","p":"v.","m":"钦佩；欣赏","x":"admire sb for sth","i":8},{"c":"A","w":"adopt","p":"v.","m":"采纳；采用；收养","x":"adopt a policy/measure","i":9},{"c":"A","w":"advocate","p":"v./n.","m":"提倡，主张；倡导者","x":"advocate doing sth","i":10},{"c":"A","w":"affect","p":"v.","m":"影响；感动（辨析：effect n.）","x":"affect one's health","i":11},{"c":"A","w":"afford","p":"v.","m":"负担得起；提供","x":"can't afford to do sth","i":12},{"c":"A","w":"alter","p":"v.","m":"改变，改动","x":"alter one's plan","i":13},{"c":"A","w":"amaze","p":"v.","m":"使惊奇","x":"be amazed at/by","i":14},{"c":"A","w":"analyze","p":"v.","m":"分析","x":"analyze the data","i":15},{"c":"A","w":"announce","p":"v.","m":"宣布，宣告","x":"announce the results","i":16},{"c":"A","w":"anticipate","p":"v.","m":"预料；期待","x":"anticipate the outcome","i":17},{"c":"A","w":"apologize","p":"v.","m":"道歉","x":"apologize to sb for sth","i":18},{"c":"A","w":"appeal","p":"v./n.","m":"呼吁；上诉；有吸引力","x":"appeal to sb","i":19},{"c":"A","w":"appoint","p":"v.","m":"任命；约定","x":"appoint sb as/as to","i":20},{"c":"A","w":"appreciate","p":"v.","m":"感激；欣赏；理解；增值","x":"I appreciate your help","i":21},{"c":"A","w":"approach","p":"v./n.","m":"接近；着手处理；方法","x":"approach the problem","i":22},{"c":"A","w":"approve","p":"v.","m":"批准；赞成","x":"approve of","i":23},{"c":"A","w":"argue","p":"v.","m":"争论；主张，论证","x":"argue that...","i":24},{"c":"A","w":"arise","p":"v.","m":"出现，发生；由…引起","x":"problems arise","i":25},{"c":"A","w":"arrange","p":"v.","m":"安排；整理","x":"arrange a meeting","i":26},{"c":"A","w":"assess","p":"v.","m":"评估，评定","x":"assess the risk","i":27},{"c":"A","w":"assist","p":"v.","m":"协助，帮助","x":"assist sb in doing sth","i":28},{"c":"A","w":"associate","p":"v./n.","m":"联系；交往；同事","x":"associate A with B","i":29},{"c":"A","w":"assume","p":"v.","m":"假定，认为；承担","x":"assume responsibility","i":30},{"c":"A","w":"assure","p":"v.","m":"使确信；向…保证","x":"assure sb of sth","i":31},{"c":"A","w":"attach","p":"v.","m":"附上；使依恋","x":"attach importance to","i":32},{"c":"A","w":"attain","p":"v.","m":"达到，获得","x":"attain a goal","i":33},{"c":"A","w":"attempt","p":"v./n.","m":"尝试，试图","x":"attempt to do sth","i":34},{"c":"A","w":"attract","p":"v.","m":"吸引","x":"attract attention","i":35},{"c":"A","w":"avoid","p":"v.","m":"避免，回避","x":"avoid doing sth","i":36},{"c":"A","w":"ban","p":"v./n.","m":"禁止；禁令","x":"ban smoking","i":37},{"c":"A","w":"bear","p":"v.","m":"忍受；承担；生育；结果实","x":"bear the burden","i":38},{"c":"A","w":"behave","p":"v.","m":"表现；举止得体","x":"behave oneself","i":39},{"c":"A","w":"belong","p":"v.","m":"属于","x":"belong to","i":40},{"c":"A","w":"benefit","p":"v./n.","m":"有益于；获益；好处","x":"benefit from","i":41},{"c":"A","w":"blame","p":"v./n.","m":"责备；归咎","x":"blame sb for sth","i":42},{"c":"A","w":"boost","p":"v.","m":"促进，提高","x":"boost the economy","i":43},{"c":"A","w":"bother","p":"v.","m":"打扰；费心","x":"don't bother to do","i":44},{"c":"A","w":"broadcast","p":"v./n.","m":"播送，广播","x":"broadcast live","i":45},{"c":"A","w":"calculate","p":"v.","m":"计算；估计","x":"calculate the cost","i":46},{"c":"A","w":"cancel","p":"v.","m":"取消","x":"cancel the order","i":47},{"c":"A","w":"capture","p":"v.","m":"捕获；夺取；吸引","x":"capture one's attention","i":48},{"c":"A","w":"challenge","p":"v./n.","m":"挑战；质疑","x":"face a challenge","i":49},{"c":"A","w":"charge","p":"v./n.","m":"收费；指控；充电；掌管","x":"charge sb for sth","i":50},{"c":"A","w":"claim","p":"v./n.","m":"声称；索取；索赔","x":"claim that...","i":51},{"c":"A","w":"clarify","p":"v.","m":"澄清，阐明","x":"clarify the issue","i":52},{"c":"A","w":"classify","p":"v.","m":"分类，归类","x":"be classified into","i":53},{"c":"A","w":"collapse","p":"v./n.","m":"崩溃；倒塌","x":"the economy collapsed","i":54},{"c":"A","w":"combine","p":"v.","m":"结合，联合","x":"combine A with B","i":55},{"c":"A","w":"commit","p":"v.","m":"犯（错/罪）；承诺；投入","x":"commit oneself to","i":56},{"c":"A","w":"communicate","p":"v.","m":"交流；传达","x":"communicate with sb","i":57},{"c":"A","w":"compare","p":"v.","m":"比较；比作","x":"compared with/to","i":58},{"c":"A","w":"compete","p":"v.","m":"竞争；比赛","x":"compete with/against","i":59},{"c":"A","w":"complain","p":"v.","m":"抱怨，投诉","x":"complain about/of","i":60},{"c":"A","w":"concentrate","p":"v.","m":"集中；专心","x":"concentrate on","i":61},{"c":"A","w":"conclude","p":"v.","m":"得出结论；结束","x":"conclude that...","i":62},{"c":"A","w":"conduct","p":"v./n.","m":"进行；指挥；行为","x":"conduct a survey","i":63},{"c":"A","w":"confirm","p":"v.","m":"确认，证实","x":"confirm the news","i":64},{"c":"A","w":"confuse","p":"v.","m":"使困惑；混淆","x":"confuse A with B","i":65},{"c":"A","w":"consider","p":"v.","m":"考虑；认为","x":"consider doing sth","i":66},{"c":"A","w":"consist","p":"v.","m":"由…组成；在于","x":"consist of","i":67},{"c":"A","w":"constitute","p":"v.","m":"构成，组成","x":"constitute a threat","i":68},{"c":"A","w":"construct","p":"v.","m":"建造；构建","x":"construct a theory","i":69},{"c":"A","w":"consult","p":"v.","m":"咨询；查阅","x":"consult a doctor","i":70},{"c":"A","w":"consume","p":"v.","m":"消耗；消费","x":"consume energy","i":71},{"c":"A","w":"contain","p":"v.","m":"包含，容纳；抑制","x":"contain information","i":72},{"c":"A","w":"contribute","p":"v.","m":"贡献；促成；投稿","x":"contribute to","i":73},{"c":"A","w":"convey","p":"v.","m":"传达；运送","x":"convey a message","i":74},{"c":"A","w":"convince","p":"v.","m":"使信服，说服","x":"convince sb of sth","i":75},{"c":"A","w":"cooperate","p":"v.","m":"合作，协作","x":"cooperate with sb","i":76},{"c":"A","w":"cope","p":"v.","m":"（成功地）应对","x":"cope with pressure","i":77},{"c":"A","w":"criticize","p":"v.","m":"批评，指责","x":"criticize sb for sth","i":78},{"c":"A","w":"declare","p":"v.","m":"宣布；申报","x":"declare that...","i":79},{"c":"A","w":"decline","p":"v./n.","m":"下降；婉拒；衰退","x":"decline by 10%","i":80},{"c":"A","w":"decorate","p":"v.","m":"装饰，布置","x":"be decorated with","i":81},{"c":"A","w":"decrease","p":"v./n.","m":"减少，下降","x":"decrease sharply","i":82},{"c":"A","w":"defend","p":"v.","m":"保卫；为…辩护","x":"defend oneself","i":83},{"c":"A","w":"define","p":"v.","m":"给…下定义；界定","x":"be defined as","i":84},{"c":"A","w":"delay","p":"v./n.","m":"推迟；耽搁","x":"delay doing sth","i":85},{"c":"A","w":"deliver","p":"v.","m":"递送；发表；履行","x":"deliver a speech","i":86},{"c":"A","w":"demand","p":"v./n.","m":"要求；需求","x":"demand for","i":87},{"c":"A","w":"deny","p":"v.","m":"否认；拒绝给予","x":"deny doing sth","i":88},{"c":"A","w":"depend","p":"v.","m":"依靠；取决于","x":"depend on","i":89},{"c":"A","w":"describe","p":"v.","m":"描述，形容","x":"be described as","i":90},{"c":"A","w":"deserve","p":"v.","m":"值得，应得","x":"deserve attention","i":91},{"c":"A","w":"destroy","p":"v.","m":"破坏，摧毁","x":"destroy the environment","i":92},{"c":"A","w":"determine","p":"v.","m":"决定；查明；下决心","x":"determine whether","i":93},{"c":"A","w":"develop","p":"v.","m":"发展；开发；培养","x":"develop a habit","i":94},{"c":"A","w":"devote","p":"v.","m":"致力于，献身于","x":"devote oneself to","i":95},{"c":"A","w":"differ","p":"v.","m":"不同；意见不合","x":"differ from","i":96},{"c":"A","w":"disappoint","p":"v.","m":"使失望","x":"be disappointed at","i":97},{"c":"A","w":"dismiss","p":"v.","m":"解雇；解散；不予考虑","x":"dismiss the idea","i":98},{"c":"A","w":"display","p":"v./n.","m":"展示，陈列","x":"on display","i":99},{"c":"A","w":"distinguish","p":"v.","m":"区分，辨别","x":"distinguish between","i":100},{"c":"A","w":"distribute","p":"v.","m":"分发；分布","x":"distribute among","i":101},{"c":"A","w":"disturb","p":"v.","m":"打扰；使不安","x":"disturb the peace","i":102},{"c":"A","w":"dominate","p":"v.","m":"支配；占优势","x":"dominate the market","i":103},{"c":"A","w":"earn","p":"v.","m":"赚得；赢得","x":"earn a living","i":104},{"c":"A","w":"eliminate","p":"v.","m":"消除，排除","x":"eliminate the risk","i":105},{"c":"A","w":"emerge","p":"v.","m":"出现，浮现","x":"emerge from","i":106},{"c":"A","w":"emphasize","p":"v.","m":"强调，着重","x":"emphasize the importance of","i":107},{"c":"A","w":"employ","p":"v.","m":"雇用；使用","x":"employ a method","i":108},{"c":"A","w":"encourage","p":"v.","m":"鼓励；促进","x":"encourage sb to do","i":109},{"c":"A","w":"endure","p":"v.","m":"忍受；持久","x":"endure hardship","i":110},{"c":"A","w":"enforce","p":"v.","m":"执行，强制实施","x":"enforce the law","i":111},{"c":"A","w":"engage","p":"v.","m":"从事；吸引；使参与","x":"engage in","i":112},{"c":"A","w":"enhance","p":"v.","m":"提高，增强","x":"enhance efficiency","i":113},{"c":"A","w":"ensure","p":"v.","m":"确保，保证","x":"ensure that...","i":114},{"c":"A","w":"equip","p":"v.","m":"装备；使有能力","x":"be equipped with","i":115},{"c":"A","w":"escape","p":"v./n.","m":"逃脱；避免","x":"escape from","i":116},{"c":"A","w":"establish","p":"v.","m":"建立，创立；证实","x":"establish a system","i":117},{"c":"A","w":"estimate","p":"v./n.","m":"估计，估算","x":"be estimated at","i":118},{"c":"A","w":"evaluate","p":"v.","m":"评价，评估","x":"evaluate the effect","i":119},{"c":"A","w":"examine","p":"v.","m":"检查；审查；考核","x":"examine closely","i":120},{"c":"A","w":"exceed","p":"v.","m":"超过，超出","x":"exceed the limit","i":121},{"c":"A","w":"exchange","p":"v./n.","m":"交换；兑换","x":"in exchange for","i":122},{"c":"A","w":"exclude","p":"v.","m":"排除，把…排除在外","x":"exclude from","i":123},{"c":"A","w":"exist","p":"v.","m":"存在；生存","x":"exist in","i":124},{"c":"A","w":"expand","p":"v.","m":"扩大，扩展","x":"expand rapidly","i":125},{"c":"A","w":"expect","p":"v.","m":"期望；预计","x":"expect to do sth","i":126},{"c":"A","w":"explore","p":"v.","m":"探索；勘探","x":"explore the possibility","i":127},{"c":"A","w":"expose","p":"v.","m":"暴露；使接触；揭露","x":"expose sb to","i":128},{"c":"A","w":"express","p":"v./adj.","m":"表达；快速的","x":"express concern","i":129},{"c":"A","w":"extend","p":"v.","m":"延伸；扩展；给予","x":"extend to","i":130},{"c":"A","w":"forbid","p":"v.","m":"禁止","x":"forbid sb to do sth","i":131},{"c":"A","w":"forecast","p":"v./n.","m":"预测，预报","x":"weather forecast","i":132},{"c":"A","w":"gain","p":"v./n.","m":"获得；增加","x":"gain weight","i":133},{"c":"A","w":"gather","p":"v.","m":"聚集；收集；推断","x":"gather information","i":134},{"c":"A","w":"generate","p":"v.","m":"产生，引起","x":"generate income","i":135},{"c":"A","w":"govern","p":"v.","m":"统治；管理；支配","x":"govern the country","i":136},{"c":"A","w":"grasp","p":"v./n.","m":"抓住；领会","x":"grasp the meaning","i":137},{"c":"A","w":"guarantee","p":"v./n.","m":"保证，担保","x":"guarantee quality","i":138},{"c":"A","w":"handle","p":"v./n.","m":"处理；应对；把手","x":"handle the problem","i":139},{"c":"A","w":"hesitate","p":"v.","m":"犹豫，迟疑","x":"hesitate to do sth","i":140},{"c":"A","w":"highlight","p":"v./n.","m":"突出，强调","x":"highlight the issue","i":141},{"c":"A","w":"identify","p":"v.","m":"识别；确认；认同","x":"identify A with B","i":142},{"c":"A","w":"ignore","p":"v.","m":"忽视，不理睬","x":"ignore the warning","i":143},{"c":"A","w":"illustrate","p":"v.","m":"说明；举例说明","x":"illustrate the point","i":144},{"c":"A","w":"imply","p":"v.","m":"暗示，意味着","x":"imply that...","i":145},{"c":"A","w":"impress","p":"v.","m":"使印象深刻","x":"be impressed by","i":146},{"c":"A","w":"improve","p":"v.","m":"改善，提高","x":"improve the situation","i":147},{"c":"A","w":"indicate","p":"v.","m":"表明；指示","x":"indicate that...","i":148},{"c":"A","w":"influence","p":"v./n.","m":"影响","x":"have an influence on","i":149},{"c":"A","w":"inform","p":"v.","m":"通知，告知","x":"inform sb of sth","i":150},{"c":"A","w":"insist","p":"v.","m":"坚持，坚决要求","x":"insist on doing","i":151},{"c":"A","w":"inspire","p":"v.","m":"激励；启发","x":"inspire sb to do","i":152},{"c":"A","w":"intend","p":"v.","m":"打算，意图","x":"intend to do sth","i":153},{"c":"A","w":"interrupt","p":"v.","m":"打断；中断","x":"interrupt sb","i":154},{"c":"A","w":"introduce","p":"v.","m":"介绍；引进；推行","x":"introduce into","i":155},{"c":"A","w":"invest","p":"v.","m":"投资；投入","x":"invest in","i":156},{"c":"A","w":"involve","p":"v.","m":"涉及；使参与；包含","x":"be involved in","i":157},{"c":"A","w":"judge","p":"v./n.","m":"判断；评价；法官","x":"judging from","i":158},{"c":"A","w":"justify","p":"v.","m":"证明…正当；为…辩护","x":"justify the decision","i":159},{"c":"A","w":"maintain","p":"v.","m":"维持；保养；主张","x":"maintain a balance","i":160},{"c":"A","w":"manage","p":"v.","m":"管理；设法做到","x":"manage to do sth","i":161},{"c":"A","w":"mention","p":"v./n.","m":"提到，提及","x":"as mentioned above","i":162},{"c":"A","w":"motivate","p":"v.","m":"激发，激励","x":"motivate sb to do","i":163},{"c":"A","w":"neglect","p":"v./n.","m":"忽视，疏忽","x":"neglect one's duty","i":164},{"c":"A","w":"observe","p":"v.","m":"观察；遵守；评论","x":"observe the rule","i":165},{"c":"A","w":"obtain","p":"v.","m":"获得，得到","x":"obtain permission","i":166},{"c":"A","w":"occupy","p":"v.","m":"占据；占用；使忙碌","x":"be occupied with","i":167},{"c":"A","w":"occur","p":"v.","m":"发生；出现；被想到","x":"it occurs to sb that","i":168},{"c":"A","w":"oppose","p":"v.","m":"反对，抵制","x":"oppose doing sth","i":169},{"c":"A","w":"overcome","p":"v.","m":"克服，战胜","x":"overcome difficulties","i":170},{"c":"A","w":"overlook","p":"v.","m":"忽视；俯视；宽恕","x":"overlook the fact","i":171},{"c":"A","w":"participate","p":"v.","m":"参与，参加","x":"participate in","i":172},{"c":"A","w":"perform","p":"v.","m":"表演；执行；表现","x":"perform a task","i":173},{"c":"A","w":"persuade","p":"v.","m":"说服，劝服","x":"persuade sb to do","i":174},{"c":"A","w":"possess","p":"v.","m":"拥有，具有","x":"possess wealth","i":175},{"c":"A","w":"postpone","p":"v.","m":"推迟，延期","x":"postpone the meeting","i":176},{"c":"A","w":"predict","p":"v.","m":"预测，预言","x":"predict the future","i":177},{"c":"A","w":"prefer","p":"v.","m":"更喜欢，宁愿","x":"prefer A to B","i":178},{"c":"A","w":"preserve","p":"v.","m":"保护；保存；腌制","x":"preserve the culture","i":179},{"c":"A","w":"prevent","p":"v.","m":"阻止，防止","x":"prevent sb from doing","i":180},{"c":"A","w":"promote","p":"v.","m":"促进；晋升；推销","x":"promote development","i":181},{"c":"A","w":"propose","p":"v.","m":"提议；打算；求婚","x":"propose a plan","i":182},{"c":"A","w":"protect","p":"v.","m":"保护，防护","x":"protect from/against","i":183},{"c":"A","w":"prove","p":"v.","m":"证明；结果是","x":"prove to be","i":184},{"c":"A","w":"provide","p":"v.","m":"提供；规定","x":"provide sb with sth","i":185},{"c":"A","w":"publish","p":"v.","m":"出版；发表","x":"publish a paper","i":186},{"c":"A","w":"pursue","p":"v.","m":"追求；从事；追赶","x":"pursue a career","i":187},{"c":"A","w":"realize","p":"v.","m":"意识到；实现","x":"realize the importance","i":188},{"c":"A","w":"recall","p":"v.","m":"回忆起；召回","x":"recall doing sth","i":189},{"c":"A","w":"recognize","p":"v.","m":"认出；承认；认可","x":"be recognized as","i":190},{"c":"A","w":"recommend","p":"v.","m":"推荐；建议","x":"recommend doing sth","i":191},{"c":"A","w":"recover","p":"v.","m":"恢复；重新获得；痊愈","x":"recover from","i":192},{"c":"A","w":"reduce","p":"v.","m":"减少；降低；使沦为","x":"reduce to","i":193},{"c":"A","w":"refer","p":"v.","m":"提到；参考；涉及","x":"refer to","i":194},{"c":"A","w":"reflect","p":"v.","m":"反映；反射；深思","x":"reflect on","i":195},{"c":"A","w":"refuse","p":"v.","m":"拒绝","x":"refuse to do sth","i":196},{"c":"A","w":"regret","p":"v./n.","m":"后悔；遗憾","x":"regret doing sth","i":197},{"c":"A","w":"reject","p":"v.","m":"拒绝；否决；排斥","x":"reject the offer","i":198},{"c":"A","w":"relate","p":"v.","m":"涉及；使有联系；讲述","x":"relate to","i":199},{"c":"A","w":"release","p":"v./n.","m":"释放；发布；发行","x":"release the report","i":200},{"c":"A","w":"rely","p":"v.","m":"依赖，依靠","x":"rely on","i":201},{"c":"A","w":"remain","p":"v.","m":"保持；剩下；留待","x":"remain unchanged","i":202},{"c":"A","w":"remind","p":"v.","m":"提醒，使想起","x":"remind sb of sth","i":203},{"c":"A","w":"remove","p":"v.","m":"移除；去掉；免职","x":"remove from","i":204},{"c":"A","w":"replace","p":"v.","m":"取代；更换；放回","x":"replace A with B","i":205},{"c":"A","w":"represent","p":"v.","m":"代表；表现；相当于","x":"represent the interests","i":206},{"c":"A","w":"require","p":"v.","m":"需要；要求","x":"require sb to do sth","i":207},{"c":"A","w":"rescue","p":"v./n.","m":"营救，援救","x":"rescue sb from","i":208},{"c":"A","w":"reserve","p":"v./n.","m":"预订；保留；储备","x":"reserve the right","i":209},{"c":"A","w":"resist","p":"v.","m":"抵抗；抵制；忍住","x":"resist doing sth","i":210},{"c":"A","w":"resolve","p":"v.","m":"解决；决心；决议","x":"resolve the problem","i":211},{"c":"A","w":"respect","p":"v./n.","m":"尊敬；重视；方面","x":"show respect for","i":212},{"c":"A","w":"respond","p":"v.","m":"回应；反应","x":"respond to","i":213},{"c":"A","w":"restore","p":"v.","m":"恢复；修复；归还","x":"restore order","i":214},{"c":"A","w":"restrict","p":"v.","m":"限制，约束","x":"restrict to","i":215},{"c":"A","w":"retain","p":"v.","m":"保持，保留","x":"retain control","i":216},{"c":"A","w":"reveal","p":"v.","m":"揭示，显露","x":"reveal the truth","i":217},{"c":"A","w":"reward","p":"v./n.","m":"奖励；报答","x":"reward sb for sth","i":218},{"c":"A","w":"satisfy","p":"v.","m":"满足；使满意；使确信","x":"satisfy the need","i":219},{"c":"A","w":"seek","p":"v.","m":"寻求；探索","x":"seek for／seek to do","i":220},{"c":"A","w":"seize","p":"v.","m":"抓住；夺取；查获","x":"seize the opportunity","i":221},{"c":"A","w":"select","p":"v.","m":"选择，挑选","x":"select from","i":222},{"c":"A","w":"separate","p":"v./adj.","m":"分开；单独的","x":"separate from","i":223},{"c":"A","w":"settle","p":"v.","m":"解决；定居；安顿","x":"settle down","i":224},{"c":"A","w":"shift","p":"v./n.","m":"转移；改变；班次","x":"shift from A to B","i":225},{"c":"A","w":"shrink","p":"v.","m":"缩小；退缩","x":"shrink by","i":226},{"c":"A","w":"simplify","p":"v.","m":"简化，使简明","x":"simplify the process","i":227},{"c":"A","w":"solve","p":"v.","m":"解决；解答","x":"solve the problem","i":228},{"c":"A","w":"spread","p":"v./n.","m":"传播；蔓延；展开","x":"spread rapidly","i":229},{"c":"A","w":"stimulate","p":"v.","m":"刺激；激励；促进","x":"stimulate growth","i":230},{"c":"A","w":"strengthen","p":"v.","m":"加强，巩固","x":"strengthen the relationship","i":231},{"c":"A","w":"stress","p":"v./n.","m":"强调；压力；重音","x":"stress the importance","i":232},{"c":"A","w":"struggle","p":"v./n.","m":"挣扎；努力；斗争","x":"struggle to do sth","i":233},{"c":"A","w":"submit","p":"v.","m":"提交；呈递；屈服","x":"submit an application","i":234},{"c":"A","w":"substitute","p":"v./n.","m":"代替；替代品","x":"substitute A for B","i":235},{"c":"A","w":"succeed","p":"v.","m":"成功；继任；接着发生","x":"succeed in doing","i":236},{"c":"A","w":"suffer","p":"v.","m":"遭受；受苦","x":"suffer from","i":237},{"c":"A","w":"suggest","p":"v.","m":"建议；暗示；表明","x":"suggest doing sth","i":238},{"c":"A","w":"supply","p":"v./n.","m":"供应；补给","x":"supply sb with sth","i":239},{"c":"A","w":"suppose","p":"v.","m":"假设；认为；应该","x":"be supposed to","i":240},{"c":"A","w":"survive","p":"v.","m":"幸存；比…活得长","x":"survive the crisis","i":241},{"c":"A","w":"suspect","p":"v./n.","m":"怀疑；嫌疑人","x":"suspect sb of sth","i":242},{"c":"A","w":"sustain","p":"v.","m":"维持；支撑；遭受","x":"sustain growth","i":243},{"c":"A","w":"switch","p":"v./n.","m":"转换；开关","x":"switch to","i":244},{"c":"A","w":"tend","p":"v.","m":"倾向于；照料","x":"tend to do sth","i":245},{"c":"A","w":"threaten","p":"v.","m":"威胁；危及","x":"threaten to do sth","i":246},{"c":"A","w":"tolerate","p":"v.","m":"容忍，忍受","x":"tolerate behavior","i":247},{"c":"A","w":"transfer","p":"v./n.","m":"转移；调动；转让","x":"transfer to","i":248},{"c":"A","w":"transform","p":"v.","m":"转变，改造","x":"transform into","i":249},{"c":"A","w":"translate","p":"v.","m":"翻译；转化","x":"translate into","i":250},{"c":"A","w":"transport","p":"v./n.","m":"运输；交通工具","x":"public transport","i":251},{"c":"A","w":"treat","p":"v./n.","m":"对待；治疗；款待","x":"treat sb as","i":252},{"c":"A","w":"trust","p":"v./n.","m":"信任；委托","x":"trust in sb","i":253},{"c":"A","w":"vary","p":"v.","m":"变化；使不同","x":"vary from","i":254},{"c":"A","w":"verify","p":"v.","m":"核实，证实","x":"verify the information","i":255},{"c":"A","w":"violate","p":"v.","m":"违反；侵犯；亵渎","x":"violate the rules","i":256},{"c":"A","w":"witness","p":"v./n.","m":"目击；见证；证人","x":"witness the change","i":257},{"c":"A","w":"wonder","p":"v./n.","m":"想知道；奇迹","x":"wonder whether","i":258},{"c":"B","w":"abstract","p":"adj./n.","m":"抽象的；摘要","x":"abstract concept","i":0},{"c":"B","w":"absurd","p":"adj.","m":"荒谬的，荒唐的","x":"an absurd idea","i":1},{"c":"B","w":"abundant","p":"adj.","m":"丰富的，充足的","x":"abundant in","i":2},{"c":"B","w":"accurate","p":"adj.","m":"准确的，精确的","x":"accurate information","i":3},{"c":"B","w":"adequate","p":"adj.","m":"足够的；适当的","x":"adequate for","i":4},{"c":"B","w":"aggressive","p":"adj.","m":"好斗的；有进取心的","x":"aggressive behavior","i":5},{"c":"B","w":"alternative","p":"adj./n.","m":"供选择的；替代方案","x":"an alternative to","i":6},{"c":"B","w":"ambiguous","p":"adj.","m":"模棱两可的，含糊的","x":"ambiguous statement","i":7},{"c":"B","w":"ambitious","p":"adj.","m":"有雄心的；野心勃勃的","x":"an ambitious plan","i":8},{"c":"B","w":"ancient","p":"adj.","m":"古代的，古老的","x":"ancient civilization","i":9},{"c":"B","w":"annual","p":"adj.","m":"每年的；年度的","x":"annual report","i":10},{"c":"B","w":"anxious","p":"adj.","m":"焦虑的；渴望的","x":"be anxious about","i":11},{"c":"B","w":"apparent","p":"adj.","m":"明显的；表面上的","x":"it is apparent that","i":12},{"c":"B","w":"appropriate","p":"adj.","m":"适当的，恰当的","x":"appropriate for","i":13},{"c":"B","w":"artificial","p":"adj.","m":"人造的；虚假的","x":"artificial intelligence","i":14},{"c":"B","w":"ashamed","p":"adj.","m":"羞愧的，惭愧的","x":"be ashamed of","i":15},{"c":"B","w":"attractive","p":"adj.","m":"有吸引力的；迷人的","x":"attractive offer","i":16},{"c":"B","w":"automatic","p":"adj.","m":"自动的；无意识的","x":"automatic control","i":17},{"c":"B","w":"available","p":"adj.","m":"可获得的；可用的；有空的","x":"available for/to","i":18},{"c":"B","w":"aware","p":"adj.","m":"意识到的，知道的","x":"be aware of","i":19},{"c":"B","w":"awkward","p":"adj.","m":"尴尬的；笨拙的；难处理的","x":"an awkward situation","i":20},{"c":"B","w":"bare","p":"adj.","m":"赤裸的；仅仅的","x":"bare feet","i":21},{"c":"B","w":"beneficial","p":"adj.","m":"有益的，有利的","x":"beneficial to","i":22},{"c":"B","w":"bitter","p":"adj.","m":"苦的；痛苦的；严寒的","x":"bitter experience","i":23},{"c":"B","w":"brave","p":"adj.","m":"勇敢的","x":"brave enough to","i":24},{"c":"B","w":"brief","p":"adj./n.","m":"简短的；简要的","x":"in brief","i":25},{"c":"B","w":"brilliant","p":"adj.","m":"杰出的；明亮的","x":"brilliant idea","i":26},{"c":"B","w":"broad","p":"adj.","m":"宽阔的；广泛的","x":"broad range","i":27},{"c":"B","w":"casual","p":"adj.","m":"随意的；偶然的；临时的","x":"casual clothes","i":28},{"c":"B","w":"cautious","p":"adj.","m":"谨慎的，小心的","x":"cautious about","i":29},{"c":"B","w":"cheerful","p":"adj.","m":"愉快的，高兴的","x":"cheerful mood","i":30},{"c":"B","w":"chronic","p":"adj.","m":"慢性的；长期的","x":"chronic disease","i":31},{"c":"B","w":"civilized","p":"adj.","m":"文明的，有教养的","x":"civilized society","i":32},{"c":"B","w":"clumsy","p":"adj.","m":"笨拙的；粗糙的","x":"clumsy movement","i":33},{"c":"B","w":"commercial","p":"adj./n.","m":"商业的；广告","x":"commercial value","i":34},{"c":"B","w":"compact","p":"adj.","m":"紧凑的；小巧的","x":"compact design","i":35},{"c":"B","w":"complex","p":"adj./n.","m":"复杂的；综合体","x":"complex problem","i":36},{"c":"B","w":"comprehensive","p":"adj.","m":"综合的，全面的","x":"comprehensive study","i":37},{"c":"B","w":"compulsory","p":"adj.","m":"强制的；必修的","x":"compulsory education","i":38},{"c":"B","w":"confident","p":"adj.","m":"自信的；确信的","x":"confident of/about","i":39},{"c":"B","w":"confidential","p":"adj.","m":"机密的；表示信任的","x":"confidential information","i":40},{"c":"B","w":"conscious","p":"adj.","m":"有意识的；意识到的","x":"be conscious of","i":41},{"c":"B","w":"conservative","p":"adj./n.","m":"保守的；保守派","x":"conservative estimate","i":42},{"c":"B","w":"considerable","p":"adj.","m":"相当大的，可观的","x":"a considerable amount","i":43},{"c":"B","w":"consistent","p":"adj.","m":"一致的；连贯的","x":"consistent with","i":44},{"c":"B","w":"constant","p":"adj./n.","m":"不断的；恒定的","x":"constant effort","i":45},{"c":"B","w":"contemporary","p":"adj./n.","m":"当代的；同时代的","x":"contemporary art","i":46},{"c":"B","w":"content","p":"adj./n./v.","m":"满足的；内容；使满足","x":"be content with","i":47},{"c":"B","w":"contrary","p":"adj./n.","m":"相反的；相反","x":"on the contrary","i":48},{"c":"B","w":"convenient","p":"adj.","m":"方便的，便利的","x":"convenient for","i":49},{"c":"B","w":"conventional","p":"adj.","m":"传统的；常规的","x":"conventional method","i":50},{"c":"B","w":"costly","p":"adj.","m":"昂贵的；代价高的","x":"costly mistake","i":51},{"c":"B","w":"crucial","p":"adj.","m":"至关重要的，决定性的","x":"crucial to/for","i":52},{"c":"B","w":"curious","p":"adj.","m":"好奇的；奇怪的","x":"curious about","i":53},{"c":"B","w":"current","p":"adj./n.","m":"当前的；水流；电流","x":"current situation","i":54},{"c":"B","w":"deliberate","p":"adj./v.","m":"故意的；深思熟虑的","x":"deliberate attempt","i":55},{"c":"B","w":"delicate","p":"adj.","m":"微妙的；精致的；脆弱的","x":"delicate balance","i":56},{"c":"B","w":"dense","p":"adj.","m":"密集的；浓密的","x":"dense population","i":57},{"c":"B","w":"desperate","p":"adj.","m":"绝望的；极想要的；拼命的","x":"be desperate for","i":58},{"c":"B","w":"distinct","p":"adj.","m":"明显的；截然不同的","x":"distinct from","i":59},{"c":"B","w":"diverse","p":"adj.","m":"多种多样的，不同的","x":"diverse culture","i":60},{"c":"B","w":"domestic","p":"adj.","m":"国内的；家庭的；驯养的","x":"domestic market","i":61},{"c":"B","w":"dramatic","p":"adj.","m":"戏剧性的；显著的","x":"dramatic change","i":62},{"c":"B","w":"due","p":"adj./n.","m":"到期的；应得的；由于","x":"due to","i":63},{"c":"B","w":"dynamic","p":"adj./n.","m":"动态的；有活力的","x":"dynamic process","i":64},{"c":"B","w":"eager","p":"adj.","m":"渴望的，热切的","x":"eager to do","i":65},{"c":"B","w":"efficient","p":"adj.","m":"高效的，效率高的","x":"efficient way","i":66},{"c":"B","w":"elegant","p":"adj.","m":"优雅的；简洁的","x":"elegant design","i":67},{"c":"B","w":"embarrassed","p":"adj.","m":"尴尬的，窘迫的","x":"be embarrassed by","i":68},{"c":"B","w":"emotional","p":"adj.","m":"情感的；易动感情的","x":"emotional support","i":69},{"c":"B","w":"enormous","p":"adj.","m":"巨大的，庞大的","x":"enormous pressure","i":70},{"c":"B","w":"entire","p":"adj.","m":"整个的，全部的","x":"the entire process","i":71},{"c":"B","w":"essential","p":"adj./n.","m":"必要的；本质的；要素","x":"essential to/for","i":72},{"c":"B","w":"evident","p":"adj.","m":"明显的，显然的","x":"it is evident that","i":73},{"c":"B","w":"exact","p":"adj.","m":"精确的，确切的","x":"to be exact","i":74},{"c":"B","w":"excessive","p":"adj.","m":"过多的，过度的","x":"excessive use","i":75},{"c":"B","w":"exclusive","p":"adj./n.","m":"专有的；唯一的；独家报道","x":"exclusive right","i":76},{"c":"B","w":"external","p":"adj.","m":"外部的；外来的","x":"external factors","i":77},{"c":"B","w":"extreme","p":"adj./n.","m":"极端的；极端","x":"extreme weather","i":78},{"c":"B","w":"faint","p":"adj./v.","m":"微弱的；昏倒","x":"a faint hope","i":79},{"c":"B","w":"familiar","p":"adj.","m":"熟悉的；通晓的","x":"be familiar with","i":80},{"c":"B","w":"fashionable","p":"adj.","m":"时髦的，流行的","x":"fashionable style","i":81},{"c":"B","w":"favorable","p":"adj.","m":"有利的；赞同的","x":"favorable conditions","i":82},{"c":"B","w":"fierce","p":"adj.","m":"凶猛的；激烈的","x":"fierce competition","i":83},{"c":"B","w":"firm","p":"adj./n.","m":"坚定的；结实的；公司","x":"firm belief","i":84},{"c":"B","w":"flexible","p":"adj.","m":"灵活的；柔韧的","x":"flexible schedule","i":85},{"c":"B","w":"fluent","p":"adj.","m":"流利的，流畅的","x":"fluent in English","i":86},{"c":"B","w":"formal","p":"adj.","m":"正式的；形式的","x":"formal occasion","i":87},{"c":"B","w":"former","p":"adj./n.","m":"以前的；前者","x":"the former","i":88},{"c":"B","w":"fortunate","p":"adj.","m":"幸运的","x":"fortunate enough to","i":89},{"c":"B","w":"frequent","p":"adj.","m":"频繁的，经常的","x":"frequent visits","i":90},{"c":"B","w":"fundamental","p":"adj./n.","m":"基本的，根本的","x":"fundamental principle","i":91},{"c":"B","w":"generous","p":"adj.","m":"慷慨的；宽厚的","x":"generous with","i":92},{"c":"B","w":"genuine","p":"adj.","m":"真正的；真诚的","x":"genuine interest","i":93},{"c":"B","w":"gradual","p":"adj.","m":"逐渐的，渐进的","x":"gradual increase","i":94},{"c":"B","w":"grateful","p":"adj.","m":"感激的，感谢的","x":"grateful to sb for sth","i":95},{"c":"B","w":"guilty","p":"adj.","m":"有罪的；内疚的","x":"be guilty of","i":96},{"c":"B","w":"harsh","p":"adj.","m":"严厉的；恶劣的；刺耳的","x":"harsh reality","i":97},{"c":"B","w":"hesitant","p":"adj.","m":"犹豫的，迟疑的","x":"hesitant about","i":98},{"c":"B","w":"hollow","p":"adj./n.","m":"空的；空洞的；山谷","x":"hollow words","i":99},{"c":"B","w":"hostile","p":"adj.","m":"敌对的；不利的","x":"hostile attitude","i":100},{"c":"B","w":"humble","p":"adj.","m":"谦逊的；卑微的","x":"humble origin","i":101},{"c":"B","w":"identical","p":"adj.","m":"完全相同的","x":"identical to","i":102},{"c":"B","w":"idle","p":"adj./v.","m":"空闲的；懒散的；闲置","x":"idle time","i":103},{"c":"B","w":"ignorant","p":"adj.","m":"无知的，不了解的","x":"ignorant of","i":104},{"c":"B","w":"immediate","p":"adj.","m":"立即的；直接的","x":"immediate action","i":105},{"c":"B","w":"immune","p":"adj.","m":"免疫的；不受影响的","x":"immune to","i":106},{"c":"B","w":"impatient","p":"adj.","m":"不耐烦的，急躁的","x":"impatient with","i":107},{"c":"B","w":"impressive","p":"adj.","m":"给人深刻印象的","x":"impressive performance","i":108},{"c":"B","w":"independent","p":"adj.","m":"独立的；自主的","x":"independent of","i":109},{"c":"B","w":"indifferent","p":"adj.","m":"漠不关心的","x":"indifferent to","i":110},{"c":"B","w":"inevitable","p":"adj.","m":"不可避免的","x":"inevitable result","i":111},{"c":"B","w":"inferior","p":"adj./n.","m":"劣等的；下级的","x":"inferior to","i":112},{"c":"B","w":"influential","p":"adj.","m":"有影响力的","x":"influential figure","i":113},{"c":"B","w":"initial","p":"adj./n.","m":"最初的；首字母","x":"initial stage","i":114},{"c":"B","w":"innocent","p":"adj.","m":"无辜的；天真的","x":"innocent of","i":115},{"c":"B","w":"instant","p":"adj./n.","m":"立即的；瞬间","x":"instant reply","i":116},{"c":"B","w":"intense","p":"adj.","m":"强烈的；紧张的","x":"intense competition","i":117},{"c":"B","w":"internal","p":"adj.","m":"内部的；国内的","x":"internal affairs","i":118},{"c":"B","w":"invisible","p":"adj.","m":"看不见的，无形的","x":"invisible force","i":119},{"c":"B","w":"keen","p":"adj.","m":"热衷的；敏锐的；激烈的","x":"be keen on","i":120},{"c":"B","w":"latter","p":"adj./n.","m":"后者的；后半的","x":"the latter","i":121},{"c":"B","w":"liable","p":"adj.","m":"有责任的；易于…的","x":"be liable to","i":122},{"c":"B","w":"logical","p":"adj.","m":"合乎逻辑的","x":"logical conclusion","i":123},{"c":"B","w":"loyal","p":"adj.","m":"忠诚的","x":"loyal to","i":124},{"c":"B","w":"mature","p":"adj./v.","m":"成熟的；使成熟","x":"mature attitude","i":125},{"c":"B","w":"mental","p":"adj.","m":"精神的；智力的","x":"mental health","i":126},{"c":"B","w":"mild","p":"adj.","m":"温和的；轻微的","x":"mild climate","i":127},{"c":"B","w":"minor","p":"adj./n.","m":"次要的；未成年人","x":"minor problem","i":128},{"c":"B","w":"modest","p":"adj.","m":"谦虚的；适度的","x":"modest increase","i":129},{"c":"B","w":"moral","p":"adj./n.","m":"道德的；道德","x":"moral standard","i":130},{"c":"B","w":"mutual","p":"adj.","m":"相互的；共同的","x":"mutual benefit","i":131},{"c":"B","w":"naked","p":"adj.","m":"赤裸的；无遮盖的","x":"naked eye","i":132},{"c":"B","w":"negative","p":"adj./n.","m":"消极的；否定的","x":"negative effect","i":133},{"c":"B","w":"neutral","p":"adj.","m":"中立的；中性的","x":"neutral attitude","i":134},{"c":"B","w":"notable","p":"adj.","m":"值得注意的，显著的","x":"notable example","i":135},{"c":"B","w":"numerous","p":"adj.","m":"众多的，许多的","x":"numerous studies","i":136},{"c":"B","w":"obvious","p":"adj.","m":"明显的，显然的","x":"obvious reason","i":137},{"c":"B","w":"occasional","p":"adj.","m":"偶尔的，不经常的","x":"occasional visits","i":138},{"c":"B","w":"odd","p":"adj.","m":"奇怪的；奇数的；临时的","x":"odd behavior","i":139},{"c":"B","w":"optimistic","p":"adj.","m":"乐观的","x":"optimistic about","i":140},{"c":"B","w":"optional","p":"adj.","m":"可选择的，非强制的","x":"optional course","i":141},{"c":"B","w":"ordinary","p":"adj.","m":"普通的，平常的","x":"ordinary people","i":142},{"c":"B","w":"original","p":"adj./n.","m":"原来的；独创的；原件","x":"original idea","i":143},{"c":"B","w":"outstanding","p":"adj.","m":"杰出的；未解决的","x":"outstanding performance","i":144},{"c":"B","w":"parallel","p":"adj./n.","m":"平行的；相似的；类似","x":"parallel to","i":145},{"c":"B","w":"particular","p":"adj./n.","m":"特别的；特定的；细节","x":"in particular","i":146},{"c":"B","w":"passive","p":"adj.","m":"被动的，消极的","x":"passive attitude","i":147},{"c":"B","w":"peculiar","p":"adj.","m":"奇怪的；特有的","x":"peculiar to","i":148},{"c":"B","w":"permanent","p":"adj.","m":"永久的，永恒的","x":"permanent solution","i":149},{"c":"B","w":"plain","p":"adj./n.","m":"简单的；平凡的；平原","x":"plain English","i":150},{"c":"B","w":"pleasant","p":"adj.","m":"令人愉快的；友好的","x":"pleasant surprise","i":151},{"c":"B","w":"potential","p":"adj./n.","m":"潜在的；潜力","x":"potential risk","i":152},{"c":"B","w":"practical","p":"adj.","m":"实际的；实用的","x":"practical experience","i":153},{"c":"B","w":"precious","p":"adj.","m":"珍贵的，宝贵的","x":"precious time","i":154},{"c":"B","w":"precise","p":"adj.","m":"精确的，准确的","x":"precise definition","i":155},{"c":"B","w":"pregnant","p":"adj.","m":"怀孕的；充满的","x":"be pregnant with","i":156},{"c":"B","w":"previous","p":"adj.","m":"以前的，先前的","x":"previous experience","i":157},{"c":"B","w":"primary","p":"adj.","m":"主要的；初级的","x":"primary school","i":158},{"c":"B","w":"prime","p":"adj./n.","m":"首要的；最好的；全盛期","x":"prime minister","i":159},{"c":"B","w":"principal","p":"adj./n.","m":"主要的；校长；本金","x":"principal reason","i":160},{"c":"B","w":"private","p":"adj.","m":"私人的；私密的","x":"private life","i":161},{"c":"B","w":"profound","p":"adj.","m":"深刻的；深奥的","x":"profound influence","i":162},{"c":"B","w":"prominent","p":"adj.","m":"突出的；著名的","x":"prominent role","i":163},{"c":"B","w":"proper","p":"adj.","m":"适当的；正确的","x":"proper way","i":164},{"c":"B","w":"proud","p":"adj.","m":"自豪的；骄傲的","x":"proud of","i":165},{"c":"B","w":"punctual","p":"adj.","m":"准时的，守时的","x":"be punctual for","i":166},{"c":"B","w":"pure","p":"adj.","m":"纯的；纯粹的","x":"pure water","i":167},{"c":"B","w":"rare","p":"adj.","m":"稀有的；罕见的","x":"rare species","i":168},{"c":"B","w":"rational","p":"adj.","m":"理性的，合理的","x":"rational decision","i":169},{"c":"B","w":"realistic","p":"adj.","m":"现实的；逼真的","x":"realistic goal","i":170},{"c":"B","w":"reasonable","p":"adj.","m":"合理的；讲道理的","x":"reasonable price","i":171},{"c":"B","w":"reluctant","p":"adj.","m":"不情愿的，勉强的","x":"reluctant to do","i":172},{"c":"B","w":"remarkable","p":"adj.","m":"非凡的，显著的","x":"remarkable progress","i":173},{"c":"B","w":"remote","p":"adj.","m":"遥远的；偏僻的；渺茫的","x":"remote area","i":174},{"c":"B","w":"responsible","p":"adj.","m":"有责任的；可靠的","x":"responsible for","i":175},{"c":"B","w":"ridiculous","p":"adj.","m":"荒谬的，可笑的","x":"ridiculous idea","i":176},{"c":"B","w":"rigid","p":"adj.","m":"僵硬的；严格的","x":"rigid rules","i":177},{"c":"B","w":"rough","p":"adj.","m":"粗糙的；粗略的；艰难的","x":"rough estimate","i":178},{"c":"B","w":"rural","p":"adj.","m":"农村的，乡村的","x":"rural area","i":179},{"c":"B","w":"secure","p":"adj./v.","m":"安全的；牢固的；获得","x":"secure job","i":180},{"c":"B","w":"sensible","p":"adj.","m":"明智的；通情达理的","x":"sensible choice","i":181},{"c":"B","w":"sensitive","p":"adj.","m":"敏感的；灵敏的","x":"sensitive to","i":182},{"c":"B","w":"severe","p":"adj.","m":"严重的；严厉的；严峻的","x":"severe weather","i":183},{"c":"B","w":"shallow","p":"adj.","m":"浅的；肤浅的","x":"shallow water","i":184},{"c":"B","w":"sharp","p":"adj./adv.","m":"尖锐的；急剧的；敏锐的","x":"sharp increase","i":185},{"c":"B","w":"significant","p":"adj.","m":"重要的；显著的","x":"significant difference","i":186},{"c":"B","w":"similar","p":"adj.","m":"相似的，类似的","x":"similar to","i":187},{"c":"B","w":"sincere","p":"adj.","m":"真诚的，诚挚的","x":"sincere apology","i":188},{"c":"B","w":"slight","p":"adj.","m":"轻微的，微小的","x":"slight change","i":189},{"c":"B","w":"smooth","p":"adj./v.","m":"光滑的；顺利的","x":"smooth transition","i":190},{"c":"B","w":"sole","p":"adj./n.","m":"唯一的；脚底","x":"sole purpose","i":191},{"c":"B","w":"solid","p":"adj./n.","m":"固体的；结实的；可靠的","x":"solid evidence","i":192},{"c":"B","w":"spare","p":"adj./v.","m":"空闲的；备用的；抽出","x":"spare time","i":193},{"c":"B","w":"specific","p":"adj.","m":"具体的；特定的","x":"specific example","i":194},{"c":"B","w":"stable","p":"adj./n.","m":"稳定的；马厩","x":"stable economy","i":195},{"c":"B","w":"steep","p":"adj.","m":"陡峭的；急剧的","x":"steep rise","i":196},{"c":"B","w":"stiff","p":"adj.","m":"僵硬的；严厉的；拘谨的","x":"stiff competition","i":197},{"c":"B","w":"strict","p":"adj.","m":"严格的；严厉的","x":"strict with","i":198},{"c":"B","w":"subtle","p":"adj.","m":"微妙的；细微的","x":"subtle difference","i":199},{"c":"B","w":"sufficient","p":"adj.","m":"足够的，充分的","x":"sufficient for","i":200},{"c":"B","w":"superior","p":"adj./n.","m":"优越的；上级","x":"superior to","i":201},{"c":"B","w":"supreme","p":"adj.","m":"最高的；极度的","x":"supreme court","i":202},{"c":"B","w":"suspicious","p":"adj.","m":"可疑的；多疑的","x":"suspicious of","i":203},{"c":"B","w":"temporary","p":"adj.","m":"临时的，暂时的","x":"temporary job","i":204},{"c":"B","w":"tender","p":"adj./v.","m":"温柔的；嫩的；提出","x":"tender care","i":205},{"c":"B","w":"tense","p":"adj./n.","m":"紧张的；时态","x":"tense atmosphere","i":206},{"c":"B","w":"thorough","p":"adj.","m":"彻底的，详尽的","x":"thorough check","i":207},{"c":"B","w":"tight","p":"adj./adv.","m":"紧的；严格的；拮据的","x":"tight schedule","i":208},{"c":"B","w":"tiny","p":"adj.","m":"极小的，微小的","x":"tiny amount","i":209},{"c":"B","w":"tough","p":"adj.","m":"艰难的；坚韧的；强硬的","x":"tough decision","i":210},{"c":"B","w":"typical","p":"adj.","m":"典型的；一贯的","x":"typical of","i":211},{"c":"B","w":"ultimate","p":"adj./n.","m":"最终的；根本的","x":"ultimate goal","i":212},{"c":"B","w":"unique","p":"adj.","m":"独特的，唯一的","x":"unique feature","i":213},{"c":"B","w":"universal","p":"adj.","m":"普遍的；通用的","x":"universal truth","i":214},{"c":"B","w":"urban","p":"adj.","m":"城市的，都市的","x":"urban life","i":215},{"c":"B","w":"urgent","p":"adj.","m":"紧急的，急迫的","x":"urgent need","i":216},{"c":"B","w":"vacant","p":"adj.","m":"空的；空缺的；茫然的","x":"vacant position","i":217},{"c":"B","w":"vague","p":"adj.","m":"模糊的，含糊的","x":"vague idea","i":218},{"c":"B","w":"valid","p":"adj.","m":"有效的；有根据的","x":"valid reason","i":219},{"c":"B","w":"various","p":"adj.","m":"各种各样的","x":"various reasons","i":220},{"c":"B","w":"vast","p":"adj.","m":"广阔的；巨大的","x":"vast majority","i":221},{"c":"B","w":"vertical","p":"adj.","m":"垂直的","x":"vertical line","i":222},{"c":"B","w":"vital","p":"adj.","m":"至关重要的；生命的","x":"vital role","i":223},{"c":"B","w":"vivid","p":"adj.","m":"生动的；鲜艳的","x":"vivid memory","i":224},{"c":"B","w":"voluntary","p":"adj.","m":"自愿的，志愿的","x":"voluntary work","i":225},{"c":"B","w":"vulnerable","p":"adj.","m":"易受伤害的，脆弱的","x":"vulnerable to","i":226},{"c":"B","w":"weird","p":"adj.","m":"怪异的，奇怪的","x":"weird feeling","i":227},{"c":"B","w":"willing","p":"adj.","m":"愿意的，乐意的","x":"willing to do","i":228},{"c":"B","w":"worthy","p":"adj.","m":"值得的；有价值的","x":"worthy of","i":229},{"c":"C","w":"accordingly","p":"adv.","m":"因此；相应地","x":"act accordingly","i":0},{"c":"C","w":"actually","p":"adv.","m":"实际上；居然","x":"actually happened","i":1},{"c":"C","w":"apparently","p":"adv.","m":"显然；据说","x":"apparently true","i":2},{"c":"C","w":"approximately","p":"adv.","m":"大约，大概","x":"approximately 30","i":3},{"c":"C","w":"barely","p":"adv.","m":"仅仅；几乎不","x":"barely enough","i":4},{"c":"C","w":"basically","p":"adv.","m":"基本上，从根本上","x":"basically the same","i":5},{"c":"C","w":"briefly","p":"adv.","m":"简短地；简要地","x":"briefly speaking","i":6},{"c":"C","w":"consequently","p":"adv.","m":"因此，所以","x":"consequently failed","i":7},{"c":"C","w":"constantly","p":"adv.","m":"不断地，经常地","x":"constantly changing","i":8},{"c":"C","w":"currently","p":"adv.","m":"当前，目前","x":"currently available","i":9},{"c":"C","w":"deliberately","p":"adv.","m":"故意地；从容地","x":"deliberately ignored","i":10},{"c":"C","w":"essentially","p":"adv.","m":"本质上，基本上","x":"essentially different","i":11},{"c":"C","w":"eventually","p":"adv.","m":"最终，终于","x":"eventually succeeded","i":12},{"c":"C","w":"evidently","p":"adv.","m":"明显地，显然","x":"evidently wrong","i":13},{"c":"C","w":"fairly","p":"adv.","m":"相当；公平地","x":"fairly good","i":14},{"c":"C","w":"firmly","p":"adv.","m":"坚定地；牢固地","x":"firmly believe","i":15},{"c":"C","w":"frequently","p":"adv.","m":"频繁地，经常","x":"frequently used","i":16},{"c":"C","w":"generally","p":"adv.","m":"一般地；通常","x":"generally speaking","i":17},{"c":"C","w":"gradually","p":"adv.","m":"逐渐地","x":"gradually improved","i":18},{"c":"C","w":"hardly","p":"adv.","m":"几乎不；刚刚","x":"hardly ever","i":19},{"c":"C","w":"highly","p":"adv.","m":"高度地；非常","x":"highly likely","i":20},{"c":"C","w":"however","p":"adv./conj.","m":"然而；无论如何","x":"however, ...","i":21},{"c":"C","w":"immediately","p":"adv.","m":"立即，马上","x":"immediately after","i":22},{"c":"C","w":"increasingly","p":"adv.","m":"越来越，日益","x":"increasingly popular","i":23},{"c":"C","w":"indeed","p":"adv.","m":"确实，的确","x":"indeed important","i":24},{"c":"C","w":"inevitably","p":"adv.","m":"不可避免地","x":"inevitably leads to","i":25},{"c":"C","w":"initially","p":"adv.","m":"起初，最初","x":"initially planned","i":26},{"c":"C","w":"instead","p":"adv.","m":"代替；反而","x":"instead of","i":27},{"c":"C","w":"largely","p":"adv.","m":"主要地；大部分地","x":"largely due to","i":28},{"c":"C","w":"merely","p":"adv.","m":"仅仅，只不过","x":"merely a suggestion","i":29},{"c":"C","w":"meanwhile","p":"adv.","m":"同时，与此同时","x":"meanwhile, ...","i":30},{"c":"C","w":"moreover","p":"adv.","m":"而且，此外","x":"moreover, ...","i":31},{"c":"C","w":"mostly","p":"adv.","m":"主要地；大部分","x":"mostly young people","i":32},{"c":"C","w":"namely","p":"adv.","m":"即，也就是","x":"namely the boss","i":33},{"c":"C","w":"naturally","p":"adv.","m":"自然地；当然","x":"naturally occurring","i":34},{"c":"C","w":"nevertheless","p":"adv.","m":"然而，不过","x":"nevertheless, ...","i":35},{"c":"C","w":"normally","p":"adv.","m":"通常；正常地","x":"normally works","i":36},{"c":"C","w":"obviously","p":"adv.","m":"显然，明显地","x":"obviously wrong","i":37},{"c":"C","w":"occasionally","p":"adv.","m":"偶尔，间或","x":"occasionally visit","i":38},{"c":"C","w":"otherwise","p":"adv./conj.","m":"否则；另外","x":"otherwise stated","i":39},{"c":"C","w":"particularly","p":"adv.","m":"特别地，尤其","x":"particularly important","i":40},{"c":"C","w":"partly","p":"adv.","m":"部分地，在一定程度上","x":"partly because","i":41},{"c":"C","w":"perhaps","p":"adv.","m":"也许，可能","x":"perhaps not","i":42},{"c":"C","w":"precisely","p":"adv.","m":"精确地；恰好","x":"precisely because","i":43},{"c":"C","w":"presumably","p":"adv.","m":"大概，据推测","x":"presumably correct","i":44},{"c":"C","w":"previously","p":"adv.","m":"先前，以前","x":"previously mentioned","i":45},{"c":"C","w":"primarily","p":"adv.","m":"主要地；首要地","x":"primarily concerned with","i":46},{"c":"C","w":"properly","p":"adv.","m":"适当地；正确地","x":"properly handled","i":47},{"c":"C","w":"rarely","p":"adv.","m":"很少，难得","x":"rarely seen","i":48},{"c":"C","w":"rather","p":"adv.","m":"相当；宁愿；而不是","x":"rather than","i":49},{"c":"C","w":"readily","p":"adv.","m":"容易地；乐意地","x":"readily available","i":50},{"c":"C","w":"regardless","p":"adv.","m":"不管，不顾","x":"regardless of","i":51},{"c":"C","w":"roughly","p":"adv.","m":"大致，粗略地","x":"roughly speaking","i":52},{"c":"C","w":"scarcely","p":"adv.","m":"几乎不；刚刚","x":"scarcely any","i":53},{"c":"C","w":"seldom","p":"adv.","m":"很少，不常","x":"seldom if ever","i":54},{"c":"C","w":"sharply","p":"adv.","m":"急剧地；尖锐地","x":"sharply increased","i":55},{"c":"C","w":"shortly","p":"adv.","m":"不久；简短地","x":"shortly after","i":56},{"c":"C","w":"significantly","p":"adv.","m":"显著地；意味深长地","x":"significantly higher","i":57},{"c":"C","w":"similarly","p":"adv.","m":"同样地，类似地","x":"similarly, ...","i":58},{"c":"C","w":"slightly","p":"adv.","m":"稍微，略微","x":"slightly different","i":59},{"c":"C","w":"specifically","p":"adv.","m":"具体地；专门地","x":"specifically designed","i":60},{"c":"C","w":"steadily","p":"adv.","m":"稳定地；持续地","x":"steadily growing","i":61},{"c":"C","w":"strictly","p":"adv.","m":"严格地；完全地","x":"strictly speaking","i":62},{"c":"C","w":"strongly","p":"adv.","m":"强烈地；坚定地","x":"strongly opposed","i":63},{"c":"C","w":"subsequently","p":"adv.","m":"随后，后来","x":"subsequently became","i":64},{"c":"C","w":"temporarily","p":"adv.","m":"暂时地","x":"temporarily closed","i":65},{"c":"C","w":"therefore","p":"adv.","m":"因此，所以","x":"therefore, ...","i":66},{"c":"C","w":"thoroughly","p":"adv.","m":"彻底地，完全地","x":"thoroughly examined","i":67},{"c":"C","w":"thus","p":"adv.","m":"因此；这样","x":"thus far","i":68},{"c":"C","w":"ultimately","p":"adv.","m":"最终，归根结底","x":"ultimately decided","i":69},{"c":"C","w":"unlikely","p":"adv./adj.","m":"不太可能","x":"unlikely to happen","i":70},{"c":"C","w":"virtually","p":"adv.","m":"几乎；实际上","x":"virtually impossible","i":71},{"c":"C","w":"widely","p":"adv.","m":"广泛地","x":"widely used","i":72},{"c":"D","w":"ability","p":"n.","m":"能力；才能","x":"the ability to do","i":0},{"c":"D","w":"absence","p":"n.","m":"缺席；缺乏","x":"in the absence of","i":1},{"c":"D","w":"access","p":"n./v.","m":"通道；使用权；进入","x":"access to","i":2},{"c":"D","w":"accommodation","p":"n.","m":"住处；膳宿","x":"book accommodation","i":3},{"c":"D","w":"account","p":"n./v.","m":"账户；描述；解释；占","x":"account for","i":4},{"c":"D","w":"achievement","p":"n.","m":"成就，成绩","x":"great achievement","i":5},{"c":"D","w":"acquaintance","p":"n.","m":"熟人；了解","x":"make one's acquaintance","i":6},{"c":"D","w":"advantage","p":"n.","m":"优势；有利条件","x":"take advantage of","i":7},{"c":"D","w":"adventure","p":"n.","m":"冒险（活动）","x":"sense of adventure","i":8},{"c":"D","w":"affair","p":"n.","m":"事情；事务；风流韵事","x":"current affairs","i":9},{"c":"D","w":"agency","p":"n.","m":"代理机构；作用","x":"news agency","i":10},{"c":"D","w":"agenda","p":"n.","m":"议程；日程","x":"on the agenda","i":11},{"c":"D","w":"agreement","p":"n.","m":"协议；同意","x":"reach an agreement","i":12},{"c":"D","w":"aid","p":"n./v.","m":"援助；帮助","x":"first aid","i":13},{"c":"D","w":"aim","p":"n./v.","m":"目标；旨在","x":"aim at","i":14},{"c":"D","w":"amount","p":"n./v.","m":"数量；总计","x":"a large amount of","i":15},{"c":"D","w":"analysis","p":"n.","m":"分析","x":"data analysis","i":16},{"c":"D","w":"ancestor","p":"n.","m":"祖先，祖宗","x":"common ancestor","i":17},{"c":"D","w":"anxiety","p":"n.","m":"焦虑；渴望","x":"anxiety about","i":18},{"c":"D","w":"apology","p":"n.","m":"道歉","x":"make an apology","i":19},{"c":"D","w":"appearance","p":"n.","m":"外貌；出现","x":"make an appearance","i":20},{"c":"D","w":"appetite","p":"n.","m":"食欲；欲望","x":"appetite for","i":21},{"c":"D","w":"application","p":"n.","m":"申请；应用；涂抹","x":"application form","i":22},{"c":"D","w":"appointment","p":"n.","m":"约会；任命","x":"make an appointment","i":23},{"c":"D","w":"approval","p":"n.","m":"批准；赞成","x":"win approval","i":24},{"c":"D","w":"argument","p":"n.","m":"论点；争论","x":"strong argument","i":25},{"c":"D","w":"arrangement","p":"n.","m":"安排；布置","x":"make arrangements","i":26},{"c":"D","w":"aspect","p":"n.","m":"方面；外观","x":"various aspects","i":27},{"c":"D","w":"assessment","p":"n.","m":"评估，评价","x":"risk assessment","i":28},{"c":"D","w":"assistance","p":"n.","m":"帮助，援助","x":"offer assistance","i":29},{"c":"D","w":"association","p":"n.","m":"协会；联系；联想","x":"in association with","i":30},{"c":"D","w":"assumption","p":"n.","m":"假设；承担","x":"on the assumption that","i":31},{"c":"D","w":"atmosphere","p":"n.","m":"大气；气氛","x":"relaxed atmosphere","i":32},{"c":"D","w":"attitude","p":"n.","m":"态度，看法","x":"attitude towards","i":33},{"c":"D","w":"authority","p":"n.","m":"权威；当局；权限","x":"the authorities","i":34},{"c":"D","w":"average","p":"n./adj.","m":"平均；平均的","x":"on average","i":35},{"c":"D","w":"awareness","p":"n.","m":"意识，认识","x":"raise awareness","i":36},{"c":"D","w":"background","p":"n.","m":"背景；经历","x":"family background","i":37},{"c":"D","w":"balance","p":"n./v.","m":"平衡；余额；使平衡","x":"keep a balance","i":38},{"c":"D","w":"barrier","p":"n.","m":"障碍；屏障","x":"language barrier","i":39},{"c":"D","w":"basis","p":"n.","m":"基础；依据","x":"on the basis of","i":40},{"c":"D","w":"behavior","p":"n.","m":"行为，举止","x":"human behavior","i":41},{"c":"D","w":"boundary","p":"n.","m":"边界；界限","x":"boundary between","i":42},{"c":"D","w":"budget","p":"n./v.","m":"预算","x":"on a tight budget","i":43},{"c":"D","w":"burden","p":"n./v.","m":"负担；使负重","x":"bear the burden","i":44},{"c":"D","w":"campaign","p":"n./v.","m":"运动；战役；发起运动","x":"advertising campaign","i":45},{"c":"D","w":"capacity","p":"n.","m":"能力；容量；身份","x":"capacity for","i":46},{"c":"D","w":"career","p":"n.","m":"职业，生涯","x":"career development","i":47},{"c":"D","w":"category","p":"n.","m":"种类，类别","x":"fall into a category","i":48},{"c":"D","w":"caution","p":"n./v.","m":"谨慎；警告","x":"with caution","i":49},{"c":"D","w":"ceremony","p":"n.","m":"典礼，仪式","x":"opening ceremony","i":50},{"c":"D","w":"characteristic","p":"n./adj.","m":"特征；典型的","x":"characteristic of","i":51},{"c":"D","w":"charity","p":"n.","m":"慈善（机构）","x":"charity event","i":52},{"c":"D","w":"circumstance","p":"n.","m":"情况，环境","x":"under no circumstances","i":53},{"c":"D","w":"civilization","p":"n.","m":"文明","x":"civilization heritage","i":54},{"c":"D","w":"climate","p":"n.","m":"气候；风气","x":"climate change","i":55},{"c":"D","w":"clue","p":"n.","m":"线索，提示","x":"a clue to","i":56},{"c":"D","w":"colleague","p":"n.","m":"同事","x":"a former colleague","i":57},{"c":"D","w":"combination","p":"n.","m":"结合，组合","x":"in combination with","i":58},{"c":"D","w":"comfort","p":"n./v.","m":"舒适；安慰","x":"in comfort","i":59},{"c":"D","w":"comment","p":"n./v.","m":"评论","x":"comment on","i":60},{"c":"D","w":"commerce","p":"n.","m":"商业，贸易","x":"electronic commerce","i":61},{"c":"D","w":"committee","p":"n.","m":"委员会","x":"the committee","i":62},{"c":"D","w":"community","p":"n.","m":"社区；群体","x":"local community","i":63},{"c":"D","w":"comparison","p":"n.","m":"比较；比喻","x":"in comparison with","i":64},{"c":"D","w":"competition","p":"n.","m":"竞争；比赛","x":"intense competition","i":65},{"c":"D","w":"complaint","p":"n.","m":"抱怨；投诉","x":"make a complaint","i":66},{"c":"D","w":"concept","p":"n.","m":"概念，观念","x":"basic concept","i":67},{"c":"D","w":"concern","p":"n./v.","m":"担心；关注；涉及","x":"concern about","i":68},{"c":"D","w":"conclusion","p":"n.","m":"结论；结束","x":"draw a conclusion","i":69},{"c":"D","w":"condition","p":"n.","m":"条件；状况","x":"on condition that","i":70},{"c":"D","w":"conference","p":"n.","m":"会议，研讨会","x":"press conference","i":71},{"c":"D","w":"confidence","p":"n.","m":"信心；信任","x":"confidence in","i":72},{"c":"D","w":"conflict","p":"n./v.","m":"冲突；抵触","x":"conflict with","i":73},{"c":"D","w":"consequence","p":"n.","m":"结果，后果","x":"as a consequence","i":74},{"c":"D","w":"conservation","p":"n.","m":"保护；保存","x":"energy conservation","i":75},{"c":"D","w":"consideration","p":"n.","m":"考虑；体谅","x":"take into consideration","i":76},{"c":"D","w":"consumer","p":"n.","m":"消费者","x":"consumer demand","i":77},{"c":"D","w":"context","p":"n.","m":"背景，语境","x":"in the context of","i":78},{"c":"D","w":"contract","p":"n./v.","m":"合同；收缩；感染","x":"sign a contract","i":79},{"c":"D","w":"contrast","p":"n./v.","m":"对比，对照","x":"in contrast to","i":80},{"c":"D","w":"contribution","p":"n.","m":"贡献；捐款","x":"make a contribution","i":81},{"c":"D","w":"conversation","p":"n.","m":"谈话，交谈","x":"hold a conversation","i":82},{"c":"D","w":"cooperation","p":"n.","m":"合作","x":"in cooperation with","i":83},{"c":"D","w":"crisis","p":"n.","m":"危机","x":"economic crisis","i":84},{"c":"D","w":"criterion","p":"n.","m":"标准，准则","x":"meet the criteria","i":85},{"c":"D","w":"culture","p":"n.","m":"文化；培养","x":"cultural difference","i":86},{"c":"D","w":"currency","p":"n.","m":"货币；流通","x":"foreign currency","i":87},{"c":"D","w":"custom","p":"n.","m":"习俗；惯例","x":"customs and traditions","i":88},{"c":"D","w":"damage","p":"n./v.","m":"损害；破坏","x":"do damage to","i":89},{"c":"D","w":"danger","p":"n.","m":"危险；威胁","x":"in danger","i":90},{"c":"D","w":"data","p":"n.","m":"数据，资料","x":"data collection","i":91},{"c":"D","w":"deadline","p":"n.","m":"最后期限","x":"meet the deadline","i":92},{"c":"D","w":"debate","p":"n./v.","m":"辩论，争论","x":"heated debate","i":93},{"c":"D","w":"decision","p":"n.","m":"决定；决心","x":"make a decision","i":94},{"c":"D","w":"defeat","p":"n./v.","m":"失败；击败","x":"suffer a defeat","i":95},{"c":"D","w":"definition","p":"n.","m":"定义；清晰度","x":"by definition","i":96},{"c":"D","w":"degree","p":"n.","m":"程度；学位；度","x":"to some degree","i":97},{"c":"D","w":"delivery","p":"n.","m":"递送；分娩；演讲方式","x":"free delivery","i":98},{"c":"D","w":"democracy","p":"n.","m":"民主（制度）","x":"democratic society","i":99},{"c":"D","w":"demand","p":"n./v.","m":"需求；要求","x":"in demand","i":100},{"c":"D","w":"department","p":"n.","m":"部门；系","x":"department store","i":101},{"c":"D","w":"departure","p":"n.","m":"离开；出发点","x":"departure time","i":102},{"c":"D","w":"description","p":"n.","m":"描述，说明","x":"beyond description","i":103},{"c":"D","w":"desire","p":"n./v.","m":"渴望；欲望","x":"desire for","i":104},{"c":"D","w":"despair","p":"n./v.","m":"绝望","x":"in despair","i":105},{"c":"D","w":"destination","p":"n.","m":"目的地","x":"tourist destination","i":106},{"c":"D","w":"detail","p":"n./v.","m":"细节；详述","x":"in detail","i":107},{"c":"D","w":"determination","p":"n.","m":"决心；决定","x":"with determination","i":108},{"c":"D","w":"development","p":"n.","m":"发展；开发","x":"economic development","i":109},{"c":"D","w":"device","p":"n.","m":"设备；手段","x":"electronic device","i":110},{"c":"D","w":"difference","p":"n.","m":"差异；分歧","x":"make a difference","i":111},{"c":"D","w":"difficulty","p":"n.","m":"困难；难题","x":"have difficulty in","i":112},{"c":"D","w":"dilemma","p":"n.","m":"进退两难的处境","x":"in a dilemma","i":113},{"c":"D","w":"dimension","p":"n.","m":"维度；尺寸；方面","x":"new dimension","i":114},{"c":"D","w":"direction","p":"n.","m":"方向；指导；说明","x":"sense of direction","i":115},{"c":"D","w":"disaster","p":"n.","m":"灾难，灾害","x":"natural disaster","i":116},{"c":"D","w":"discipline","p":"n./v.","m":"纪律；学科；训练","x":"self-discipline","i":117},{"c":"D","w":"discount","p":"n./v.","m":"折扣；打折","x":"at a discount","i":118},{"c":"D","w":"discovery","p":"n.","m":"发现","x":"scientific discovery","i":119},{"c":"D","w":"disease","p":"n.","m":"疾病","x":"heart disease","i":120},{"c":"D","w":"distance","p":"n.","m":"距离；远处","x":"in the distance","i":121},{"c":"D","w":"district","p":"n.","m":"地区，区域","x":"business district","i":122},{"c":"D","w":"division","p":"n.","m":"分开；部门；分歧","x":"the division of labor","i":123},{"c":"D","w":"document","p":"n./v.","m":"文件；记录","x":"official document","i":124},{"c":"D","w":"economy","p":"n.","m":"经济；节约","x":"market economy","i":125},{"c":"D","w":"education","p":"n.","m":"教育；培养","x":"higher education","i":126},{"c":"D","w":"effect","p":"n.","m":"效果，影响","x":"have an effect on","i":127},{"c":"D","w":"efficiency","p":"n.","m":"效率；功效","x":"improve efficiency","i":128},{"c":"D","w":"effort","p":"n.","m":"努力；尝试","x":"make an effort","i":129},{"c":"D","w":"element","p":"n.","m":"元素；要素；成分","x":"key element","i":130},{"c":"D","w":"emergency","p":"n.","m":"紧急情况","x":"in case of emergency","i":131},{"c":"D","w":"emotion","p":"n.","m":"情感，情绪","x":"control one's emotions","i":132},{"c":"D","w":"emphasis","p":"n.","m":"强调，重点","x":"place emphasis on","i":133},{"c":"D","w":"employee","p":"n.","m":"雇员，员工","x":"full-time employee","i":134},{"c":"D","w":"employer","p":"n.","m":"雇主","x":"current employer","i":135},{"c":"D","w":"employment","p":"n.","m":"就业；雇用","x":"employment rate","i":136},{"c":"D","w":"enterprise","p":"n.","m":"企业；事业心","x":"private enterprise","i":137},{"c":"D","w":"enthusiasm","p":"n.","m":"热情，热忱","x":"enthusiasm for","i":138},{"c":"D","w":"environment","p":"n.","m":"环境","x":"protect the environment","i":139},{"c":"D","w":"equipment","p":"n.","m":"设备，装备","x":"laboratory equipment","i":140},{"c":"D","w":"error","p":"n.","m":"错误，差错","x":"human error","i":141},{"c":"D","w":"essay","p":"n.","m":"文章，短文","x":"write an essay","i":142},{"c":"D","w":"evidence","p":"n.","m":"证据；迹象","x":"evidence for","i":143},{"c":"D","w":"exception","p":"n.","m":"例外","x":"without exception","i":144},{"c":"D","w":"excitement","p":"n.","m":"兴奋，激动","x":"in excitement","i":145},{"c":"D","w":"excuse","p":"n./v.","m":"借口；原谅","x":"make an excuse","i":146},{"c":"D","w":"exhibition","p":"n.","m":"展览（会）","x":"art exhibition","i":147},{"c":"D","w":"existence","p":"n.","m":"存在；生存","x":"come into existence","i":148},{"c":"D","w":"expense","p":"n.","m":"费用，开支","x":"at the expense of","i":149},{"c":"D","w":"experience","p":"n./v.","m":"经验；经历","x":"work experience","i":150},{"c":"D","w":"experiment","p":"n./v.","m":"实验","x":"conduct an experiment","i":151},{"c":"D","w":"expert","p":"n./adj.","m":"专家；熟练的","x":"expert in","i":152},{"c":"D","w":"explanation","p":"n.","m":"解释，说明","x":"give an explanation","i":153},{"c":"D","w":"exposure","p":"n.","m":"暴露；曝光；接触","x":"exposure to","i":154},{"c":"D","w":"expression","p":"n.","m":"表达；表情；措辞","x":"freedom of expression","i":155},{"c":"D","w":"factor","p":"n.","m":"因素，要素","x":"key factor","i":156},{"c":"D","w":"failure","p":"n.","m":"失败；故障","x":"failure to do","i":157},{"c":"D","w":"faith","p":"n.","m":"信任；信仰","x":"have faith in","i":158},{"c":"D","w":"fame","p":"n.","m":"名声，声誉","x":"rise to fame","i":159},{"c":"D","w":"fashion","p":"n.","m":"时尚；方式","x":"in fashion","i":160},{"c":"D","w":"fault","p":"n.","m":"过错；缺点；故障","x":"at fault","i":161},{"c":"D","w":"favor","p":"n./v.","m":"恩惠；赞成；偏爱","x":"in favor of","i":162},{"c":"D","w":"feature","p":"n./v.","m":"特征；以…为特色","x":"main feature","i":163},{"c":"D","w":"figure","p":"n./v.","m":"数字；人物；身材；认为","x":"figure out","i":164},{"c":"D","w":"finance","p":"n./v.","m":"金融；财务；为…提供资金","x":"public finance","i":165},{"c":"D","w":"finding","p":"n.","m":"调查结果；发现","x":"research findings","i":166},{"c":"D","w":"focus","p":"n./v.","m":"焦点；集中","x":"focus on","i":167},{"c":"D","w":"fortune","p":"n.","m":"运气；财富","x":"make a fortune","i":168},{"c":"D","w":"foundation","p":"n.","m":"基础；基金会；创立","x":"lay the foundation","i":169},{"c":"D","w":"freedom","p":"n.","m":"自由；免除","x":"freedom of speech","i":170},{"c":"D","w":"function","p":"n./v.","m":"功能；职能；运行","x":"bodily function","i":171},{"c":"D","w":"fund","p":"n./v.","m":"基金；资金；资助","x":"raise funds","i":172},{"c":"D","w":"gap","p":"n.","m":"差距；缺口；间隔","x":"bridge the gap","i":173},{"c":"D","w":"generation","p":"n.","m":"一代人；产生","x":"younger generation","i":174},{"c":"D","w":"goal","p":"n.","m":"目标；球门","x":"achieve a goal","i":175},{"c":"D","w":"government","p":"n.","m":"政府；管理","x":"local government","i":176},{"c":"D","w":"growth","p":"n.","m":"增长；生长","x":"economic growth","i":177},{"c":"D","w":"habit","p":"n.","m":"习惯","x":"form a habit","i":178},{"c":"D","w":"harmony","p":"n.","m":"和谐；协调","x":"in harmony with","i":179},{"c":"D","w":"hazard","p":"n./v.","m":"危险；冒险","x":"health hazard","i":180},{"c":"D","w":"heritage","p":"n.","m":"遗产；传统","x":"cultural heritage","i":181},{"c":"D","w":"hint","p":"n./v.","m":"暗示；提示","x":"drop a hint","i":182},{"c":"D","w":"honor","p":"n./v.","m":"荣誉；尊敬","x":"in honor of","i":183},{"c":"D","w":"horizon","p":"n.","m":"地平线；眼界","x":"broaden one's horizons","i":184},{"c":"D","w":"humor","p":"n.","m":"幽默；心情","x":"sense of humor","i":185},{"c":"D","w":"identity","p":"n.","m":"身份；特性","x":"sense of identity","i":186},{"c":"D","w":"image","p":"n.","m":"形象；图像","x":"public image","i":187},{"c":"D","w":"imagination","p":"n.","m":"想象力","x":"beyond imagination","i":188},{"c":"D","w":"impact","p":"n./v.","m":"影响；冲击","x":"impact on","i":189},{"c":"D","w":"implication","p":"n.","m":"含义；影响；牵连","x":"far-reaching implications","i":190},{"c":"D","w":"importance","p":"n.","m":"重要性","x":"attach importance to","i":191},{"c":"D","w":"impression","p":"n.","m":"印象；感想","x":"make a good impression","i":192},{"c":"D","w":"improvement","p":"n.","m":"改进，改善","x":"room for improvement","i":193},{"c":"D","w":"incident","p":"n.","m":"事件，事变","x":"a minor incident","i":194},{"c":"D","w":"income","p":"n.","m":"收入","x":"low-income family","i":195},{"c":"D","w":"increase","p":"n./v.","m":"增加，增长","x":"on the increase","i":196},{"c":"D","w":"independence","p":"n.","m":"独立，自主","x":"economic independence","i":197},{"c":"D","w":"individual","p":"n./adj.","m":"个人；单独的","x":"individual differences","i":198},{"c":"D","w":"industry","p":"n.","m":"工业；行业","x":"the tourism industry","i":199},{"c":"D","w":"information","p":"n.","m":"信息，资料","x":"for further information","i":200},{"c":"D","w":"ingredient","p":"n.","m":"成分；要素","x":"key ingredient","i":201},{"c":"D","w":"initiative","p":"n.","m":"主动性；倡议","x":"take the initiative","i":202},{"c":"D","w":"injury","p":"n.","m":"伤害，损伤","x":"serious injury","i":203},{"c":"D","w":"innovation","p":"n.","m":"创新，革新","x":"technological innovation","i":204},{"c":"D","w":"insight","p":"n.","m":"洞察力；见解","x":"insight into","i":205},{"c":"D","w":"instance","p":"n.","m":"例子，实例","x":"for instance","i":206},{"c":"D","w":"instinct","p":"n.","m":"本能，直觉","x":"by instinct","i":207},{"c":"D","w":"institution","p":"n.","m":"机构；制度","x":"financial institution","i":208},{"c":"D","w":"instruction","p":"n.","m":"指示；说明；教学","x":"follow instructions","i":209},{"c":"D","w":"instrument","p":"n.","m":"仪器；乐器；工具","x":"musical instrument","i":210},{"c":"D","w":"insurance","p":"n.","m":"保险","x":"health insurance","i":211},{"c":"D","w":"intelligence","p":"n.","m":"智力；情报","x":"emotional intelligence","i":212},{"c":"D","w":"intention","p":"n.","m":"意图，目的","x":"have no intention of","i":213},{"c":"D","w":"interaction","p":"n.","m":"相互作用，交流","x":"social interaction","i":214},{"c":"D","w":"interest","p":"n./v.","m":"兴趣；利息；利益","x":"take an interest in","i":215},{"c":"D","w":"interpretation","p":"n.","m":"解释；口译","x":"different interpretation","i":216},{"c":"D","w":"interview","p":"n./v.","m":"面试；采访","x":"job interview","i":217},{"c":"D","w":"introduction","p":"n.","m":"介绍；引进；导论","x":"a brief introduction","i":218},{"c":"D","w":"invention","p":"n.","m":"发明","x":"great invention","i":219},{"c":"D","w":"investigation","p":"n.","m":"调查","x":"under investigation","i":220},{"c":"D","w":"investment","p":"n.","m":"投资","x":"foreign investment","i":221},{"c":"D","w":"issue","p":"n./v.","m":"问题；期号；发行","x":"raise an issue","i":222},{"c":"D","w":"item","p":"n.","m":"项目；条款；物品","x":"news item","i":223},{"c":"D","w":"judgment","p":"n.","m":"判断；判决","x":"make a judgment","i":224},{"c":"D","w":"justice","p":"n.","m":"正义；司法","x":"social justice","i":225},{"c":"D","w":"knowledge","p":"n.","m":"知识；了解","x":"to my knowledge","i":226},{"c":"D","w":"labor","p":"n./v.","m":"劳动；劳工；努力工作","x":"labor force","i":227},{"c":"D","w":"lack","p":"n./v.","m":"缺乏","x":"lack of","i":228},{"c":"D","w":"landscape","p":"n.","m":"风景；局面","x":"political landscape","i":229},{"c":"D","w":"law","p":"n.","m":"法律；定律","x":"pass a law","i":230},{"c":"D","w":"layer","p":"n.","m":"层；层次","x":"ozone layer","i":231},{"c":"D","w":"leadership","p":"n.","m":"领导（能力）","x":"under the leadership of","i":232},{"c":"D","w":"leisure","p":"n.","m":"休闲，空闲","x":"leisure time","i":233},{"c":"D","w":"liberty","p":"n.","m":"自由；许可","x":"at liberty","i":234},{"c":"D","w":"license","p":"n./v.","m":"执照；许可","x":"driving license","i":235},{"c":"D","w":"limit","p":"n./v.","m":"限制；极限","x":"speed limit","i":236},{"c":"D","w":"literature","p":"n.","m":"文学；文献","x":"English literature","i":237},{"c":"D","w":"location","p":"n.","m":"位置，地点","x":"a good location","i":238},{"c":"D","w":"logic","p":"n.","m":"逻辑；道理","x":"by the logic of","i":239},{"c":"D","w":"loss","p":"n.","m":"损失；丧失","x":"at a loss","i":240},{"c":"D","w":"luxury","p":"n.","m":"奢侈（品）","x":"luxury goods","i":241},{"c":"D","w":"majority","p":"n.","m":"大多数","x":"the vast majority","i":242},{"c":"D","w":"manner","p":"n.","m":"方式；举止；礼貌","x":"in a manner","i":243},{"c":"D","w":"margin","p":"n.","m":"边缘；差额；余地","x":"by a narrow margin","i":244},{"c":"D","w":"material","p":"n./adj.","m":"材料；物质；重要的","x":"raw material","i":245},{"c":"D","w":"means","p":"n.","m":"方法；手段","x":"by no means","i":246},{"c":"D","w":"measure","p":"n./v.","m":"措施；测量；程度","x":"take measures","i":247},{"c":"D","w":"mechanism","p":"n.","m":"机制；机械装置","x":"market mechanism","i":248},{"c":"D","w":"medium","p":"n./adj.","m":"媒介；中等的","x":"mass media","i":249},{"c":"D","w":"memory","p":"n.","m":"记忆；回忆；内存","x":"in memory of","i":250},{"c":"D","w":"method","p":"n.","m":"方法，办法","x":"scientific method","i":251},{"c":"D","w":"minority","p":"n.","m":"少数；少数民族","x":"ethnic minority","i":252},{"c":"D","w":"mission","p":"n.","m":"任务；使命","x":"on a mission","i":253},{"c":"D","w":"mixture","p":"n.","m":"混合物；混合","x":"a mixture of","i":254},{"c":"D","w":"mode","p":"n.","m":"方式；模式","x":"mode of transport","i":255},{"c":"D","w":"mood","p":"n.","m":"心情，情绪","x":"in a good mood","i":256},{"c":"D","w":"motive","p":"n.","m":"动机，目的","x":"motive for","i":257},{"c":"D","w":"movement","p":"n.","m":"运动；移动；动向","x":"social movement","i":258},{"c":"D","w":"mystery","p":"n.","m":"谜；神秘","x":"a mystery to","i":259},{"c":"D","w":"nature","p":"n.","m":"自然；本性；性质","x":"by nature","i":260},{"c":"D","w":"necessity","p":"n.","m":"必要性；必需品","x":"of necessity","i":261},{"c":"D","w":"notion","p":"n.","m":"概念，观念","x":"the notion that","i":262},{"c":"D","w":"objective","p":"n./adj.","m":"目标；客观的","x":"objective analysis","i":263},{"c":"D","w":"obligation","p":"n.","m":"义务，责任","x":"legal obligation","i":264},{"c":"D","w":"observation","p":"n.","m":"观察；评论","x":"under observation","i":265},{"c":"D","w":"occasion","p":"n.","m":"场合；时机","x":"on occasion","i":266},{"c":"D","w":"occupation","p":"n.","m":"职业；占领","x":"by occupation","i":267},{"c":"D","w":"opportunity","p":"n.","m":"机会","x":"take the opportunity","i":268},{"c":"D","w":"opposition","p":"n.","m":"反对；反对派","x":"in opposition to","i":269},{"c":"D","w":"option","p":"n.","m":"选择；选项","x":"have no option but","i":270},{"c":"D","w":"organization","p":"n.","m":"组织；机构","x":"non-profit organization","i":271},{"c":"D","w":"origin","p":"n.","m":"起源；出身","x":"the origin of","i":272},{"c":"D","w":"outcome","p":"n.","m":"结果，结局","x":"the outcome of","i":273},{"c":"D","w":"outlook","p":"n.","m":"观点；前景；景色","x":"outlook on life","i":274},{"c":"D","w":"output","p":"n.","m":"产量；输出","x":"industrial output","i":275},{"c":"D","w":"pace","p":"n./v.","m":"速度；步调","x":"at a slow pace","i":276},{"c":"D","w":"panel","p":"n.","m":"专家小组；面板","x":"a panel of experts","i":277},{"c":"D","w":"participant","p":"n.","m":"参与者","x":"participant in","i":278},{"c":"D","w":"passion","p":"n.","m":"热情；酷爱","x":"passion for","i":279},{"c":"D","w":"pattern","p":"n.","m":"模式；图案","x":"behavior pattern","i":280},{"c":"D","w":"payment","p":"n.","m":"支付；款项","x":"make a payment","i":281},{"c":"D","w":"penalty","p":"n.","m":"处罚；罚款","x":"pay the penalty","i":282},{"c":"D","w":"percentage","p":"n.","m":"百分比","x":"a high percentage of","i":283},{"c":"D","w":"perception","p":"n.","m":"感知；看法","x":"public perception","i":284},{"c":"D","w":"performance","p":"n.","m":"表现；演出；性能","x":"improve performance","i":285},{"c":"D","w":"period","p":"n.","m":"时期；句号","x":"a period of time","i":286},{"c":"D","w":"permission","p":"n.","m":"许可，允许","x":"without permission","i":287},{"c":"D","w":"personality","p":"n.","m":"个性；名人","x":"strong personality","i":288},{"c":"D","w":"perspective","p":"n.","m":"观点；视角","x":"from a perspective","i":289},{"c":"D","w":"phenomenon","p":"n.","m":"现象","x":"natural phenomenon","i":290},{"c":"D","w":"philosophy","p":"n.","m":"哲学；人生观","x":"philosophy of life","i":291},{"c":"D","w":"phrase","p":"n./v.","m":"短语；措辞；表达","x":"a common phrase","i":292},{"c":"D","w":"policy","p":"n.","m":"政策；保险单","x":"foreign policy","i":293},{"c":"D","w":"pollution","p":"n.","m":"污染","x":"air pollution","i":294},{"c":"D","w":"portion","p":"n.","m":"部分；一份","x":"a portion of","i":295},{"c":"D","w":"position","p":"n./v.","m":"位置；职位；立场","x":"in a position to","i":296},{"c":"D","w":"possibility","p":"n.","m":"可能性","x":"the possibility of","i":297},{"c":"D","w":"poverty","p":"n.","m":"贫穷，贫困","x":"live in poverty","i":298},{"c":"D","w":"power","p":"n.","m":"权力；力量；电力","x":"in power","i":299},{"c":"D","w":"precaution","p":"n.","m":"预防措施","x":"take precautions","i":300},{"c":"D","w":"precision","p":"n.","m":"精确，精密","x":"with precision","i":301},{"c":"D","w":"preference","p":"n.","m":"偏爱；优先","x":"preference for","i":302},{"c":"D","w":"prejudice","p":"n./v.","m":"偏见","x":"prejudice against","i":303},{"c":"D","w":"presence","p":"n.","m":"出席；存在","x":"in the presence of","i":304},{"c":"D","w":"pressure","p":"n./v.","m":"压力；压迫","x":"under pressure","i":305},{"c":"D","w":"principle","p":"n.","m":"原则；原理","x":"in principle","i":306},{"c":"D","w":"priority","p":"n.","m":"优先（事项）","x":"top priority","i":307},{"c":"D","w":"privilege","p":"n.","m":"特权；荣幸","x":"enjoy privileges","i":308},{"c":"D","w":"procedure","p":"n.","m":"程序，步骤","x":"standard procedure","i":309},{"c":"D","w":"process","p":"n./v.","m":"过程；加工","x":"in the process of","i":310},{"c":"D","w":"profession","p":"n.","m":"职业；行业","x":"by profession","i":311},{"c":"D","w":"profit","p":"n./v.","m":"利润；获益","x":"make a profit","i":312},{"c":"D","w":"progress","p":"n./v.","m":"进步；进展","x":"make progress","i":313},{"c":"D","w":"project","p":"n./v.","m":"项目；投射；预测","x":"research project","i":314},{"c":"D","w":"promise","p":"n./v.","m":"承诺；希望","x":"keep a promise","i":315},{"c":"D","w":"proof","p":"n.","m":"证据；证明","x":"proof of","i":316},{"c":"D","w":"property","p":"n.","m":"财产；房产；性质","x":"private property","i":317},{"c":"D","w":"proportion","p":"n.","m":"比例；部分","x":"in proportion to","i":318},{"c":"D","w":"proposal","p":"n.","m":"提议；求婚","x":"make a proposal","i":319},{"c":"D","w":"prospect","p":"n.","m":"前景；可能性","x":"job prospects","i":320},{"c":"D","w":"protection","p":"n.","m":"保护","x":"environmental protection","i":321},{"c":"D","w":"protest","p":"n./v.","m":"抗议","x":"protest against","i":322},{"c":"D","w":"provision","p":"n.","m":"供给；条款；准备","x":"make provision for","i":323},{"c":"D","w":"psychology","p":"n.","m":"心理学；心理","x":"human psychology","i":324},{"c":"D","w":"purpose","p":"n.","m":"目的；用途","x":"on purpose","i":325},{"c":"D","w":"quality","p":"n./adj.","m":"质量；品质；优质的","x":"high quality","i":326},{"c":"D","w":"quantity","p":"n.","m":"数量","x":"a large quantity of","i":327},{"c":"D","w":"range","p":"n./v.","m":"范围；一系列；变动","x":"a wide range of","i":328},{"c":"D","w":"rate","p":"n./v.","m":"比率；速度；评价","x":"at any rate","i":329},{"c":"D","w":"reaction","p":"n.","m":"反应；反作用","x":"reaction to","i":330},{"c":"D","w":"reality","p":"n.","m":"现实；真实","x":"in reality","i":331},{"c":"D","w":"reason","p":"n./v.","m":"原因；理性；推理","x":"by reason of","i":332},{"c":"D","w":"recognition","p":"n.","m":"承认；识别；赏识","x":"beyond recognition","i":333},{"c":"D","w":"reference","p":"n./v.","m":"参考；提及；推荐信","x":"with reference to","i":334},{"c":"D","w":"reflection","p":"n.","m":"反映；反射；沉思","x":"on reflection","i":335},{"c":"D","w":"reform","p":"n./v.","m":"改革","x":"economic reform","i":336},{"c":"D","w":"region","p":"n.","m":"地区，区域","x":"mountainous region","i":337},{"c":"D","w":"regulation","p":"n.","m":"规章；管理","x":"safety regulations","i":338},{"c":"D","w":"relation","p":"n.","m":"关系；亲属","x":"in relation to","i":339},{"c":"D","w":"relationship","p":"n.","m":"关系；关联","x":"close relationship","i":340},{"c":"D","w":"relief","p":"n.","m":"减轻；宽慰；救济","x":"to one's relief","i":341},{"c":"D","w":"religion","p":"n.","m":"宗教","x":"freedom of religion","i":342},{"c":"D","w":"remedy","p":"n./v.","m":"补救（办法）；治疗","x":"a remedy for","i":343},{"c":"D","w":"reputation","p":"n.","m":"名声，声誉","x":"good reputation","i":344},{"c":"D","w":"request","p":"n./v.","m":"请求，要求","x":"at the request of","i":345},{"c":"D","w":"requirement","p":"n.","m":"要求；必要条件","x":"meet the requirements","i":346},{"c":"D","w":"resistance","p":"n.","m":"抵抗；阻力","x":"resistance to","i":347},{"c":"D","w":"resource","p":"n.","m":"资源；办法","x":"natural resources","i":348},{"c":"D","w":"response","p":"n.","m":"回答；反应","x":"in response to","i":349},{"c":"D","w":"responsibility","p":"n.","m":"责任；职责","x":"take responsibility for","i":350},{"c":"D","w":"restriction","p":"n.","m":"限制，约束","x":"impose restrictions","i":351},{"c":"D","w":"result","p":"n./v.","m":"结果；导致","x":"result in","i":352},{"c":"D","w":"revenue","p":"n.","m":"收入；税收","x":"annual revenue","i":353},{"c":"D","w":"review","p":"n./v.","m":"复习；评论；回顾","x":"book review","i":354},{"c":"D","w":"revision","p":"n.","m":"修改；复习","x":"make revisions","i":355},{"c":"D","w":"risk","p":"n./v.","m":"风险；冒险","x":"at risk","i":356},{"c":"D","w":"role","p":"n.","m":"角色；作用","x":"play a role in","i":357},{"c":"D","w":"routine","p":"n./adj.","m":"常规；例行公事；日常的","x":"daily routine","i":358},{"c":"D","w":"sacrifice","p":"n./v.","m":"牺牲；献出","x":"make sacrifices","i":359},{"c":"D","w":"safety","p":"n.","m":"安全","x":"for safety reasons","i":360},{"c":"D","w":"salary","p":"n.","m":"薪水","x":"annual salary","i":361},{"c":"D","w":"sample","p":"n./v.","m":"样本；抽样","x":"a sample of","i":362},{"c":"D","w":"satisfaction","p":"n.","m":"满意；满足","x":"to one's satisfaction","i":363},{"c":"D","w":"scale","p":"n./v.","m":"规模；刻度；鳞片","x":"on a large scale","i":364},{"c":"D","w":"schedule","p":"n./v.","m":"日程；安排","x":"on schedule","i":365},{"c":"D","w":"scheme","p":"n./v.","m":"计划；方案；阴谋","x":"a new scheme","i":366},{"c":"D","w":"scope","p":"n.","m":"范围；机会","x":"beyond the scope of","i":367},{"c":"D","w":"section","p":"n.","m":"部分；部门；章节","x":"a section of","i":368},{"c":"D","w":"sector","p":"n.","m":"部门；行业","x":"the public sector","i":369},{"c":"D","w":"security","p":"n.","m":"安全；保障；证券","x":"national security","i":370},{"c":"D","w":"selection","p":"n.","m":"选择；精选","x":"a wide selection of","i":371},{"c":"D","w":"sense","p":"n./v.","m":"感觉；意义；判断力","x":"make sense","i":372},{"c":"D","w":"sequence","p":"n.","m":"顺序；序列","x":"in sequence","i":373},{"c":"D","w":"series","p":"n.","m":"系列；连续","x":"a series of","i":374},{"c":"D","w":"session","p":"n.","m":"会议；一段时间","x":"training session","i":375},{"c":"D","w":"setting","p":"n.","m":"环境；背景；设置","x":"a rural setting","i":376},{"c":"D","w":"shortage","p":"n.","m":"短缺，不足","x":"a shortage of","i":377},{"c":"D","w":"significance","p":"n.","m":"重要性；意义","x":"of great significance","i":378},{"c":"D","w":"similarity","p":"n.","m":"相似（之处）","x":"similarity between","i":379},{"c":"D","w":"situation","p":"n.","m":"情况，形势","x":"in a difficult situation","i":380},{"c":"D","w":"skill","p":"n.","m":"技能，技巧","x":"communication skills","i":381},{"c":"D","w":"solution","p":"n.","m":"解决办法；溶液","x":"a solution to","i":382},{"c":"D","w":"source","p":"n.","m":"来源；水源","x":"a source of","i":383},{"c":"D","w":"species","p":"n.","m":"物种","x":"endangered species","i":384},{"c":"D","w":"spirit","p":"n.","m":"精神；情绪；烈酒","x":"in good spirits","i":385},{"c":"D","w":"standard","p":"n./adj.","m":"标准；标准的","x":"meet the standard","i":386},{"c":"D","w":"statement","p":"n.","m":"陈述；声明","x":"make a statement","i":387},{"c":"D","w":"status","p":"n.","m":"地位；状况","x":"social status","i":388},{"c":"D","w":"strategy","p":"n.","m":"战略，策略","x":"a new strategy","i":389},{"c":"D","w":"structure","p":"n./v.","m":"结构；构造","x":"social structure","i":390},{"c":"D","w":"style","p":"n.","m":"风格；款式","x":"in style","i":391},{"c":"D","w":"subject","p":"n./adj./v.","m":"主题；科目；使遭受","x":"subject to","i":392},{"c":"D","w":"substance","p":"n.","m":"物质；实质","x":"a chemical substance","i":393},{"c":"D","w":"suggestion","p":"n.","m":"建议；暗示","x":"make a suggestion","i":394},{"c":"D","w":"summary","p":"n.","m":"总结，摘要","x":"in summary","i":395},{"c":"D","w":"supplement","p":"n./v.","m":"补充（物）；增补","x":"dietary supplement","i":396},{"c":"D","w":"surface","p":"n./adj.","m":"表面；表面的","x":"on the surface","i":397},{"c":"D","w":"survey","p":"n./v.","m":"调查；勘测","x":"conduct a survey","i":398},{"c":"D","w":"survival","p":"n.","m":"生存；幸存","x":"the survival of","i":399},{"c":"D","w":"symbol","p":"n.","m":"象征；符号","x":"a symbol of","i":400},{"c":"D","w":"sympathy","p":"n.","m":"同情（心）","x":"sympathy for","i":401},{"c":"D","w":"symptom","p":"n.","m":"症状；征兆","x":"a symptom of","i":402},{"c":"D","w":"system","p":"n.","m":"系统；制度","x":"the education system","i":403},{"c":"D","w":"talent","p":"n.","m":"天赋；人才","x":"a talent for","i":404},{"c":"D","w":"target","p":"n./v.","m":"目标；靶子；以…为目标","x":"target audience","i":405},{"c":"D","w":"task","p":"n.","m":"任务，工作","x":"a difficult task","i":406},{"c":"D","w":"technique","p":"n.","m":"技术；技巧","x":"a new technique","i":407},{"c":"D","w":"technology","p":"n.","m":"技术，工艺","x":"information technology","i":408},{"c":"D","w":"tendency","p":"n.","m":"倾向，趋势","x":"a tendency to","i":409},{"c":"D","w":"tension","p":"n.","m":"紧张（关系）；张力","x":"ease tension","i":410},{"c":"D","w":"term","p":"n./v.","m":"术语；学期；条款","x":"in terms of","i":411},{"c":"D","w":"territory","p":"n.","m":"领土；领域","x":"a new territory","i":412},{"c":"D","w":"theme","p":"n.","m":"主题，题目","x":"the main theme","i":413},{"c":"D","w":"theory","p":"n.","m":"理论；学说","x":"in theory","i":414},{"c":"D","w":"therapy","p":"n.","m":"治疗，疗法","x":"physical therapy","i":415},{"c":"D","w":"threat","p":"n.","m":"威胁；凶兆","x":"a threat to","i":416},{"c":"D","w":"tolerance","p":"n.","m":"宽容；耐受性","x":"tolerance for","i":417},{"c":"D","w":"tradition","p":"n.","m":"传统，惯例","x":"by tradition","i":418},{"c":"D","w":"trend","p":"n.","m":"趋势，倾向","x":"a growing trend","i":419},{"c":"D","w":"trial","p":"n./v.","m":"试验；审判","x":"clinical trial","i":420},{"c":"D","w":"truth","p":"n.","m":"真相；真理","x":"tell the truth","i":421},{"c":"D","w":"understanding","p":"n./adj.","m":"理解；体谅","x":"mutual understanding","i":422},{"c":"D","w":"unity","p":"n.","m":"统一；团结","x":"national unity","i":423},{"c":"D","w":"universe","p":"n.","m":"宇宙","x":"the origin of the universe","i":424},{"c":"D","w":"usage","p":"n.","m":"用法；使用","x":"language usage","i":425},{"c":"D","w":"utility","p":"n.","m":"效用；公用事业","x":"practical utility","i":426},{"c":"D","w":"vacation","p":"n.","m":"假期","x":"on vacation","i":427},{"c":"D","w":"value","p":"n./v.","m":"价值；价值观；重视","x":"of great value","i":428},{"c":"D","w":"variety","p":"n.","m":"多样性；种类","x":"a variety of","i":429},{"c":"D","w":"vehicle","p":"n.","m":"车辆；工具","x":"a vehicle for","i":430},{"c":"D","w":"version","p":"n.","m":"版本；说法","x":"the latest version","i":431},{"c":"D","w":"victim","p":"n.","m":"受害者","x":"fall victim to","i":432},{"c":"D","w":"victory","p":"n.","m":"胜利","x":"win a victory","i":433},{"c":"D","w":"view","p":"n./v.","m":"观点；景色；观看","x":"in view of","i":434},{"c":"D","w":"violence","p":"n.","m":"暴力；猛烈","x":"domestic violence","i":435},{"c":"D","w":"virtue","p":"n.","m":"美德；优点","x":"by virtue of","i":436},{"c":"D","w":"vision","p":"n.","m":"视力；远见；景象","x":"a clear vision","i":437},{"c":"D","w":"volume","p":"n.","m":"体积；音量；卷","x":"the volume of","i":438},{"c":"D","w":"wealth","p":"n.","m":"财富；大量","x":"a wealth of","i":439},{"c":"D","w":"welfare","p":"n.","m":"福利；幸福","x":"social welfare","i":440},{"c":"D","w":"wisdom","p":"n.","m":"智慧","x":"words of wisdom","i":441},{"c":"D","w":"workforce","p":"n.","m":"劳动力；全体员工","x":"skilled workforce","i":442},{"c":"D","w":"worth","p":"n./adj.","m":"价值；值得","x":"be worth doing","i":443},{"c":"D","w":"wound","p":"n./v.","m":"伤口；使受伤","x":"a deep wound","i":444},{"c":"D","w":"zone","p":"n.","m":"地区，区域","x":"a danger zone","i":445},{"c":"E","w":"address","p":"v.","m":"处理，应对；向…讲话（熟词僻义）","x":"address the issue","i":0},{"c":"E","w":"appreciate","p":"v.","m":"【僻义】意识到，理解；增值","x":"I appreciate that...","i":1},{"c":"E","w":"attend","p":"v.","m":"【僻义】照料；处理；出席","x":"attend to the matter","i":2},{"c":"E","w":"balance","p":"n.","m":"【僻义】余额；结余","x":"bank balance","i":3},{"c":"E","w":"bear","p":"v.","m":"【僻义】承担；生育；结果实","x":"bear responsibility","i":4},{"c":"E","w":"book","p":"v.","m":"【僻义】预订","x":"book a ticket","i":5},{"c":"E","w":"capital","p":"n.","m":"【僻义】资本；资金；首都","x":"raise capital","i":6},{"c":"E","w":"case","p":"n.","m":"【僻义】病例；案例；情况","x":"in that case","i":7},{"c":"E","w":"company","p":"n.","m":"【僻义】陪伴；同伴","x":"keep sb company","i":8},{"c":"E","w":"content","p":"adj.","m":"【僻义】满足的，满意的","x":"be content with","i":9},{"c":"E","w":"count","p":"v.","m":"【僻义】重要，有价值","x":"count for little","i":10},{"c":"E","w":"course","p":"n.","m":"【僻义】过程；一道菜","x":"in the course of","i":11},{"c":"E","w":"credit","p":"n.","m":"【僻义】学分；信誉；贷款","x":"academic credit","i":12},{"c":"E","w":"critical","p":"adj.","m":"【僻义】关键的；危急的","x":"critical moment","i":13},{"c":"E","w":"date","p":"n./v.","m":"【僻义】约会；枣；注明日期","x":"out of date","i":14},{"c":"E","w":"desert","p":"v./n.","m":"【僻义】抛弃；沙漠","x":"desert one's family","i":15},{"c":"E","w":"develop","p":"v.","m":"【僻义】培养；患（病）","x":"develop a disease","i":16},{"c":"E","w":"duty","p":"n.","m":"【僻义】税；职责","x":"customs duty","i":17},{"c":"E","w":"employ","p":"v.","m":"【僻义】使用，运用","x":"employ a technique","i":18},{"c":"E","w":"even","p":"adj.","m":"【僻义】平坦的；偶数的","x":"even surface","i":19},{"c":"E","w":"express","p":"adj.","m":"【僻义】快速的；明确的","x":"express mail","i":20},{"c":"E","w":"figure","p":"v.","m":"【僻义】认为；计算","x":"figure out","i":21},{"c":"E","w":"fine","p":"adj./n.","m":"【僻义】细微的；罚款","x":"a fine distinction","i":22},{"c":"E","w":"firm","p":"n.","m":"【僻义】公司，企业","x":"a law firm","i":23},{"c":"E","w":"ground","p":"n.","m":"【僻义】理由，根据","x":"on the grounds that","i":24},{"c":"E","w":"hand","p":"n./v.","m":"【僻义】帮助；指针；递交","x":"give sb a hand","i":25},{"c":"E","w":"harbor","p":"v.","m":"【僻义】心怀（想法）；庇护","x":"harbor a grudge","i":26},{"c":"E","w":"hold","p":"v.","m":"【僻义】容纳；认为；举行","x":"hold the view that","i":27},{"c":"E","w":"immediate","p":"adj.","m":"【僻义】直接的；紧接的","x":"the immediate cause","i":28},{"c":"E","w":"interest","p":"n.","m":"【僻义】利息；股份","x":"interest rate","i":29},{"c":"E","w":"issue","p":"v.","m":"【僻义】发行，发布；颁发","x":"issue a statement","i":30},{"c":"E","w":"just","p":"adj.","m":"【僻义】公正的，正义的","x":"a just cause","i":31},{"c":"E","w":"last","p":"v.","m":"【僻义】持续，延续","x":"last for hours","i":32},{"c":"E","w":"leave","p":"n.","m":"【僻义】假期，休假","x":"on leave","i":33},{"c":"E","w":"light","p":"adj./v.","m":"【僻义】轻松的；点燃","x":"light reading","i":34},{"c":"E","w":"matter","p":"v.","m":"【僻义】要紧，有重大影响","x":"it doesn't matter","i":35},{"c":"E","w":"means","p":"n.","m":"【僻义】方法，手段","x":"a means of","i":36},{"c":"E","w":"might","p":"n.","m":"【僻义】力量，威力","x":"with all one's might","i":37},{"c":"E","w":"minute","p":"adj.","m":"【僻义】微小的；详细的","x":"a minute change","i":38},{"c":"E","w":"moral","p":"n.","m":"【僻义】寓意，教益","x":"the moral of the story","i":39},{"c":"E","w":"nature","p":"n.","m":"【僻义】本性；性质","x":"by nature","i":40},{"c":"E","w":"novel","p":"adj.","m":"【僻义】新颖的，新奇的","x":"a novel idea","i":41},{"c":"E","w":"object","p":"v.","m":"【僻义】反对，不赞成","x":"object to","i":42},{"c":"E","w":"observe","p":"v.","m":"【僻义】遵守；评论","x":"observe the rules","i":43},{"c":"E","w":"order","p":"n.","m":"【僻义】订单；秩序","x":"place an order","i":44},{"c":"E","w":"outstanding","p":"adj.","m":"【僻义】未支付的；未解决的","x":"outstanding debt","i":45},{"c":"E","w":"paper","p":"n.","m":"【僻义】论文；报纸","x":"present a paper","i":46},{"c":"E","w":"party","p":"n.","m":"【僻义】当事人；政党","x":"the third party","i":47},{"c":"E","w":"plant","p":"n.","m":"【僻义】工厂；设备","x":"a chemical plant","i":48},{"c":"E","w":"practice","p":"n.","m":"【僻义】惯例；事务所","x":"common practice","i":49},{"c":"E","w":"present","p":"v.","m":"【僻义】呈现；提出；授予","x":"present a report","i":50},{"c":"E","w":"pretty","p":"adv.","m":"【僻义】相当，颇","x":"pretty good","i":51},{"c":"E","w":"project","p":"v.","m":"【僻义】预测；投射","x":"project the growth","i":52},{"c":"E","w":"proper","p":"adj.","m":"【僻义】本身的；严格意义上的","x":"the city proper","i":53},{"c":"E","w":"raise","p":"v.","m":"【僻义】养育；筹集","x":"raise funds","i":54},{"c":"E","w":"reason","p":"v.","m":"【僻义】推理，推论","x":"reason from facts","i":55},{"c":"E","w":"respect","p":"n.","m":"【僻义】方面，着眼点","x":"in this respect","i":56},{"c":"E","w":"rest","p":"n.","m":"【僻义】其余，剩余部分","x":"the rest of us","i":57},{"c":"E","w":"review","p":"n.","m":"【僻义】评论；回顾","x":"a book review","i":58},{"c":"E","w":"run","p":"v.","m":"【僻义】经营；刊登","x":"run a business","i":59},{"c":"E","w":"save","p":"prep.","m":"【僻义】除…以外","x":"save for one thing","i":60},{"c":"E","w":"season","p":"v.","m":"【僻义】调味","x":"seasoned with salt","i":61},{"c":"E","w":"second","p":"v.","m":"【僻义】支持，赞成（动议）","x":"second the motion","i":62},{"c":"E","w":"sentence","p":"v.","m":"【僻义】判决，宣判","x":"sentence sb to","i":63},{"c":"E","w":"serve","p":"v.","m":"【僻义】起…作用；服役","x":"serve as","i":64},{"c":"E","w":"sound","p":"adj.","m":"【僻义】健全的；酣睡的","x":"a sound sleep","i":65},{"c":"E","w":"spare","p":"v.","m":"【僻义】抽出；饶恕","x":"spare time for","i":66},{"c":"E","w":"spring","p":"n.","m":"【僻义】泉水；弹簧","x":"hot spring","i":67},{"c":"E","w":"stand","p":"v.","m":"【僻义】忍受；经受","x":"can't stand doing","i":68},{"c":"E","w":"state","p":"v.","m":"【僻义】陈述，声明","x":"state clearly","i":69},{"c":"E","w":"subject","p":"adj.","m":"【僻义】易受…影响的；取决于","x":"be subject to","i":70},{"c":"E","w":"tip","p":"n.","m":"【僻义】小费；提示","x":"leave a tip","i":71},{"c":"E","w":"tell","p":"v.","m":"【僻义】分辨，区分","x":"tell A from B","i":72},{"c":"E","w":"vessel","p":"n.","m":"【僻义】血管；船；容器","x":"blood vessel","i":73},{"c":"E","w":"weather","p":"v.","m":"【僻义】度过（困难）","x":"weather the storm","i":74},{"c":"E","w":"will","p":"n.","m":"【僻义】意志；遗嘱","x":"free will","i":75},{"c":"E","w":"yield","p":"v.","m":"【僻义】让步；产生（收益）","x":"yield to pressure","i":76},{"c":"F","w":"account for","p":"短语","m":"解释；占（比例）","x":"Women account for 60% of the staff.","i":0},{"c":"F","w":"adapt to","p":"短语","m":"适应","x":"adapt to a new environment","i":1},{"c":"F","w":"in advance","p":"短语","m":"提前，预先","x":"book in advance","i":2},{"c":"F","w":"all but","p":"短语","m":"几乎；除…外全部","x":"all but certain","i":3},{"c":"F","w":"anything but","p":"短语","m":"绝不是","x":"anything but easy","i":4},{"c":"F","w":"apart from","p":"短语","m":"除…之外；此外","x":"apart from that","i":5},{"c":"F","w":"as far as ... be concerned","p":"短语","m":"就…而言","x":"as far as I am concerned","i":6},{"c":"F","w":"at all costs","p":"短语","m":"不惜一切代价","x":"win at all costs","i":7},{"c":"F","w":"at any rate","p":"短语","m":"无论如何；至少","x":"at any rate, we tried","i":8},{"c":"F","w":"at the mercy of","p":"短语","m":"任由…摆布","x":"at the mercy of nature","i":9},{"c":"F","w":"attribute A to B","p":"短语","m":"把A归因于B","x":"attribute success to luck","i":10},{"c":"F","w":"be bound to","p":"短语","m":"必定，一定","x":"be bound to fail","i":11},{"c":"F","w":"be capable of","p":"短语","m":"能够，有能力","x":"be capable of doing","i":12},{"c":"F","w":"be committed to","p":"短语","m":"致力于，承诺","x":"be committed to quality","i":13},{"c":"F","w":"be subject to","p":"短语","m":"受…影响；取决于","x":"be subject to change","i":14},{"c":"F","w":"bear in mind","p":"短语","m":"记住，考虑到","x":"bear in mind that","i":15},{"c":"F","w":"break down","p":"短语","m":"出故障；分解；崩溃","x":"the car broke down","i":16},{"c":"F","w":"bring about","p":"短语","m":"引起，导致","x":"bring about changes","i":17},{"c":"F","w":"bring up","p":"短语","m":"抚养；提出","x":"bring up a question","i":18},{"c":"F","w":"by no means","p":"短语","m":"决不","x":"by no means easy","i":19},{"c":"F","w":"call for","p":"短语","m":"需要；要求","x":"call for action","i":20},{"c":"F","w":"carry out","p":"短语","m":"执行，实施","x":"carry out a plan","i":21},{"c":"F","w":"come up with","p":"短语","m":"想出，提出","x":"come up with an idea","i":22},{"c":"F","w":"comply with","p":"短语","m":"遵守，服从","x":"comply with the rules","i":23},{"c":"F","w":"consist of","p":"短语","m":"由…组成","x":"consist of three parts","i":24},{"c":"F","w":"cope with","p":"短语","m":"应对，处理","x":"cope with stress","i":25},{"c":"F","w":"count on","p":"短语","m":"依靠，指望","x":"count on sb","i":26},{"c":"F","w":"cut down","p":"短语","m":"削减；砍倒","x":"cut down on spending","i":27},{"c":"F","w":"deal with","p":"短语","m":"处理；涉及","x":"deal with complaints","i":28},{"c":"F","w":"depend on","p":"短语","m":"取决于；依赖","x":"depend on the weather","i":29},{"c":"F","w":"dispose of","p":"短语","m":"处理掉，丢弃","x":"dispose of waste","i":30},{"c":"F","w":"do away with","p":"短语","m":"废除，去掉","x":"do away with the rule","i":31},{"c":"F","w":"draw on","p":"短语","m":"利用；依靠","x":"draw on experience","i":32},{"c":"F","w":"due to","p":"短语","m":"由于，因为","x":"due to bad weather","i":33},{"c":"F","w":"end up","p":"短语","m":"最终处于；结果是","x":"end up doing sth","i":34},{"c":"F","w":"fall back on","p":"短语","m":"求助于；依靠","x":"fall back on savings","i":35},{"c":"F","w":"figure out","p":"短语","m":"弄明白，想出","x":"figure out the reason","i":36},{"c":"F","w":"for the sake of","p":"短语","m":"为了…的缘故","x":"for the sake of peace","i":37},{"c":"F","w":"get rid of","p":"短语","m":"摆脱，除掉","x":"get rid of the habit","i":38},{"c":"F","w":"give in","p":"短语","m":"让步，屈服","x":"give in to pressure","i":39},{"c":"F","w":"give rise to","p":"短语","m":"引起，导致","x":"give rise to concern","i":40},{"c":"F","w":"go through","p":"短语","m":"经历；仔细检查","x":"go through hard times","i":41},{"c":"F","w":"hold true","p":"短语","m":"适用，有效","x":"the rule holds true","i":42},{"c":"F","w":"in charge of","p":"短语","m":"负责，主管","x":"in charge of the project","i":43},{"c":"F","w":"in contrast","p":"短语","m":"相比之下","x":"in contrast, ...","i":44},{"c":"F","w":"in favor of","p":"短语","m":"支持；有利于","x":"be in favor of","i":45},{"c":"F","w":"in line with","p":"短语","m":"与…一致","x":"in line with the policy","i":46},{"c":"F","w":"in place of","p":"短语","m":"代替","x":"use A in place of B","i":47},{"c":"F","w":"in terms of","p":"短语","m":"就…而言；在…方面","x":"in terms of quality","i":48},{"c":"F","w":"in the long run","p":"短语","m":"从长远看","x":"in the long run, ...","i":49},{"c":"F","w":"keep up with","p":"短语","m":"跟上；保持联系","x":"keep up with the pace","i":50},{"c":"F","w":"lay off","p":"短语","m":"解雇；停止","x":"lay off workers","i":51},{"c":"F","w":"lead to","p":"短语","m":"导致，引起","x":"lead to failure","i":52},{"c":"F","w":"let alone","p":"短语","m":"更不用说","x":"let alone afford it","i":53},{"c":"F","w":"live up to","p":"短语","m":"不辜负；符合","x":"live up to expectations","i":54},{"c":"F","w":"look forward to","p":"短语","m":"期待，盼望","x":"look forward to doing","i":55},{"c":"F","w":"make up for","p":"短语","m":"弥补，补偿","x":"make up for the loss","i":56},{"c":"F","w":"make sense","p":"短语","m":"讲得通；有意义","x":"make sense of","i":57},{"c":"F","w":"no sooner ... than","p":"短语","m":"一…就…","x":"No sooner had he left than...","i":58},{"c":"F","w":"on behalf of","p":"短语","m":"代表，为了…的利益","x":"on behalf of the team","i":59},{"c":"F","w":"on the contrary","p":"短语","m":"相反","x":"on the contrary, ...","i":60},{"c":"F","w":"on the verge of","p":"短语","m":"即将，濒于","x":"on the verge of collapse","i":61},{"c":"F","w":"other than","p":"短语","m":"除…之外；不同于","x":"no choice other than","i":62},{"c":"F","w":"out of the question","p":"短语","m":"不可能","x":"It's out of the question.","i":63},{"c":"F","w":"pay off","p":"短语","m":"还清；取得成功","x":"the effort paid off","i":64},{"c":"F","w":"pick up","p":"短语","m":"捡起；学会；接人","x":"pick up a skill","i":65},{"c":"F","w":"point out","p":"短语","m":"指出","x":"point out the mistake","i":66},{"c":"F","w":"put up with","p":"短语","m":"忍受，容忍","x":"put up with noise","i":67},{"c":"F","w":"rather than","p":"短语","m":"而不是","x":"A rather than B","i":68},{"c":"F","w":"refer to","p":"短语","m":"提到；参考；涉及","x":"refer to the data","i":69},{"c":"F","w":"regardless of","p":"短语","m":"不管，不顾","x":"regardless of the cost","i":70},{"c":"F","w":"result from","p":"短语","m":"由…造成","x":"result from carelessness","i":71},{"c":"F","w":"result in","p":"短语","m":"导致，造成","x":"result in failure","i":72},{"c":"F","w":"run out of","p":"短语","m":"用完，耗尽","x":"run out of time","i":73},{"c":"F","w":"set aside","p":"短语","m":"留出；把…放在一边","x":"set aside some money","i":74},{"c":"F","w":"set up","p":"短语","m":"建立；创办","x":"set up a company","i":75},{"c":"F","w":"stand for","p":"短语","m":"代表；主张","x":"stand for freedom","i":76},{"c":"F","w":"stem from","p":"短语","m":"起源于，来自","x":"stem from poverty","i":77},{"c":"F","w":"take advantage of","p":"短语","m":"利用","x":"take advantage of the chance","i":78},{"c":"F","w":"take for granted","p":"短语","m":"认为理所当然","x":"take sth for granted","i":79},{"c":"F","w":"take into account","p":"短语","m":"考虑到","x":"take into account the cost","i":80},{"c":"F","w":"take on","p":"短语","m":"承担；呈现；雇用","x":"take on responsibility","i":81},{"c":"F","w":"tend to","p":"短语","m":"倾向于；易于","x":"tend to do sth","i":82},{"c":"F","w":"turn out","p":"短语","m":"结果是；生产","x":"turn out to be true","i":83},{"c":"F","w":"with regard to","p":"短语","m":"关于，至于","x":"with regard to the plan","i":84},{"c":"F","w":"work out","p":"短语","m":"解决；算出；锻炼","x":"work out a solution","i":85},{"c":"F","w":"yield to","p":"短语","m":"屈服于；让位于","x":"yield to pressure","i":86},{"c":"G","w":"important","p":"替换","m":"crucial / vital / essential / significant / of great importance","x":"crucial to the future","i":0},{"c":"G","w":"many","p":"替换","m":"numerous / a large number of / a multitude of","x":"numerous studies show","i":1},{"c":"G","w":"think","p":"替换","m":"hold the view that / maintain that / be convinced that","x":"I am convinced that","i":2},{"c":"G","w":"show","p":"替换","m":"demonstrate / reveal / illustrate / indicate","x":"research indicates that","i":3},{"c":"G","w":"get","p":"替换","m":"obtain / acquire / attain / gain","x":"acquire a skill","i":4},{"c":"G","w":"help","p":"替换","m":"facilitate / assist / contribute to / promote","x":"contribute to development","i":5},{"c":"G","w":"change","p":"替换","m":"transform / alter / shift / modify","x":"transform the system","i":6},{"c":"G","w":"problem","p":"替换","m":"issue / dilemma / obstacle / challenge","x":"tackle the issue","i":7},{"c":"G","w":"big","p":"替换","m":"enormous / considerable / substantial / immense","x":"considerable influence","i":8},{"c":"G","w":"good","p":"替换","m":"beneficial / favorable / rewarding / desirable","x":"beneficial to health","i":9},{"c":"G","w":"bad","p":"替换","m":"adverse / unfavorable / detrimental / negative","x":"adverse effects","i":10},{"c":"G","w":"very","p":"替换","m":"highly / extremely / remarkably / considerably","x":"highly significant","i":11},{"c":"G","w":"because","p":"替换","m":"owing to / due to / in that / as a result of","x":"owing to the fact that","i":12},{"c":"G","w":"so","p":"替换","m":"consequently / therefore / thus / as a consequence","x":"consequently, ...","i":13},{"c":"G","w":"but","p":"替换","m":"nevertheless / nonetheless / whereas / while","x":"nevertheless, ...","i":14},{"c":"G","w":"also","p":"替换","m":"moreover / in addition / furthermore / what is more","x":"moreover, ...","i":15},{"c":"G","w":"for example","p":"替换","m":"for instance / to illustrate / a case in point","x":"a case in point is","i":16},{"c":"G","w":"in my opinion","p":"替换","m":"from my perspective / as far as I am concerned","x":"as far as I am concerned","i":17},{"c":"G","w":"now","p":"替换","m":"currently / at present / in contemporary society","x":"at present","i":18},{"c":"G","w":"more and more","p":"替换","m":"an increasing number of / increasingly","x":"increasingly popular","i":19},{"c":"G","w":"随着","p":"翻译","m":"with the development of / along with","x":"with the development of society","i":20},{"c":"G","w":"由于","p":"翻译","m":"owing to / due to / on account of","x":"due to various reasons","i":21},{"c":"G","w":"越来越多的","p":"翻译","m":"a growing number of","x":"a growing number of people","i":22},{"c":"G","w":"起着重要作用","p":"翻译","m":"play a vital role in","x":"play a vital role in sth","i":23},{"c":"G","w":"不仅…而且","p":"翻译","m":"not only ... but also ...","x":"not only efficient but also cheap","i":24},{"c":"G","w":"有助于","p":"翻译","m":"contribute to / be conducive to","x":"be conducive to health","i":25},{"c":"G","w":"归功于","p":"翻译","m":"attribute ... to / thanks to","x":"attribute the success to","i":26},{"c":"G","w":"使…能够","p":"翻译","m":"enable sb to / make it possible for sb to","x":"enable us to work","i":27},{"c":"G","w":"为…提供","p":"翻译","m":"provide sb with sth / offer sth to sb","x":"provide students with","i":28},{"c":"G","w":"引起了广泛关注","p":"翻译","m":"has aroused wide concern / has drawn much attention","x":"has drawn wide attention","i":29},{"c":"G","w":"发挥着不可替代的作用","p":"翻译","m":"play an irreplaceable role in","x":"play an irreplaceable role","i":30},{"c":"G","w":"占据了重要地位","p":"翻译","m":"occupy an important position in","x":"occupy a key position","i":31},{"c":"G","w":"是…的重要原因","p":"翻译","m":"is a major cause of / accounts for","x":"accounts for the failure","i":32},{"c":"G","w":"与…密切相关","p":"翻译","m":"be closely related to / be closely associated with","x":"be closely related to","i":33},{"c":"G","w":"从某种意义上说","p":"翻译","m":"in a sense / in some sense","x":"in a sense","i":34},{"c":"G","w":"在很大程度上","p":"翻译","m":"to a large extent / to a great degree","x":"to a large extent","i":35},{"c":"G","w":"值得注意的是","p":"翻译","m":"it is worth noting that / notably","x":"it is worth noting that","i":36},{"c":"G","w":"不可否认","p":"翻译","m":"there is no denying that / undeniably","x":"there is no denying that","i":37},{"c":"G","w":"总的来说","p":"翻译","m":"on the whole / overall / in general","x":"on the whole","i":38},{"c":"G","w":"综上所述","p":"翻译","m":"to sum up / in conclusion / all things considered","x":"in conclusion","i":39}];
+const CATS = [{"code":"A","name":"高频动词","n":259},{"code":"B","name":"高频形容词","n":230},{"code":"C","name":"高频副词与逻辑词","n":73},{"code":"D","name":"高频名词","n":446},{"code":"E","name":"熟词僻义","n":77},{"code":"F","name":"高频短语搭配","n":87},{"code":"G","name":"写作翻译高分表达","n":40}];
+
+/* ============ 状态 ============ */
+const KEY = "cet4-progress-v2";
+const load = () => {
+  try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; }
+};
+let store = Object.assign({ status:{}, srs:{}, quiz:{n:0,right:0}, days:{}, time:{}, theme:"light" }, load());
+if (!store.srs) store.srs = {};
+if (!store.time) store.time = {};
+if (!store.startDate) store.startDate = new Date().toISOString().slice(0,10);
+if (!store.timer) store.timer = { running:false, mode:"up", target:1500, session:0, lastTick:0 };
+if (store.rollover === undefined) store.rollover = true;      // 自动顺延：默认开启
+let storageOK = true;
+const save = () => {
+  if (!storageOK) return;
+  try { localStorage.setItem(KEY, JSON.stringify(store)); }
+  catch (e) { storageOK = false; toast("当前环境不支持本地保存（用 file:// 打开时可能出现），进度只保留在本次会话"); }
+};
+const keyOf = it => it.c + "|" + it.w;
+const st = it => store.status[keyOf(it)] || "new";
+const setSt = (it, v) => {
+  const k = keyOf(it);
+  if (v === "new"){ delete store.status[k]; unschedule(it); }          // 彻底重置
+  else if (v === "again"){ delete store.status[k]; schedule(it, v); }  // 不认识：保留在记忆曲线里，今天重来
+  else { store.status[k] = v; schedule(it, v); }
+  store.days[today()] = Math.max(1, store.days[today()] || 0);
+  save(); renderProgress(); refreshVisible(); updateDueBadge();
+};
+const today = () => new Date().toISOString().slice(0,10);
+const addDays = n => { const d = new Date(); d.setDate(d.getDate() + n); return d.toISOString().slice(0,10); };
+const dayDiff = (a, b) => Math.round((new Date(b + "T00:00:00") - new Date(a + "T00:00:00")) / 864e5);
+
+/* 记忆曲线间隔（天）：1 → 2 → 4 → 7 → 15 → 30 → 60 → 120 */
+const INT = [1, 2, 4, 7, 15, 30, 60, 120];
+const BOX_LABEL = ["刚学（今天再来一次）", "间隔 1 天", "间隔 2 天", "间隔 4 天", "间隔 7 天", "间隔 15 天", "间隔 30 天", "间隔 60 天", "间隔 120 天"];
+
+const srsOf = it => store.srs[keyOf(it)] || null;
+const isDue = it => { const r = srsOf(it); return !!r && r.d <= today(); };
+const dueItems = () => DATA.filter(isDue);
+const trackedCount = () => DATA.filter(it => !!srsOf(it)).length;
+const reviewedToday = () => DATA.filter(it => { const r = srsOf(it); return r && r.t === today(); }).length;
+
+/* 按记忆曲线安排下一次复习 */
+function schedule(it, v){
+  const k = keyOf(it);
+  const cur = store.srs[k] || { b: 0, n: 0 };
+  let b, gap;
+  if (v === "known"){ b = Math.min((cur.b || 0) + 1, INT.length); gap = INT[b - 1]; }
+  else if (v === "fuzzy"){ b = Math.max(1, (cur.b || 1) - 1); gap = Math.max(1, Math.round(INT[b - 1] / 2)); }
+  else { b = 1; gap = 0; }                     // 不认识 → 今天再来一次
+  store.srs[k] = { b: b, n: (cur.n || 0) + 1, d: addDays(gap), t: today(), last: v };
+}
+function unschedule(it){ delete store.srs[keyOf(it)]; }
+
+function dueText(it){
+  const r = srsOf(it);
+  if (!r) return "—";
+  const d = dayDiff(today(), r.d);
+  if (d <= 0) return "今天";
+  if (d === 1) return "明天";
+  return d + " 天后";
+}
+
+/* ============ 工具 ============ */
+const $ = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let toastTimer;
+function toast(msg){
+  const t = document.getElementById("toast"); if (!t) return;
+  t.textContent = msg; t.dataset.show = "1";
+  clearTimeout(toastTimer); toastTimer = setTimeout(()=>{ t.dataset.show = "0"; }, 1600);
+}
+function confirmAction(btn, armedLabel, fn){
+  if (btn.dataset.armed === "1"){
+    delete btn.dataset.armed;
+    btn.textContent = btn.dataset.label || btn.textContent;
+    btn.classList.remove("primary");
+    fn();
+    return;
+  }
+  btn.dataset.label = btn.dataset.label || btn.textContent;
+  btn.dataset.armed = "1";
+  btn.textContent = armedLabel;
+  btn.classList.add("primary");
+  clearTimeout(btn._t);
+  btn._t = setTimeout(() => {
+    if (btn.dataset.armed === "1"){ delete btn.dataset.armed; btn.textContent = btn.dataset.label; btn.classList.remove("primary"); }
+  }, 4000);
+}
+const byCat = c => c === "all" ? DATA : DATA.filter(it => it.c === c);
+const catName = c => (CATS.find(x => x.code === c) || {}).name || "全部";
+
+/* ============ 视图切换 ============ */
+let view = "list";
+function switchView(v){
+  view = v;
+  $$(".tab").forEach(t => t.setAttribute("aria-selected", String(t.dataset.view === v)));
+  $$(".view").forEach(s => s.hidden = (s.id !== "view-" + v));
+  if (v === "list") renderList(true);
+  if (v === "card") resetCards();
+  if (v === "due") renderDue();
+  if (v === "plan") renderPlan();
+  if (v === "stats") renderStats();
+  window.scrollTo({top:0, behavior:"instant"});
+}
+$$(".tab").forEach(t => t.addEventListener("click", () => switchView(t.dataset.view)));
+
+/* ============ 进度条 ============ */
+function renderProgress(){
+  const known = DATA.filter(it => st(it) === "known").length;
+  const total = DATA.length;
+  const exact = known / total * 100;
+  $("#hdPct").textContent = known ? "已掌握 " + known + " · " + (exact < 1 ? "<1" : Math.round(exact)) + "%" : "0 / " + total;
+  $("#hdBar").style.width = (known ? Math.max(exact, 0.6) : 0) + "%";
+  $("#n-list").textContent = DATA.length;
+}
+
+/* ============ 词表 ============ */
+let filterCat = "all", pageSize = 60, shown = 60;
+function chipHTML(){
+  const counts = {}; DATA.forEach(it => counts[it.c] = (counts[it.c]||0)+1);
+  let h = '<button class="chip" data-cat="all" aria-pressed="' + (filterCat==="all") + '">全部<u>' + DATA.length + '</u></button>';
+  CATS.forEach(c => {
+    h += '<button class="chip" data-cat="' + c.code + '" aria-pressed="' + (filterCat===c.code) + '">' + esc(c.name) + '<u>' + (counts[c.code]||0) + '</u></button>';
+  });
+  $("#catChips").innerHTML = h;
+  $$("#catChips .chip").forEach(b => b.addEventListener("click", () => { filterCat = b.dataset.cat; chipHTML(); shown = pageSize; renderList(true); }));
+}
+function filtered(){
+  const q = $("#q").value.trim().toLowerCase();
+  const sf = $("#statusSel").value;
+  return DATA.filter(it => {
+    if (filterCat !== "all" && it.c !== filterCat) return false;
+    if (sf !== "all" && st(it) !== sf) return false;
+    if (!q) return true;
+    return (it.w + " " + it.m + " " + it.x + " " + it.p).toLowerCase().includes(q);
+  });
+}
+function itemHTML(it, idx){
+  const s = st(it);
+  const icon = { again:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>',
+                 known:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>',
+                 fuzzy:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 8v5"/><circle cx="12" cy="17" r="1" fill="currentColor" stroke="none"/></svg>',
+                 new:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>' };
+  return '<div class="item" data-status="' + s + '" data-i="' + idx + '">' +
+    '<div class="w-word"><b>' + esc(it.w) + '</b><span class="pos">' + esc(it.p) + '</span></div>' +
+    '<div class="w-mean">' + esc(it.m) + '</div>' +
+    '<div class="w-coll">' + esc(it.x) + '</div>' +
+    '<div class="w-due" data-today="' + (isDue(it) ? '1' : '0') + '">' + dueText(it) + '</div>' +
+    '<div class="acts">' +
+      ['known','fuzzy','again'].map(v => {
+        const on = (v === "again") ? (s === "new") : (s === v);
+        return '<button class="act" data-v="' + v + '" data-on="' + (on?'1':'0') + '" title="' + ({known:'已掌握（间隔变长）',fuzzy:'模糊（间隔变短）',again:'不认识（今天重来）'})[v] + '">' + icon[v] + '</button>';
+      }).join('') +
+    '</div></div>';
+}
+let listCache = [];
+function renderList(reset){
+  const arr = filtered();
+  listCache = arr;
+  if (reset) shown = pageSize;
+  $("#listCount").textContent = "共 " + arr.length + " 条" + (filterCat !== "all" ? "（" + catName(filterCat) + "）" : "") + (shown < arr.length ? "，已显示前 " + shown + " 条" : "");
+  const slice = arr.slice(0, shown);
+  $("#listBody").innerHTML = slice.length ? slice.map((it,i) => itemHTML(it,i)).join("") : '<div class="empty">没有匹配的条目，换个关键词或重置筛选试试。</div>';
+  $("#moreBtn").hidden = shown >= arr.length;
+  $$("#listBody .act").forEach(b => b.addEventListener("click", () => {
+    const i = +b.closest(".item").dataset.i;
+    const it = slice[i];
+    const v = b.dataset.v;
+    const same = (v === "again") ? (st(it) === "new") : (st(it) === v);
+    setSt(it, same ? "new" : v);
+    const r = srsOf(it);
+    toast(v === "known" && !same ? "已掌握：" + it.w + "　下次 " + dueText(it)
+        : v === "fuzzy" && !same ? "模糊：" + it.w + "　下次 " + dueText(it)
+        : v === "again" && !same ? "不认识：" + it.w + "　今天再练一次"
+        : "已重置：" + it.w);
+  }));
+}
+function refreshVisible(){ if (view === "list") renderList(false); else if (view === "card") renderCard(); else if (view === "stats") renderStats(); else if (view === "plan") renderPlan(); else if (view === "due") renderDue(); }
+$("#q").addEventListener("input", () => { shown = pageSize; renderList(true); });
+$("#statusSel").addEventListener("change", () => { shown = pageSize; renderList(true); });
+$("#clearFilter").addEventListener("click", () => { $("#q").value = ""; $("#statusSel").value = "all"; filterCat = "all"; chipHTML(); shown = pageSize; renderList(true); });
+$("#moreBtn").addEventListener("click", () => { shown += pageSize; renderList(false); });
+$$("[data-bulk]").forEach(b => b.addEventListener("click", () => {
+  const arr = listCache;
+  if (!arr.length) { toast("当前没有匹配的条目"); return; }
+  const verb = b.dataset.bulk === "new" ? "重置为未学" : "标为已掌握";
+  if (b.dataset.armed !== "1"){ confirmAction(b, "确认把 " + arr.length + " 条" + verb + "？", () => {}); return; }
+  arr.forEach(it => { if (b.dataset.bulk === "new") delete store.status[keyOf(it)]; else store.status[keyOf(it)] = b.dataset.bulk; });
+  save(); renderList(false); renderProgress();
+  toast("已更新 " + arr.length + " 条");
+}));
+
+/* ============ 卡片 ============ */
+let pool = [], pIdx = 0;
+function fillSelects(){
+  const opts = CATS.map(c => '<option value="' + c.code + '">' + esc(c.name) + '</option>').join("");
+  $("#cardCat").innerHTML = '<option value="all">全部板块</option>' + opts;
+  $("#quizCat").innerHTML = '<option value="all">全部板块</option>' + opts;
+}
+function buildPool(){
+  const c = $("#cardCat").value, mode = $("#cardPool").value;
+  pool = DATA.filter(it => {
+    if (c !== "all" && it.c !== c) return false;
+    if (mode === "all") return true;
+    if (mode === "todo") return st(it) !== "known";
+    if (mode === "due") return isDue(it);
+    if (mode === "day") return !!dayScope && dayScope.indexOf(it) >= 0;
+    if (mode === "today") return !!todayScope && todayScope.indexOf(it) >= 0;
+    return st(it) === mode;
+  });
+  if (mode === "day" || mode === "today") pool.sort((a, b) => {
+    const ka = (st(a) === "known" ? 2 : 0) + (isDue(a) ? 1 : 0);
+    const kb = (st(b) === "known" ? 2 : 0) + (isDue(b) ? 1 : 0);
+    return ka - kb;                     // 未学 → 到期复习 → 已掌握
+  });
+  if (mode === "today" && rolloverOn()){
+    const blset = new Set(backlogOf(PLAN[planIdx]).map(keyOf));
+    pool.sort((a, b) => {
+      const ra = (st(a) === "known" ? 2 : 0) + (isDue(a) ? 1 : 0) - (blset.has(keyOf(a)) ? 0.5 : 0);
+      const rb = (st(b) === "known" ? 2 : 0) + (isDue(b) ? 1 : 0) - (blset.has(keyOf(b)) ? 0.5 : 0);
+      return ra - rb;                   // 顺延的落后词优先补
+    });
+  }
+  // 到期池按「逾期最久 + 记忆阶段最低」优先
+  if (mode === "due") pool.sort((a, b) => (srsOf(a).d < srsOf(b).d ? -1 : srsOf(a).d > srsOf(b).d ? 1 : (srsOf(a).b - srsOf(b).b)));
+  pIdx = 0;
+  if (mode === "due" && !pool.length) toast("今天没有到期的词，去「记忆曲线」看看未来安排");
+}
+function resetCards(){ buildPool(); renderCard(); }
+function renderCard(){
+  const dir = $("#cardDir").value;
+  $("#fcIdx").textContent = pool.length ? (Math.min(pIdx + 1, pool.length)) + " / " + pool.length : "0 / 0";
+  $("#fcBar").style.width = pool.length ? (pIdx / pool.length * 100) + "%" : "0%";
+  $("#fcLeft").textContent = pool.length ? "剩余 " + Math.max(0, pool.length - pIdx) + " 张" : "";
+  const fc = $("#fc");
+  fc.dataset.side = "front";
+  if (!pool.length){ $("#fcWord").textContent = "没有符合范围的卡片"; $("#fcPos").textContent = ""; $("#fcMean").textContent = ""; $("#fcColl").textContent = ""; $("#fcCat").textContent = ""; $("#fcActions").innerHTML = ""; return; }
+  if (pIdx >= pool.length){ pIdx = 0; toast("已过一轮，重新开始"); }
+  const it = pool[pIdx];
+  $("#fcWord").textContent = dir === "en2zh" ? it.w : it.m;
+  $("#fcPos").textContent = dir === "en2zh" ? it.p : "";
+  $("#fcCat").textContent = catName(it.c);
+  $("#fcMean").textContent = dir === "en2zh" ? it.m : it.w + "  " + it.p;
+  $("#fcColl").textContent = it.x;
+  const rr = srsOf(it);
+  $("#fcSrs").textContent = rr ? "记忆阶段 " + rr.b + "／8 · 复习 " + rr.n + " 次 · 下次 " + dueText(it) : "尚未进入记忆曲线";
+  $("#fcActions").innerHTML = ["again","fuzzy","known"].map(v =>
+    '<button class="btn" data-v="' + v + '">' + ({again:"不认识",fuzzy:"模糊",known:"已掌握"})[v] + '</button>').join("");
+  $$("#fcActions .btn").forEach(b => b.addEventListener("click", e => { e.stopPropagation(); markCard(b.dataset.v); }));
+}
+function flip(){ const fc = $("#fc"); fc.dataset.side = fc.dataset.side === "front" ? "back" : "front"; }
+function markCard(v){
+  if (!pool.length) return;
+  const it = pool[pIdx];
+  setSt(it, v);
+  pIdx++;
+  renderCard();
+  if (v === "known") toast("已掌握：" + it.w);
+}
+$("#fc").addEventListener("click", flip);
+$("#fc").addEventListener("keydown", e => { if (e.key === " " || e.key === "Enter"){ e.preventDefault(); flip(); } });
+document.addEventListener("keydown", e => {
+  if (view !== "card") return;
+  if (e.target.matches("input,select,textarea")) return;
+  if (e.key === " "){ e.preventDefault(); flip(); }
+  if (e.key === "1") markCard("again");
+  if (e.key === "2") markCard("fuzzy");
+  if (e.key === "3") markCard("known");
+});
+["#cardCat","#cardPool","#cardDir"].forEach(s => $(s).addEventListener("change", () => {
+  if (["day","today"].indexOf($("#cardPool").value) < 0){ if (dayScope) clearDaySilent(); todayScope = null; }
+  resetCards();
+}));
+$("#dueStart").addEventListener("click", () => {
+  $("#cardCat").value = "all";
+  $("#cardPool").value = "due";
+  $("#cardDir").value = "en2zh";
+  buildPool(); renderCard();
+  switchView("card");
+  toast("开始复习今天的 " + pool.length + " 张卡片");
+});
+$("#cardShuffle").addEventListener("click", () => { for (let i = pool.length - 1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [pool[i],pool[j]] = [pool[j],pool[i]]; } pIdx = 0; renderCard(); toast("已打乱"); });
+
+/* ============ 自测 ============ */
+let quiz = null;
+$("#quizStart").addEventListener("click", startQuiz);
+function startQuiz(){
+  const c = $("#quizCat").value, type = $("#quizType").value, len = +$("#quizLen").value;
+  const base = byCat(c).filter(it => it.m && it.w);
+  if (base.length < 8){ toast("该范围词条太少"); return; }
+  const qs = [];
+  const used = new Set();
+  const n = Math.min(len, base.length);
+  while (qs.length < n){
+    const it = base[Math.floor(Math.random()*base.length)];
+    if (used.has(it.w + it.m)) continue;
+    used.add(it.w + it.m);
+    const same = base.filter(x => x.c === it.c && x.w !== it.w);
+    const others = (same.length >= 3 ? same : base.filter(x => x.w !== it.w));
+    const picks = [];
+    while (picks.length < 3){
+      const o = others[Math.floor(Math.random()*others.length)];
+      if (!o || o.m === it.m || picks.some(p => p.m === o.m)) continue;
+      picks.push(o);
+    }
+    qs.push({ it, opts: [it, ...picks].sort(() => Math.random() - .5) });
+  }
+  quiz = { qs, i:0, right:0, wrong:0, answered:false, type };
+  $("#quizSetup").hidden = true; $("#quizDone").hidden = true; $("#quizRun").hidden = false;
+  renderQ();
+}
+function renderQ(){
+  const { qs, i, type, right } = quiz;
+  const q = qs[i];
+  $("#qIdx").textContent = (i+1) + " / " + qs.length;
+  $("#qBar").style.width = (i / qs.length * 100) + "%";
+  $("#qScore").textContent = "正确 " + right;
+  $("#qStem").textContent = type === "en2zh" ? q.it.w : q.it.m;
+  $("#qSub").textContent = type === "en2zh" ? q.it.p + "　选出正确的中文释义" : "选出对应的英文单词";
+  $("#qOpts").innerHTML = q.opts.map((o,k) =>
+    '<button class="opt" data-k="' + k + '"><i>' + "ABCD"[k] + '</i><span>' + esc(type === "en2zh" ? o.m : o.w + "  " + o.p) + '</span></button>').join("");
+  $$("#qOpts .opt").forEach(b => b.addEventListener("click", () => answer(+b.dataset.k)));
+  $("#qNext").hidden = true;
+  quiz.answered = false;
+  $("#qNext").textContent = (i === qs.length - 1) ? "看结果" : "下一题";
+}
+function answer(k){
+  if (quiz.answered) return;
+  quiz.answered = true;
+  const q = quiz.qs[quiz.i];
+  const rightIdx = q.opts.indexOf(q.it);
+  const ok = k === rightIdx;
+  $$("#qOpts .opt").forEach((b, idx) => {
+    if (idx === rightIdx) b.dataset.state = "right";
+    else if (idx === k) b.dataset.state = "wrong";
+    else b.dataset.state = "dim";
+  });
+  if (ok){ quiz.right++; store.quiz.right++; } else { quiz.wrong++; setSt(q.it, "new"); }
+  store.quiz.n++; save();
+  $("#qScore").textContent = "正确 " + quiz.right;
+  $("#qNext").hidden = false;
+  $("#qNext").focus();
+}
+$("#qNext").addEventListener("click", () => {
+  quiz.i++;
+  if (quiz.i >= quiz.qs.length) finishQuiz(); else renderQ();
+});
+$("#quizQuit").addEventListener("click", finishQuiz);
+function finishQuiz(){
+  const { qs, right, wrong } = quiz;
+  const done = quiz.i + (quiz.answered ? 1 : 0);
+  $("#quizRun").hidden = true; $("#quizDone").hidden = false;
+  const total = Math.max(quiz.right + quiz.wrong, 1);
+  $("#resScore").textContent = Math.round(quiz.right / total * 100) + "%";
+  $("#resRight").textContent = quiz.right;
+  $("#resWrong").textContent = quiz.wrong;
+  $("#quizSummary").textContent = "本次共 " + total + " 题，答对 " + quiz.right + " 题。答错的题已自动标记为「不认识」，可以回卡片模式重点过一遍。";
+  renderProgress();
+}
+$("#quizAgain").addEventListener("click", () => { $("#quizDone").hidden = true; $("#quizSetup").hidden = false; startQuiz(); });
+$("#quizBack").addEventListener("click", () => { $("#quizDone").hidden = true; $("#quizSetup").hidden = false; });
+
+/* ============ 专注计时器（正计时 / 倒计时） ============ */
+function fmtDur(sec){
+  sec = Math.max(0, Math.floor(sec || 0));
+  const h = Math.floor(sec / 3600), m = Math.floor(sec % 3600 / 60), s2 = sec % 60;
+  return h ? h + ":" + String(m).padStart(2, "0") + ":" + String(s2).padStart(2, "0")
+           : String(m).padStart(2, "0") + ":" + String(s2).padStart(2, "0");
+}
+const todaySec = () => store.time[today()] || 0;
+const timerSession = () => {
+  const t = store.timer;
+  return t.session + (t.running ? (Date.now() - t.lastTick) / 1000 : 0);
+};
+function renderTimer(){
+  const t = store.timer, ses = timerSession(), isDown = t.mode === "down";
+  const shown = isDown ? Math.max(0, t.target - ses) : ses;
+  $("#timerDisplay").textContent = fmtDur(shown);
+  $("#pillTime").textContent = fmtDur(shown);
+  $("#timerDisplay").dataset.mode = t.mode;
+  $("#timerSub").textContent = (isDown ? "倒计时 " + Math.round(t.target / 60) + " 分钟 · " : "正计时 · ") +
+    "今天已学习 " + fmtDur(todaySec());
+  $("#timerStart").textContent = t.running ? "暂停" : (ses > 0 ? "继续" : "开始");
+  $("#pillLabel").textContent = t.running ? "计时中" : (ses > 0 ? "已暂停" : "开始计时");
+  $("#timerToggle").dataset.running = t.running ? "1" : "0";
+  $$("#timerModes .chip").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.mode === t.mode)));
+  $("#timerPresets").hidden = !isDown;
+  $$("#timerPresets .chip").forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.min * 60 === t.target)));
+  const pt = $("#ptTime"); if (pt) pt.textContent = fmtDur(todaySec());
+}
+function timerStart(){
+  const t = store.timer;
+  if (t.running){                                   // 暂停
+    t.session += (Date.now() - t.lastTick) / 1000;
+    t.running = false; t.lastTick = 0;
+  } else {                                          // 开始 / 继续
+    t.running = true; t.lastTick = Date.now();
+  }
+  save(); renderTimer();
+}
+function timerReset(){
+  const t = store.timer;
+  t.running = false; t.session = 0; t.lastTick = 0;
+  save(); renderTimer();
+  toast("计时器已清零（已记录的时长保留）");
+}
+function ding(){
+  try {
+    const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return;
+    const ctx = new AC();
+    [0, .18, .36].forEach((d, i) => {
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = "sine"; o.frequency.value = i === 2 ? 1046 : 784;
+      o.connect(g); g.connect(ctx.destination);
+      const t0 = ctx.currentTime + d;
+      g.gain.setValueAtTime(.0001, t0);
+      g.gain.exponentialRampToValueAtTime(.22, t0 + .02);
+      g.gain.exponentialRampToValueAtTime(.0001, t0 + .17);
+      o.start(t0); o.stop(t0 + .19);
+    });
+  } catch (e) {}
+}
+/* 用时间戳累加，避免后台标签页被节流导致少算 */
+let lastSaveAt = 0;
+function tick(){
+  const t = store.timer;
+  if (!t.running) return;
+  const now = Date.now();
+  const dt = Math.max(0, (now - t.lastTick) / 1000);
+  t.lastTick = now;
+  t.session += dt;
+  store.time[today()] = (store.time[today()] || 0) + dt;
+  if (t.mode === "down" && t.session >= t.target){
+    t.session = t.target; t.running = false; t.lastTick = 0;
+    save(); renderTimer(); renderStats(); ding();
+    toast("倒计时结束 · 已记录 " + Math.round(t.target / 60) + " 分钟");
+    return;
+  }
+  if (now - lastSaveAt > 5000){ lastSaveAt = now; save(); }
+  renderTimer();
+}
+setInterval(tick, 1000);
+document.addEventListener("visibilitychange", () => { if (document.hidden) save(); else tick(); });
+
+$("#timerToggle").addEventListener("click", () => {
+  const p = $("#timerPanel"), open = p.hidden;
+  p.hidden = !open;
+  $("#timerToggle").setAttribute("aria-expanded", String(open));
+  renderTimer();
+});
+$$("#timerModes .chip").forEach(b => b.addEventListener("click", () => {
+  store.timer.mode = b.dataset.mode; save(); renderTimer();
+}));
+$$("#timerPresets .chip").forEach(b => b.addEventListener("click", () => {
+  const t = store.timer;
+  t.mode = "down"; t.target = +b.dataset.min * 60; t.session = 0; t.running = false; t.lastTick = 0;
+  save(); renderTimer(); toast("已设定 " + b.dataset.min + " 分钟倒计时，点开始计时");
+}));
+$("#timerStart").addEventListener("click", timerStart);
+$("#timerReset").addEventListener("click", timerReset);
+
+/* ============ 记忆曲线 ============ */
+function updateDueBadge(){
+  const n = dueItems().length;
+  const el = $("#n-due");
+  if (el) el.textContent = n ? "待复习 " + n : "";
+}
+function renderDue(){
+  const due = dueItems();
+  const over = due.filter(it => srsOf(it).d < today()).length;
+  $("#dToday").textContent = due.length;
+  $("#dDone").textContent = reviewedToday();
+  $("#dOver").textContent = over;
+  $("#dTrack").textContent = trackedCount();
+  $("#dueStart").disabled = !due.length;
+  $("#dueLead").textContent = due.length
+    ? "今天有 " + due.length + " 条到期" + (over ? "，其中 " + over + " 条已逾期" : "") + "。先清到期，再学新词。"
+    : (trackedCount() ? "今天没有到期的词。明天再来。" : "还没有词进入记忆曲线：去「卡片」标记几条，系统就会自动排程。");
+
+  // 未来 14 天负载
+  const rows = [];
+  const overdue = due.filter(it => srsOf(it).d < today()).length;
+  if (overdue) rows.push({ label:"逾期", n: overdue, max: Math.max(1, overdue) });
+  const maxN = Math.max(1, ...Array.from({length:14}, (_,i) => DATA.filter(it => { const r = srsOf(it); return r && r.d === addDays(i); }).length));
+  for (let i = 0; i < 14; i++){
+    const d = addDays(i);
+    const n = DATA.filter(it => { const r = srsOf(it); return r && r.d === d; }).length;
+    const label = i === 0 ? "今天" : i === 1 ? "明天" : (d.slice(5).replace("-", "/"));
+    rows.push({ label: label, n: n, max: maxN });
+  }
+  $("#loadList").innerHTML = rows.map(r =>
+    '<div class="load-row"><span>' + r.label + '</span>' +
+    '<div class="bar"><i style="width:' + Math.round(r.n / r.max * 100) + '%"></i></div>' +
+    '<em>' + r.n + ' 条</em></div>').join("");
+
+  // 记忆阶段分布
+  const boxes = Array.from({length: INT.length + 1}, () => 0); // 0=未进入, 1..8
+  let untracked = 0;
+  DATA.forEach(it => { const r = srsOf(it); if (r) boxes[r.b] = (boxes[r.b] || 0) + 1; else untracked++; });
+  const maxB = Math.max(1, ...boxes, untracked);
+  const list = [];
+  list.push({ label: "未进入曲线", n: untracked, max: maxB, hint: "学过后自动加入" });
+  for (let b = 1; b <= INT.length; b++) list.push({ label: "阶段 " + b, n: boxes[b] || 0, max: maxB, hint: BOX_LABEL[b] });
+  $("#boxList").innerHTML = list.map(r =>
+    '<div class="box-row"><span>' + r.label + ' <u style="text-decoration:none;color:var(--muted);font-size:11.5px">' + r.hint + '</u></span>' +
+    '<div class="bar"><i style="width:' + Math.round(r.n / r.max * 100) + '%"></i></div>' +
+    '<em>' + r.n + ' 条</em></div>').join("");
+
+  drawCurve();
+}
+function drawCurve(){
+  const W = 640, H = 220, padL = 34, padR = 16, padT = 16, padB = 30;
+  const spanX = W - padL - padR, spanY = H - padT - padB;
+  const xOf = t => padL + Math.log(1 + t) / Math.log(121) * spanX;
+  const yOf = r => padT + (1 - r) * spanY;               // r=1 → 顶部
+  const reviews = [1, 3, 7, 14, 29, 59, 119];
+  const ptA = [], ptB = [];
+  for (let t = 0; t <= 120; t += 1){
+    ptA.push([xOf(t), yOf(Math.exp(-t / 3))]);
+    let last = 0;
+    for (const r of reviews) { if (r <= t) last = r; }
+    ptB.push([xOf(t), yOf(Math.exp(-(t - last) / 6))]);
+  }
+  const path = pts => pts.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" ");
+  const ticks = [0, 7, 30, 60, 120].map(t =>
+    '<text x="' + xOf(t).toFixed(1) + '" y="' + (H - 10) + '" font-size="11" fill="var(--muted)" text-anchor="middle">' + t + ' 天</text>').join("");
+  const nodes = reviews.map(r =>
+    '<circle cx="' + xOf(r).toFixed(1) + '" cy="' + yOf(Math.exp(-(r - (reviews.filter(x => x < r).pop() || 0)) / 6)).toFixed(1) + '" r="4" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>').join("");
+  $("#curveSvg").innerHTML =
+    '<line x1="' + padL + '" y1="' + (padT + spanY) + '" x2="' + (W - padR) + '" y2="' + (padT + spanY) + '" stroke="var(--line)"/>' +
+    '<text x="6" y="' + (padT + 4) + '" font-size="11" fill="var(--muted)">100%</text>' +
+    '<text x="6" y="' + (padT + spanY + 4) + '" font-size="11" fill="var(--muted)">0%</text>' +
+    '<path d="' + path(ptA) + '" fill="none" stroke="var(--line-strong)" stroke-width="2" stroke-dasharray="5 4"/>' +
+    '<path d="' + path(ptB) + '" fill="none" stroke="var(--accent)" stroke-width="2.4"/>' +
+    nodes + ticks;
+}
+
+/* ============ 计划 ============ */
+const PLAN = [[{"day":1,"label":"熟词僻义（短时间提分最快）","slices":[{"c":"E","f":0,"t":38,"n":39}],"n":39},{"day":2,"label":"熟词僻义（短时间提分最快）","slices":[{"c":"E","f":39,"t":76,"n":38}],"n":38},{"day":3,"label":"高频短语搭配","slices":[{"c":"F","f":0,"t":86,"n":87}],"n":87},{"day":4,"label":"写作翻译替换表达","slices":[{"c":"G","f":0,"t":39,"n":40}],"n":40},{"day":5,"label":"高频动词","slices":[{"c":"A","f":0,"t":86,"n":87}],"n":87},{"day":6,"label":"高频动词","slices":[{"c":"A","f":87,"t":172,"n":86}],"n":86},{"day":7,"label":"高频动词","slices":[{"c":"A","f":173,"t":258,"n":86}],"n":86}],[{"day":1,"label":"高频动词","slices":[{"c":"A","f":0,"t":25,"n":26}],"n":26},{"day":2,"label":"高频动词","slices":[{"c":"A","f":26,"t":51,"n":26}],"n":26},{"day":3,"label":"高频动词","slices":[{"c":"A","f":52,"t":77,"n":26}],"n":26},{"day":4,"label":"高频动词","slices":[{"c":"A","f":78,"t":103,"n":26}],"n":26},{"day":5,"label":"高频动词","slices":[{"c":"A","f":104,"t":129,"n":26}],"n":26},{"day":6,"label":"高频动词","slices":[{"c":"A","f":130,"t":155,"n":26}],"n":26},{"day":7,"label":"高频动词","slices":[{"c":"A","f":156,"t":181,"n":26}],"n":26},{"day":8,"label":"高频动词","slices":[{"c":"A","f":182,"t":207,"n":26}],"n":26},{"day":9,"label":"高频动词","slices":[{"c":"A","f":208,"t":233,"n":26}],"n":26},{"day":10,"label":"高频动词","slices":[{"c":"A","f":234,"t":258,"n":25}],"n":25},{"day":11,"label":"高频名词","slices":[{"c":"D","f":0,"t":55,"n":56}],"n":56},{"day":12,"label":"高频名词","slices":[{"c":"D","f":56,"t":111,"n":56}],"n":56},{"day":13,"label":"高频名词","slices":[{"c":"D","f":112,"t":167,"n":56}],"n":56},{"day":14,"label":"高频名词","slices":[{"c":"D","f":168,"t":223,"n":56}],"n":56},{"day":15,"label":"高频名词","slices":[{"c":"D","f":224,"t":279,"n":56}],"n":56},{"day":16,"label":"高频名词","slices":[{"c":"D","f":280,"t":335,"n":56}],"n":56},{"day":17,"label":"高频名词","slices":[{"c":"D","f":336,"t":390,"n":55}],"n":55},{"day":18,"label":"高频名词","slices":[{"c":"D","f":391,"t":445,"n":55}],"n":55},{"day":19,"label":"高频形容词","slices":[{"c":"B","f":0,"t":38,"n":39}],"n":39},{"day":20,"label":"高频形容词","slices":[{"c":"B","f":39,"t":77,"n":39}],"n":39},{"day":21,"label":"高频形容词","slices":[{"c":"B","f":78,"t":115,"n":38}],"n":38},{"day":22,"label":"高频形容词","slices":[{"c":"B","f":116,"t":153,"n":38}],"n":38},{"day":23,"label":"高频形容词","slices":[{"c":"B","f":154,"t":191,"n":38}],"n":38},{"day":24,"label":"高频形容词","slices":[{"c":"B","f":192,"t":229,"n":38}],"n":38},{"day":25,"label":"副词与逻辑词","slices":[{"c":"C","f":0,"t":36,"n":37}],"n":37},{"day":26,"label":"副词与逻辑词","slices":[{"c":"C","f":37,"t":72,"n":36}],"n":36},{"day":27,"label":"熟词僻义","slices":[{"c":"E","f":0,"t":38,"n":39}],"n":39},{"day":28,"label":"熟词僻义","slices":[{"c":"E","f":39,"t":76,"n":38}],"n":38},{"day":29,"label":"高频短语搭配","slices":[{"c":"F","f":0,"t":86,"n":87}],"n":87},{"day":30,"label":"写作替换 + 全表复盘","slices":[{"c":"G","f":0,"t":39,"n":40}],"n":40}]];
+let planIdx = 0;                 // 0 = 7 天冲刺（默认），1 = 30 天标准
+let dayScope = null, dayLabel = "";
+const PLAN_NAMES = ["7 天冲刺", "30 天标准"];
+const PLAN_NOTE = ["只背最值钱的 463 条：熟词僻义 + 短语 + 写作替换 + 高频动词", "全表 1212 条，6 周内过一遍"];
+
+function planItems(d){
+  const out = [];
+  d.slices.forEach(sl => {
+    DATA.forEach(it => { if (it.c === sl.c && it.i >= sl.f && it.i <= sl.t) out.push(it); });
+  });
+  return out;
+}
+function planProgress(list){
+  let total = 0, known = 0;
+  list.forEach(d => { const items = planItems(d); total += items.length; known += items.filter(it => st(it) === "known").length; });
+  return { total, known, pct: total ? Math.round(known / total * 100) : 0 };
+}
+const planStart = () => store.startDate || today();
+const dayNumber = () => dayDiff(planStart(), today()) + 1;      // 1 基；今天开始 = 第 1 天
+function currentDay(list){
+  const n = dayNumber();
+  return (n >= 1 && n <= list.length) ? list[n - 1] : null;
+}
+let todayScope = null;                                          // 今日任务（新学 + 复习）快照
+const rolloverOn = () => store.rollover !== false;
+
+/* 落后顺延：把「今天之前、还没掌握」的词全部收集起来 */
+function backlogOf(list){
+  const n = dayNumber();
+  if (n <= 1) return [];
+  const out = [], seen = new Set();
+  const upTo = Math.min(n - 1, list.length);
+  for (let i = 0; i < upTo; i++){
+    planItems(list[i]).forEach(it => { const k = keyOf(it); if (st(it) !== "known" && !seen.has(k)){ seen.add(k); out.push(it); } });
+  }
+  return out;
+}
+/* 原计划里「今天这一天」的词（不含顺延） */
+function todayBaseItems(){
+  const list = PLAN[planIdx];
+  const n = dayNumber();
+  if (n < 1) return [];
+  if (n <= list.length) return planItems(list[n - 1]);
+  return [];                                   // 已超过计划天数：只剩顺延
+}
+/* 今日实际要新学的词（含顺延） */
+function todayPlanItems(){
+  const list = PLAN[planIdx];
+  const base = todayBaseItems();
+  if (!rolloverOn()) return base;
+  const out = base.slice(), seen = new Set(base.map(keyOf));
+  backlogOf(list).forEach(it => { if (!seen.has(keyOf(it))){ seen.add(keyOf(it)); out.push(it); } });
+  return out;
+}
+/* 按当前进度重算完成日期 */
+function estimatedFinish(list, gp){
+  const n = dayNumber();
+  const remaining = list.reduce((a, d) => a + planItems(d).filter(it => st(it) !== "known").length, 0);
+  if (!remaining) return today();
+  const perDay = Math.max(1, Math.round(gp.total / list.length));
+  const need = Math.max(1, Math.ceil(remaining / perDay));
+  const from = n < 1 ? planStart() : today();
+  return addDaysTo(from, need - 1);
+}
+function todayTaskItems(){
+  const set = new Set(todayPlanItems());
+  dueItems().forEach(it => set.add(it));
+  return Array.from(set);
+}
+function renderPlan(){
+  const list = PLAN[planIdx];
+  const gp = planProgress(list);
+  const n = dayNumber();
+  const dn = Math.max(1, Math.min(n, list.length));
+  const bl = rolloverOn() ? backlogOf(list) : [];      // 提前算，日卡片渲染要用
+  const cats = new Set(); list.forEach(d => d.slices.forEach(sl => cats.add(sl.c)));
+
+  $("#planSwitch").innerHTML = PLAN.map((_, i) =>
+    '<button class="chip" data-plan="' + i + '" aria-pressed="' + (planIdx === i) + '">' + PLAN_NAMES[i] + '<u>' +
+    (i === 0 ? "7 天 · 463 条" : "30 天 · 1212 条") + '</u></button>').join("");
+  $$("#planSwitch .chip").forEach(b => b.addEventListener("click", () => { planIdx = +b.dataset.plan; renderPlan(); }));
+
+  $("#planSummary").textContent = "共 " + gp.total + " 条 · " + cats.size + " 个板块 · 已掌握 " + gp.pct + "%";
+  $("#planGrid").innerHTML = list.map((d, i) => {
+    const items = planItems(d);
+    const done = items.filter(it => st(it) === "known").length;
+    const pct = items.length ? Math.round(done / items.length * 100) : 0;
+    const first = items[0] ? items[0].w : "";
+    const isToday = d.day === dn && dn >= 1 && dn <= list.length;
+    const isPast = d.day < dn;
+    const allDone = items.length > 0 && done === items.length;
+    const isFuture = d.day > dn;
+    const left = items.length - done;
+    const tag = isToday ? '<span class="tagn now">今天</span>'
+              : allDone ? '<span class="tagn done">已完成</span>'
+              : (isPast ? '<span class="tagn late">补 ' + left + '</span>' : '');
+    return '<button class="day' + (isToday ? ' today' : '') + '" data-day="' + i + '" data-future="' + (isFuture ? '1' : '0') + '">' +
+      '<b>Day ' + d.day + tag + '</b><small>' + esc(d.label) + '</small>' +
+      '<div class="bar"><i style="width:' + pct + '%"></i></div>' +
+      '<small style="margin:7px 0 0">' + items.length + ' 条 · 已掌握 ' + pct + '%</small>' +
+      (isPast && left > 0 && rolloverOn()
+        ? '<small style="margin:2px 0 0;color:var(--danger)">剩余 ' + left + ' 条已并入今天</small>'
+        : isToday && rolloverOn() && bl.length
+        ? '<small style="margin:2px 0 0;color:var(--accent-ink)">含顺延 ' + bl.length + ' 条 → 今日合计 ' + (items.length + bl.length) + ' 条</small>'
+        : '<small style="margin:2px 0 0;opacity:.75">从「' + esc(first) + '」开始</small>') + '</button>';
+  }).join("");
+
+  // --- 日期驱动的今日任务（含落后顺延） ---
+  const cur = currentDay(list);
+  const due = dueItems();
+  const baseItems = todayBaseItems();                       // 原计划里今天的词
+  const newItems = rolloverOn() ? todayPlanItems() : baseItems;
+  const newLeft = newItems.filter(it => st(it) !== "known").length;
+  const origEnd = addDaysTo(planStart(), list.length - 1);
+  const estEnd = estimatedFinish(list, gp);
+  const delay = dayDiff(origEnd, estEnd);
+
+  $("#rolloverChip").setAttribute("aria-pressed", String(rolloverOn()));
+  $("#startDate").value = planStart();
+  $("#ptDay").textContent = n < 1 ? "未开始" : n + " / " + list.length;
+  $("#ptNew").textContent = n >= 1 ? newLeft + " / " + newItems.length : "—";
+  $("#ptDue").textContent = due.length;
+  $("#ptTime").textContent = fmtDur(todaySec());
+
+  const lateDays = [];
+  if (n > 1){
+    const upTo = Math.min(n - 1, list.length);
+    for (let i = 0; i < upTo; i++){
+      if (planItems(list[i]).some(it => st(it) !== "known")) lateDays.push("Day " + list[i].day);
+    }
+  }
+  if (n < 1){
+    $("#planTodayLine").textContent = "计划从 " + planStart() + " 开始，还没到第 1 天。";
+  } else {
+    let line = "开始 " + planStart() + " · 今天是第 " + n + " 天 · 原计划 " + list.length + " 天（原定 " + origEnd + " 完成）";
+    if (rolloverOn() && bl.length){
+      line += " · 已顺延 " + bl.length + " 条到今天的任务 · 按当前进度预计 " + estEnd + " 完成" +
+              (delay > 0 ? "（顺延 " + delay + " 天）" : "");
+    } else {
+      line += " · 按当前进度预计 " + estEnd + " 完成" + (delay > 0 ? "（顺延 " + delay + " 天）" : "");
+    }
+    if (lateDays.length) line += " · 待补：" + lateDays.join("、");
+    $("#planTodayLine").textContent = line;
+  }
+  $("#todayHint").textContent = newItems.length
+    ? "新学 " + newLeft + " 条" + (rolloverOn() && bl.length ? "（含顺延 " + bl.length + " 条）" : "") +
+      (due.length ? " + 复习 " + due.length + " 条" : "") + "，用右下角计时器记录时长"
+    : (n > list.length ? "计划已结束，直接跟记忆曲线走" : "计划尚未开始");
+
+  $$("#planGrid .day").forEach(b => b.addEventListener("click", () => {
+    const d = list[+b.dataset.day];
+    startDay(d);
+  }));
+}
+function addDaysTo(dateStr, n){
+  const d = new Date(dateStr + "T00:00:00");
+  d.setDate(d.getDate() + n);
+  return d.toISOString().slice(0, 10);
+}
+function startToday(){
+  const items = todayTaskItems();
+  if (!items.length){ toast("今天没有新学任务，也没有到期复习，可以自由复习"); return; }
+  todayScope = items;
+  $("#cardPool").value = "today";
+  clearDaySilent();
+  $("#dayBanner").hidden = false;
+  const bln = rolloverOn() ? backlogOf(PLAN[planIdx]).length : 0;
+  $("#dayBannerText").textContent = "今日任务：第 " + dayNumber() + " 天 · 新学 " + todayPlanItems().length +
+    " 条" + (bln ? "（含顺延 " + bln + " 条）" : "") +
+    (dueItems().length ? " + 到期复习 " + dueItems().length + " 条" : "") + " · 共 " + items.length + " 条";
+  buildPool(); renderCard(); switchView("card");
+  toast("今日任务开始，共 " + pool.length + " 张卡片");
+}
+function startDay(d){
+  dayScope = planItems(d);
+  dayLabel = "Day " + d.day + " · " + d.label + " · " + dayScope.length + " 条";
+  $("#cardPool").value = "day";
+  $("#dayBanner").hidden = false;
+  $("#dayBannerText").textContent = "正在按计划学习：" + dayLabel;
+  buildPool(); renderCard();
+  switchView("card");
+  toast("Day " + d.day + " 开始：" + d.label);
+}
+function clearDay(){
+  dayScope = null; dayLabel = "";
+  $("#dayBanner").hidden = true;
+  if ($("#cardPool").value === "day") $("#cardPool").value = "todo";
+  resetCards();
+}
+$("#dayClear").addEventListener("click", () => { clearDay(); toast("已退出当日计划"); });
+$("#todayStart").addEventListener("click", startToday);
+$("#startDate").addEventListener("change", e => {
+  if (!e.target.value) return;
+  store.startDate = e.target.value;
+  save(); renderPlan();
+  toast("开始日期已设为 " + e.target.value);
+});
+$("#startToday").addEventListener("click", () => {
+  store.startDate = today(); save(); renderPlan();
+  toast("开始日期已设为今天");
+});
+$("#rolloverChip").addEventListener("click", () => {
+  store.rollover = !rolloverOn();
+  save(); renderPlan();
+  toast(rolloverOn() ? "已开启自动顺延：没学完的会并入今天" : "已关闭自动顺延：每天只学当天计划");
+});
+
+function clearDaySilent(){ dayScope = null; dayLabel = ""; $("#dayBanner").hidden = true; }
+
+/* ============ 统计 ============ */
+function renderStats(){
+  const total = DATA.length;
+  const known = DATA.filter(it => st(it) === "known").length;
+  const fuzzy = DATA.filter(it => st(it) === "fuzzy").length;
+  $("#sTotal").textContent = total;
+  $("#sKnown").textContent = known;
+  $("#sFuzzy").textContent = fuzzy;
+  $("#sNew").textContent = total - known - fuzzy;
+  $("#sStreak").textContent = streak();
+  $("#sQuiz").textContent = store.quiz.n ? Math.round(store.quiz.right / store.quiz.n * 100) + "%" : "—";
+  $("#sDue").textContent = dueItems().length;
+  const totalSec = Object.keys(store.time).reduce((a, k) => a + (store.time[k] || 0), 0);
+  $("#sToday").textContent = fmtDur(todaySec());
+  $("#sTime").textContent = fmtDur(totalSec);
+  const days = [];
+  for (let i = 6; i >= 0; i--){
+    const d = addDays(-i);
+    days.push({ label: i === 0 ? "今天" : d.slice(5).replace("-", "/"), sec: store.time[d] || 0, date: d });
+  }
+  const maxSec = Math.max(60, ...days.map(x => x.sec));
+  $("#timeChart").innerHTML = days.map((x, i) =>
+    '<div class="load-row"><span>' + x.label + '</span>' +
+    '<div class="bar"><i style="width:' + Math.round(x.sec / maxSec * 100) + '%;' + (i === 6 ? '' : 'opacity:.6') + '"></i></div>' +
+    '<em>' + (x.sec ? fmtDur(x.sec) : "—") + '</em></div>').join("");
+  $("#catStats").innerHTML = CATS.map(c => {
+    const items = byCat(c.code);
+    const k = items.filter(it => st(it) === "known").length;
+    const pct = items.length ? Math.round(k / items.length * 100) : 0;
+    return '<div class="cat-row"><span>' + esc(c.name) + ' <u style="text-decoration:none;color:var(--muted);font-size:12px">' + k + '/' + items.length + '</u></span>' +
+      '<div class="bar"><i style="width:' + pct + '%"></i></div>' +
+      '<em>' + pct + '%</em></div>';
+  }).join("");
+}
+function streak(){
+  const days = Object.keys(store.days).sort().reverse();
+  if (!days.length) return 0;
+  let n = 0;
+  let cur = new Date();
+  for (;;){
+    const k = cur.toISOString().slice(0,10);
+    if (store.days[k]) { n++; cur.setDate(cur.getDate() - 1); }
+    else if (n === 0 && k === days[0]) { cur.setDate(cur.getDate() - 1); }
+    else break;
+    if (n > 400) break;
+  }
+  return n;
+}
+
+/* ============ 导入导出 ============ */
+$("#expBtn").addEventListener("click", () => {
+  const blob = new Blob([JSON.stringify(store, null, 2)], { type:"application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "cet4-progress-" + today() + ".json";
+  a.click(); URL.revokeObjectURL(a.href);
+  toast("已导出进度文件");
+});
+$("#impBtn").addEventListener("click", () => $("#impFile").click());
+$("#impFile").addEventListener("change", e => {
+  const f = e.target.files[0]; if (!f) return;
+  const r = new FileReader();
+  r.onload = () => {
+    try {
+      const d = JSON.parse(r.result);
+      if (!d || typeof d !== "object") throw 0;
+      store = Object.assign({ status:{}, srs:{}, quiz:{n:0,right:0}, days:{}, time:{}, theme:store.theme }, d);
+      if (!store.srs) store.srs = {};
+      if (!store.time) store.time = {};
+      if (!store.startDate) store.startDate = today();
+      if (!store.timer) store.timer = { running:false, mode:"up", target:1500, session:0, lastTick:0 };
+      save(); renderProgress(); refreshVisible(); renderStats(); updateDueBadge();
+      toast("进度已导入");
+    } catch (err){ toast("文件格式不对"); }
+  };
+  r.readAsText(f);
+});
+$("#resetBtn").addEventListener("click", () => {
+  const b = $("#resetBtn");
+  if (b.dataset.armed !== "1"){
+    b.dataset.label = "清空进度";
+    confirmAction(b, "再点一次清空全部进度", () => {});
+    return;
+  }
+  delete b.dataset.armed;
+  b.textContent = "清空进度";
+  b.classList.remove("primary");
+  store = {
+    status:{}, srs:{}, quiz:{n:0,right:0}, days:{}, time:{},
+    startDate: store.startDate,
+    timer:{ running:false, mode:"up", target:1500, session:0, lastTick:0 },
+    theme: store.theme
+  };
+  save(); renderProgress(); refreshVisible(); renderStats(); updateDueBadge(); renderTimer(); toast("进度已清空");
+});
+
+/* ============ 主题 ============ */
+function applyTheme(t){
+  document.documentElement.dataset.theme = t;
+  store.theme = t; save();
+  $("#themeIcon").setAttribute("d", t === "dark" ? "M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4" : "M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z");
+}
+$("#themeBtn").addEventListener("click", () => applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark"));
+
+/* ============ 启动 ============ */
+applyTheme(store.theme || "light");
+chipHTML(); fillSelects(); renderProgress(); renderList(true); resetCards(); updateDueBadge(); renderTimer();
+$("#startDate").value = planStart();
+if (location.hash === "#plan") switchView("plan");
+if (location.hash === "#card") switchView("card");
+if (location.hash === "#quiz") switchView("quiz");
+</script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:"){
+  window.addEventListener("load", function(){ navigator.serviceWorker.register("./sw.js").catch(function(){}); });
+}
+</script>
+</body>
+</html>
