@@ -160,6 +160,14 @@ select{padding:8px 11px;border:1px solid var(--line);border-radius:var(--radius)
 .cat-row .bar{width:130px}
 .cat-row em{font-style:normal;font-size:12.5px;color:var(--muted);text-align:right}
 
+/* ---------- 发音 ---------- */
+.spk{width:24px;height:24px;border-radius:7px;display:inline-grid;place-items:center;color:var(--muted);transition:.15s;flex:none;border:1px solid transparent}
+.spk:hover{background:var(--surface-3);color:var(--ink)}
+.spk.on{color:var(--accent-ink);background:var(--accent-soft);border-color:var(--accent-soft)}
+.fc-tools{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;align-items:center}
+.fc-tools select{padding:7px 10px;font-size:13px}
+.auto-chip{border:1px solid var(--line);border-radius:var(--radius-pill);padding:6px 12px;font-size:12.5px;color:var(--ink-2);display:inline-flex;align-items:center;gap:6px}
+.auto-chip[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent-soft);color:var(--accent-ink)}
 /* ---------- memory curve / srs ---------- */
 .w-due{font-size:12px;color:var(--muted);white-space:nowrap;text-align:right}
 .w-due[data-today="1"]{color:var(--accent-ink);font-weight:600}
@@ -338,7 +346,17 @@ footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-s
           </div>
         </div>
         <div class="fc-actions" id="fcActions"></div>
-        <div class="hint" style="color:var(--muted);font-size:12.5px">快捷键：<span class="kbd">Space</span> 翻面　<span class="kbd">1</span> 不认识　<span class="kbd">2</span> 模糊　<span class="kbd">3</span> 已掌握</div>
+        <div class="fc-tools">
+          <button class="btn" id="sayWord">🔊 读单词</button>
+          <button class="btn" id="saySpell">逐字母</button>
+          <button class="btn" id="sayBoth">连读+拼读</button>
+          <select id="voiceSel" aria-label="发音音色" title="选择发音音色"><option value="">默认音色</option></select>
+          <select id="rateSel" aria-label="语速" title="语速">
+            <option value="0.7">慢速</option><option value="1" selected>正常</option><option value="1.25">稍快</option>
+          </select>
+          <button class="auto-chip" id="autoSpeak" aria-pressed="false">自动朗读</button>
+        </div>
+        <div class="hint" style="color:var(--muted);font-size:12.5px">快捷键：<span class="kbd">Space</span> 翻面　<span class="kbd">P</span> 朗读　<span class="kbd">1</span> 不认识　<span class="kbd">2</span> 模糊　<span class="kbd">3</span> 已掌握</div>
       </div>
     </div>
   </section>
@@ -582,6 +600,7 @@ if (!store.time) store.time = {};
 if (!store.startDate) store.startDate = new Date().toISOString().slice(0,10);
 if (!store.timer) store.timer = { running:false, mode:"up", target:1500, session:0, lastTick:0 };
 if (store.rollover === undefined) store.rollover = true;      // 自动顺延：默认开启
+if (!store.voice) store.voice = { mode:"word", rate:1, accent:"en-US", auto:false, voiceURI:"" };
 let storageOK = true;
 const save = () => {
   if (!storageOK) return;
@@ -716,7 +735,10 @@ function itemHTML(it, idx){
                  fuzzy:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 8v5"/><circle cx="12" cy="17" r="1" fill="currentColor" stroke="none"/></svg>',
                  new:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>' };
   return '<div class="item" data-status="' + s + '" data-i="' + idx + '">' +
-    '<div class="w-word"><b>' + esc(it.w) + '</b><span class="pos">' + esc(it.p) + '</span></div>' +
+    '<div class="w-word"><b>' + esc(it.w) + '</b><span class="pos">' + esc(it.p) + '</span>' +
+      '<button class="spk" data-say="' + esc(it.w) + '" title="朗读（按当前发音设置）" aria-label="朗读 ' + esc(it.w) + '">' +
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>' +
+      '</button></div>' +
     '<div class="w-mean">' + esc(it.m) + '</div>' +
     '<div class="w-coll">' + esc(it.x) + '</div>' +
     '<div class="w-due" data-today="' + (isDue(it) ? '1' : '0') + '">' + dueText(it) + '</div>' +
@@ -754,6 +776,13 @@ $("#q").addEventListener("input", () => { shown = pageSize; renderList(true); })
 $("#statusSel").addEventListener("change", () => { shown = pageSize; renderList(true); });
 $("#clearFilter").addEventListener("click", () => { $("#q").value = ""; $("#statusSel").value = "all"; filterCat = "all"; chipHTML(); shown = pageSize; renderList(true); });
 $("#moreBtn").addEventListener("click", () => { shown += pageSize; renderList(false); });
+$("#listBody").addEventListener("click", e => {
+  const b = e.target.closest(".spk");
+  if (!b) return;
+  e.stopPropagation();
+  b.classList.add("on"); setTimeout(() => b.classList.remove("on"), 700);
+  sayByMode(b.dataset.say);
+});
 $$("[data-bulk]").forEach(b => b.addEventListener("click", () => {
   const arr = listCache;
   if (!arr.length) { toast("当前没有匹配的条目"); return; }
@@ -816,6 +845,7 @@ function renderCard(){
   $("#fcCat").textContent = catName(it.c);
   $("#fcMean").textContent = dir === "en2zh" ? it.m : it.w + "  " + it.p;
   $("#fcColl").textContent = it.x;
+  if (store.voice.auto && dir === "en2zh") setTimeout(() => sayWord(it.w), 120);
   const rr = srsOf(it);
   $("#fcSrs").textContent = rr ? "记忆阶段 " + rr.b + "／8 · 复习 " + rr.n + " 次 · 下次 " + dueText(it) : "尚未进入记忆曲线";
   $("#fcActions").innerHTML = ["again","fuzzy","known"].map(v =>
@@ -837,6 +867,7 @@ document.addEventListener("keydown", e => {
   if (view !== "card") return;
   if (e.target.matches("input,select,textarea")) return;
   if (e.key === " "){ e.preventDefault(); flip(); }
+  if (e.key === "p" || e.key === "P") { e.preventDefault(); sayByMode(currentWord()); }
   if (e.key === "1") markCard("again");
   if (e.key === "2") markCard("fuzzy");
   if (e.key === "3") markCard("known");
@@ -933,6 +964,91 @@ function finishQuiz(){
 }
 $("#quizAgain").addEventListener("click", () => { $("#quizDone").hidden = true; $("#quizSetup").hidden = false; startQuiz(); });
 $("#quizBack").addEventListener("click", () => { $("#quizDone").hidden = true; $("#quizSetup").hidden = false; });
+
+/* ============ 发音（Web Speech API，离线可用；不支持时回退在线音频） ============ */
+const hasTTS = () => typeof window !== "undefined" && "speechSynthesis" in window;
+let enVoices = [];
+function collectVoices(){
+  if (!hasTTS()) return;
+  try {
+    const all = speechSynthesis.getVoices() || [];
+    enVoices = all.filter(v => (v.lang || "").toLowerCase().indexOf("en") === 0);
+    const sel = $("#voiceSel");
+    if (!sel) return;
+    sel.innerHTML = '<option value="">默认音色（跟随系统）</option>' + enVoices.map(v =>
+      '<option value="' + String(v.voiceURI).replace(/"/g, "&quot;") + '">' + v.name + " · " + v.lang + '</option>').join("");
+    sel.value = store.voice.voiceURI || "";
+  } catch (e) {}
+}
+function pickVoice(){
+  if (!hasTTS()) return null;
+  if (store.voice.voiceURI){
+    const v = enVoices.find(x => x.voiceURI === store.voice.voiceURI);
+    if (v) return v;
+  }
+  const pref = (store.voice.accent || "en-US").toLowerCase().slice(0, 2);
+  const same = enVoices.filter(v => (v.lang || "").toLowerCase().indexOf(pref) === 0);
+  const nice = /samantha|daniel|karen|moira|google us english|aria|jenny|guy|zira|david/i;
+  return same.find(v => nice.test(v.name)) || same[0] || enVoices[0] || null;
+}
+function utter(text, rate){
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = store.voice.accent || "en-US";
+  u.rate = rate || store.voice.rate || 1;
+  const v = pickVoice();
+  if (v){ u.voice = v; u.lang = v.lang; }
+  return u;
+}
+const spellText = w => String(w).replace(/[^A-Za-z'\-]/g, "").toUpperCase().split("").join(", ");
+function stopSpeak(){ if (hasTTS()) { try { speechSynthesis.cancel(); } catch (e) {} } }
+function sayWord(w){
+  if (!w) return;
+  stopSpeak();
+  if (hasTTS()){ try { speechSynthesis.speak(utter(w)); return; } catch (e) {} }
+  try { new Audio("https://dict.youdao.com/dictvoice?type=2&audio=" + encodeURIComponent(w)).play().catch(() => {}); } catch (e) {}
+}
+function saySpell(w){
+  if (!w) return;
+  stopSpeak();
+  if (!hasTTS()) return sayWord(w);
+  speechSynthesis.speak(utter(spellText(w), Math.max(0.6, (store.voice.rate || 1) * 0.9)));
+}
+function sayBoth(w){
+  if (!w) return;
+  stopSpeak();
+  if (!hasTTS()) return sayWord(w);
+  const u1 = utter(w);
+  u1.onend = () => { try { speechSynthesis.speak(utter(spellText(w), Math.max(0.6, (store.voice.rate || 1) * 0.9))); } catch (e) {} };
+  speechSynthesis.speak(u1);
+}
+function sayByMode(w){
+  const m = store.voice.mode || "word";
+  return m === "spell" ? saySpell(w) : m === "both" ? sayBoth(w) : sayWord(w);
+}
+function syncVoiceUI(){
+  const r = $("#rateSel"), a = $("#autoSpeak");
+  if (r) r.value = String(store.voice.rate || 1);
+  if (a) a.setAttribute("aria-pressed", String(!!store.voice.auto));
+  [["#sayWord","word"],["#saySpell","spell"],["#sayBoth","both"]].forEach(([sel, mode]) => {
+    const b = $(sel); if (!b) return;
+    b.classList.toggle("primary", (store.voice.mode || "word") === mode);
+  });
+}
+function bindVoiceUI(){
+  $("#sayWord").addEventListener("click", () => { store.voice.mode = "word"; save(); syncVoiceUI(); sayWord(currentWord()); });
+  $("#saySpell").addEventListener("click", () => { store.voice.mode = "spell"; save(); syncVoiceUI(); saySpell(currentWord()); });
+  $("#sayBoth").addEventListener("click", () => { store.voice.mode = "both"; save(); syncVoiceUI(); sayBoth(currentWord()); });
+  $("#voiceSel").addEventListener("change", e => { store.voice.voiceURI = e.target.value; save(); sayWord(currentWord()); });
+  $("#rateSel").addEventListener("change", e => { store.voice.rate = +e.target.value; save(); });
+  $("#autoSpeak").addEventListener("click", () => {
+    store.voice.auto = !store.voice.auto; save(); syncVoiceUI();
+    toast(store.voice.auto ? "已开启自动朗读（每张卡片出现时朗读）" : "已关闭自动朗读");
+    if (store.voice.auto) sayWord(currentWord());
+  });
+  if (hasTTS()){ collectVoices(); speechSynthesis.onvoiceschanged = collectVoices; setTimeout(collectVoices, 600); }
+  syncVoiceUI();
+}
+const currentWord = () => (pool && pool.length && pIdx < pool.length) ? pool[pIdx].w : "";
 
 /* ============ 专注计时器（正计时 / 倒计时） ============ */
 function fmtDur(sec){
@@ -1438,7 +1554,7 @@ $("#themeBtn").addEventListener("click", () => applyTheme(document.documentEleme
 
 /* ============ 启动 ============ */
 applyTheme(store.theme || "light");
-chipHTML(); fillSelects(); renderProgress(); renderList(true); resetCards(); updateDueBadge(); renderTimer();
+chipHTML(); fillSelects(); renderProgress(); renderList(true); resetCards(); updateDueBadge(); renderTimer(); bindVoiceUI();
 $("#startDate").value = planStart();
 if (location.hash === "#plan") switchView("plan");
 if (location.hash === "#card") switchView("card");
